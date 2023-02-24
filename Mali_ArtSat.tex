@@ -524,10 +524,99 @@ legend(x = "bottomright", legend=c("1", "2", "3", "4", "5", "6", "7", "8", "9", 
 
 \newpar Thus, the classification task is formulated as a pixel-based unsupervised clustering using \emph{k}-means. The technical approach is performed by libraries terra', 'raster' and 'RSToolbox' to efficiently discriminate land cover features and their changes over time. The target centroid of pixels were selected automatically with allocated neighbouring pixels assigned to groups based on the similarity of values. In such a way, the inter-annual variability of vegetation associations was detected in the inundated areas of the Inner Niger Delta of Mali. The code applied for clustering is presented above with a case of 2013, applied with minor modifications for the images of other years -- 2015, 2018, 2020, 2021 and 2022.
 
+\subsection*{Statistical Analysis}
 
+\newpar The correlation analysis was performed using plots of Kendall and Pearson methods in Python by the following code (here a case for Pearson method, modified and applied for the case of Kendall method):  
 
+\begin{lstlisting}[language=python,caption=Python code used for data inspection by correlation analysis, basicstyle=\ttfamily\footnotesize,keywordstyle=\color{deepmagenta},emphstyle=\color{deepred},
+stringstyle=\color{deepblue},breaklines=true,numbers=left,label={lst:06}]
+#!/usr/bin/env python
+# coding: utf-8
+import os
+import numpy as np
+import pandas as pd
+import matplotlib.pylab as pylab
+from matplotlib import pyplot as plt
+import seaborn as sb
+os.chdir('/Users/polinalemenkova/Documents/Python/Scripts')
+sb.set(style='white')
+sb.set_context('paper')
+params = {'figure.figsize': (10, 10),
+        'legend.fontsize': 14,
+        'font.family': 'Times'
+        }
+pylab.rcParams.update(params)
+df = pd.read_csv("Table_stat.csv")
+corr = df.corr(method='pearson')
+cmap="RdBu"
+# plotting heatmap
+f, ax = plt.subplots()
+sb.heatmap(corr, cmap=cmap, center=0,
+           vmin=-1.1, vmax=1.1,
+           annot=True, annot_kws={"size":8},
+           square=True, linewidths=.05, linecolor='grey',
+           cbar=True, mask=False, cbar_kws={"shrink": .5},
+           )
+plt.title('Pearson correlation for land cover types in Inner Niger Delta, Mali',
+          fontsize=13, fontfamily='serif')
+plt.subplots_adjust(bottom=0.15,top=0.85, right=0.90, left=0.10)
+plt.xticks(rotation=30)
+plt.yticks()
+# visualizing and saving figure
+plt.tight_layout()
+plt.savefig('plot_CorrK.png', dpi=300)
+plt.show()
+\end{lstlisting}
 
+\newsection {1. RESULTS AND DISCUSSION}
 
+\subsection*{Variations of NDVI index over years}
+
+\newpar The results of the NDVI computation show the difference in the vegetation health varying by years 2013 to 2022, Figure \ref{fig:05}.
+
+\begin{figure}[H]
+\makebox[0.90\linewidth][r]{%
+	\begin{subfigure}[b]{.6\textwidth}
+		\centering
+			\includegraphics[width=0.8\textwidth]{Fig_05a.jpg}
+		\caption{2013}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.6\textwidth}
+		\centering
+		\includegraphics[width=0.8\textwidth]{Fig_05b.jpg}
+		\caption{2015}
+	\end{subfigure}%
+}\\
+\vfill \vspace{1mm}
+\makebox[0.90\linewidth][r]{%
+	\begin{subfigure}[b]{.6\textwidth}
+		\centering
+			\includegraphics[width=0.8\textwidth]{Fig_05c.jpg}
+		\caption{2018}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.6\textwidth}
+		\centering
+		\includegraphics[width=0.8\textwidth]{Fig_05d.jpg}
+		\caption{2020}
+	\end{subfigure}%
+}\\
+\vfill \vspace{1mm}
+\makebox[0.90\linewidth][r]{%
+	\begin{subfigure}[b]{.6\textwidth}
+		\centering
+			\includegraphics[width=0.8\textwidth]{Fig_05e.jpg}
+		\caption{2021}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.6\textwidth}
+		\centering
+		\includegraphics[width=0.8\textwidth]{Fig_05f.jpg}
+		\caption{2022}
+	\end{subfigure}%
+}
+\caption{NDVI based on Landsat 8-9 OLI/TIRS images of Inner Niger Delta for November: (\textbf{a}) 2013, (\textbf{b}) 2015, (\textbf{c}) 2018, (\textbf{d}) 2020, (\textbf{e}) 2021, (\textbf{f}) 2022. Mapping: RStudio. Source: authors.}\label{fig:05}
+\end{figure}
+
+\newpar The comparison of the computed values are summarised in Table \ref{tab2} based on the SpatRaster from Bands 4 and 5 of the Landsat-8 OLI/TIRS satellite images and shown in histograms of Figure \ref{fig:06}. The lowest NDVI values in the study area were obtained from the Landsat-9 OLI/TIRS image in 2022/11/11 as -0.3072812, while the highest data are 0.5879165 received from the Landsat-9 OLI/TIRS image in 2013/11/10. 
 
 
 
