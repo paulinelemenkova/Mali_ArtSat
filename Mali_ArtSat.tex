@@ -316,18 +316,24 @@ gdalinfo -stats ml1_relief.nc
 gmt makecpt -Csrtm -V -T27/1590 > pauline.cpt
 gmt pscoast -R-13/5/9.5/25.5 -JD-4/18/9.5/25.5/6.5i -Dh -M -EML > Mali.txt
 ps=Topo_ML.ps
-gmt grdimage ml_relief.nc -Cpauline.cpt -R-13/5/9.5/25.5 -JD-4/18/9.5/25.5/6.5i -I+a15+ne0.75 -t40 -Xc -P -K > $ps
-gmt grdcontour ml1_relief.nc -R -J -C1000 -A1000+f7p,26,darkbrown -Wthinner,darkbrown -O -K >> $ps
+gmt grdimage ml_relief.nc -Cpauline.cpt -R-13/5/9.5/25.5 \
+	-JD-4/18/9.5/25.5/6.5i -I+a15+ne0.75 -t40 -Xc -P -K > $ps
+gmt grdcontour ml1_relief.nc -R -J -C1000 -A1000+f7p,26,darkbrown \
+	-Wthinner,darkbrown -O -K >> $ps
 gmt pscoast -R -J -Ia/thin,blue -Na -N1/thick,tomato -W0.1p -Df -O -K >> $ps
 gmt psclip -R-13/5/9.5/25.5 -JD-4/18/9.5/25.5/6.5i Mali.txt -O -K >> $ps
-gmt grdimage ml_relief.nc -Cpauline.cpt -R-13/5/9.5/25.5 -JD-4/18/9.5/25.5/6.5i -I+a15+ne0.75 -Xc -P -O -K >> $ps
+gmt grdimage ml_relief.nc -Cpauline.cpt -R-13/5/9.5/25.5 \
+	-JD-4/18/9.5/25.5/6.5i -I+a15+ne0.75 -Xc -P -O -K >> $ps
 gmt grdcontour ml1_relief.nc -R -J -C500 -Wthinnest,darkbrown -O -K >> $ps
 gmt pscoast -R -J -Ia/thin,blue -Na -N1/thick,tomato -W0.1p -Df -O -K >> $ps
 gmt psclip -C -O -K >> $ps   
 gmt psscale -Dg-13.3/8.1+w16.5c/0.15i+h+o0.3/0i+ml+e -R -J -Cpauline.cpt \
-    -Bg50f10a100+l"Colormap: 'earth' Colors for global topography relief [R=-T29/896, H, C=RGB]" -I0.2 -By+lm -O -K >> $ps
-gmt psbasemap -R -J  -Bpxg4f1a2 -Bpyg4f2a2 -Bsxg2 -Bsyg2 -B+t"Topographic map of Mali" -O -K >> $ps
-gmt psbasemap -R -J -Lx14.0c/-2.4c+c10+w500k+l"Equidistant conic projection. Scale (km)"+f -UBL/0p/-70p -O -K >> $ps
+    -Bg50f10a100+l"Colormap: 'earth' Colors for global topography relief \
+    	[R=-T29/896, H, C=RGB]" -I0.2 -By+lm -O -K >> $ps
+gmt psbasemap -R -J  -Bpxg4f1a2 -Bpyg4f2a2 -Bsxg2 -Bsyg2 \
+	-B+t"Topographic map of Mali" -O -K >> $ps
+gmt psbasemap -R -J -Lx14.0c/-2.4c+c10+w500k+l"Equidistant conic \ 
+	projection. Scale (km)"+f -UBL/0p/-70p -O -K >> $ps
 gmt pstext -R -J -N -O -K -F+f11p,21,lemonchiffon+jLB >> $ps << EOF
 -5.67 12.50 Koutiala
 EOF
@@ -337,7 +343,9 @@ EOF
 # ditto for all the cities and objects with adjusted coordinates
 gmt psbasemap -R -J -O -K -DjTL+w3.5c+o-0.2c/-0.2c+stmp >> $ps
 read x0 y0 w h < tmp
-gmt pscoast --MAP_GRID_PEN_PRIMARY=thin,grey -Rg -JG-1.0/8.0N/$w -Da -Glightgoldenrod1 -A5000 -Bga -Wfaint -EML+gred -Sdodgerblue -O -K -X$x0 -Y$y0 >> $ps
+gmt pscoast --MAP_GRID_PEN_PRIMARY=thin,grey -Rg -JG-1.0/8.0N/$w -Da \
+	-Glightgoldenrod1 -A5000 -Bga -Wfaint -EML+gred -Sdodgerblue \
+	-O -K -X$x0 -Y$y0 >> $ps
 gmt psxy -R -J -O -K -T  -X-${x0} -Y-${y0} >> $ps
 gmt logo -Dx7.0/-3.1+o0.1i/0.1i+w2c -O -K >> $ps
 gmt pstext -R0/10/0/15 -JX10/10 -X0.5c -Y8.7c -N -O \
@@ -379,27 +387,33 @@ vi <- function(img, k, i) {
 
 \begin{lstlisting}[language=R, caption=R code for NDVI computation and mapping,basicstyle=\ttfamily\footnotesize,keywordstyle=\color{deepmagenta},emphstyle=\color{deepred},
 stringstyle=\color{deepblue},breaklines=true,numbers=left,label={lst:02}]
-# Computing Normalized Difference Vegetation Index (NDVI) = (NIR - R) / (NIR + R). 
-# For Landsat OLI\TIRS, NIR = 5, red = 4, i.e., NDVI = (Band 5 - Band 4) / (Band 5 + Band 4).
+# Computing Normalized Difference Vegetation Index 
+# (NDVI) = (NIR - R) / (NIR + R). 
+# For Landsat 8-9, NIR = 5, red = 4: (Band 5 - Band 4) / (Band 5 + Band 4).
 library(terra)
 library(RColorBrewer)
 library(Hmisc)
 setwd("/Users/polinalemenkova/Documents/R/52_Image_Processing/NDVI")
-filenames <- paste0('LC08_L2SP_197050_20151116_20200908_02_T1_SR_B', 1:7, ".tif")
+filenames <- paste0('LC08_L2SP_197050_20151116_20200908_02_T1_SR_B',
+	1:7, ".tif")
 filenames
 landsat <- rast(filenames)
 landsat
 ndvi <- vi(landsat, 5, 4)
 options(scipen=10000)
 # Mapping the NDVI
-plot(ndvi, col=brewer.pal(11, "RdYlGn"), font.main = 1, main = "NDVI for Landsat-8 OLI/TIRS C1 
-image LC08_L2SP_197050_20151116_20200908_02_T1_SR: Inner Niger Delta, Mali (2015)", 
+plot(ndvi, col=brewer.pal(11, "RdYlGn"), font.main = 1, 
+	main = "NDVI for Landsat-8 OLI/TIRS C1 
+image LC08_L2SP_197050_20151116_20200908_02_T1_SR: 
+	Inner Niger Delta, Mali (2015)", 
 cex.main=0.9) minor.tick(nx = 10, ny = 10, tick.ratio = 0.3)
 # Plotting the histogram of the NDVI
-hist(ndvi, font.main = 1, main = "NDVI values for Landsat-8 OLI/TIRS C1 image 
-\nLC08_L2SP_197050_20151116_20200908_02_T1_SR: Inner Niger Delta, Mali (2015)", 
-xlab = "NDVI", ylab= "Frequency", col = "darkolivegreen1", xlim = c(-0.5, 1),  
-breaks = 30, xaxt = "n") axis(side=1, at = seq(-0.6, 1, 0.1), labels = seq(-0.6, 1, 0.1))
+hist(ndvi, font.main = 1, main = "NDVI values for Landsat-8 OLI/TIRS C1 
+	image  \nLC08_L2SP_197050_20151116_20200908_02_T1_SR: 
+	Inner Niger Delta, Mali (2015)", 
+xlab = "NDVI", ylab= "Frequency", col = "darkolivegreen1", 
+	xlim = c(-0.5, 1), breaks = 30, xaxt = "n") axis(side=1, 
+	at = seq(-0.6, 1, 0.1), labels = seq(-0.6, 1, 0.1))
 minor.tick(nx = 10, ny = 10, tick.ratio = 0.3)
 \end{lstlisting}
 
@@ -425,7 +439,8 @@ library(terra)
 library(RColorBrewer)
 library(Hmisc)
 setwd("/Users/polinalemenkova/Documents/R/52_Image_Processing/SAVI")
-filenames <- paste0('LC08_L2SP_197050_20211116_20211125_02_T1_SR_B', 1:7, ".tif")
+filenames <- paste0('LC08_L2SP_197050_20211116_20211125_02_T1_SR_B', 1:7, 
+	".tif")
 filenames
 landsat <- rast(filenames)
 landsat
@@ -436,8 +451,8 @@ LC08_L2SP_197050_20211116_20211125_02_T1_SR:
 Inner Niger Delta, Mali (2021)", cex.main=0.9)
 minor.tick(nx = 10, ny = 10, tick.ratio = 0.3)
 # Plotting histogram of SAVI
-hist(savi, font.main = 1, main = "SAVI values for Landsat-8 OLI/TIRS C1 image
- \nLC08_L2SP_197050_20211116_20211125_02_T1_SR: 
+hist(savi, font.main = 1, main = "SAVI values for Landsat-8 OLI/TIRS C1 
+	image \nLC08_L2SP_197050_20211116_20211125_02_T1_SR: 
 Inner Niger Delta, Mali (2021)", xlab = "NDVI", ylab= "Frequency",
     col = "chocolate1", xlim = c(-0.5, 1),  breaks = 30, xaxt = "n")
 axis(side=1, at = seq(-0.6, 1, 0.1), labels = seq(-0.6, 1, 0.1))
@@ -471,16 +486,22 @@ library(Hmisc)
 library(pals)
 setwd("/Users/polinalemenkova/Documents/R/52_Image_Processing/EVI")
 # For Landsat NIR = 5, red = 4.
-filenames <- paste0('LC08_L2SP_197050_20211116_20211125_02_T1_SR_B', 1:7, ".tif")
+filenames <- paste0('LC08_L2SP_197050_20211116_20211125_02_T1_SR_B', 
+	1:7, ".tif")
 filenames
 landsat <- rast(filenames)
 landsat
 colors <- jet(100)
 options(scipen=10000)
-plot(evi2, col = colors, font.main = 2, main = "Enhanced Vegetation Index 2 (EVI2) for Landsat-8 OLI/TIRS C1 image LC08_L2SP_197050_20211116_20211125_02_T1: Inner Niger Delta, Mali (2021)", cex.main=0.9)
+plot(evi2, col = colors, font.main = 2, main = "Enhanced Vegetation Index 2 
+	(EVI2) for Landsat-8 OLI/TIRS C1 image 
+	LC08_L2SP_197050_20211116_20211125_02_T1: Inner Niger Delta, Mali 
+	(2021)", cex.main=0.9)
 minor.tick(nx = 10, ny = 10, tick.ratio = 0.3)
 # Computing histogram for EVI2
-hist(evi2, font.main = 1, main = "EVI2 values for Landsat-9 OLI/TIRS C1 image \n LC08_L2SP_197050_20211116_20211125_02_T1, Inner Niger Delta, Mali (2021)", xlab = "SAVI", ylab= "Frequency",
+hist(evi2, font.main = 1, main = "EVI2 values for Landsat-9 OLI/TIRS C1 
+	image \n LC08_L2SP_197050_20211116_20211125_02_T1, Inner 
+	Niger Delta, Mali (2021)", xlab = "SAVI", ylab= "Frequency",
     col = "cyan1", xlim = c(-0.4, 0.4),  breaks = 30, xaxt = "n")
 axis(side=1, at = seq(-0.4, 0.4, 0.1), labels = seq(-0.4, 0.4, 0.1))
 minor.tick(nx = 10, ny = 10, tick.ratio = 0.3)
@@ -505,7 +526,8 @@ library(graphics)
 # Set up working directory
 setwd("/Users/polinalemenkova/Documents/R/52_Image_Processing/K-means")
 # Importing data
-Landsat_2013 <- list.files("/Users/polinalemenkova/Documents/R/52_Image_Processing/K-means")
+Landsat_2013 <- list.files("/Users/polinalemenkova/Documents/R/
+	52_Image_Processing/K-means")
 # Printing the list
 list.files()
 # creating SpatRaster object
@@ -521,9 +543,15 @@ unC
 # Creating color palette
 colors <- jet(20)
 # plotting a map
-plot(unC$map, main = "K-means Clustering for Landsat-8 OLI/TIRS C1 image of Mali, Inner Niger Delta \nLC08_L2SP_197050_20131110_20200912_02_T1 (2013)", font.main=1, cex.main = 0.85, col = colors, axes = FALSE, box = FALSE, legend = FALSE)
+plot(unC$map, main = "K-means Clustering for Landsat-8 OLI/TIRS C1 image of 
+	Mali, Inner Niger Delta \nLC08_L2SP_197050_20131110_20200912_02_T1 
+	(2013)", font.main=1, cex.main = 0.85, col = colors, axes = FALSE, 
+	box = FALSE, legend = FALSE)
 # adding legend
-legend(x = "bottomright", legend=c("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"), fill = colors, title = "LULC ID Classes", horiz = FALSE,  bty = "n", text.font=1, ncol=1, y.intersp = 0.7)
+legend(x = "bottomright", legend=c("1", "2", "3", "4", "5", "6", "7", "8", 
+	"9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"), 
+	fill = colors, title = "LULC ID Classes", horiz = FALSE,  
+	bty = "n", text.font=1, ncol=1, y.intersp = 0.7)
 \end{lstlisting}
 
 \newpar Thus, the classification task is formulated as a pixel-based unsupervised clustering using \emph{k}-means. The technical approach is performed by libraries terra', 'raster' and 'RSToolbox' to efficiently discriminate land cover features and their changes over time. The target centroid of pixels were selected automatically with allocated neighbouring pixels assigned to groups based on the similarity of values. In such a way, the inter-annual variability of vegetation associations was detected in the inundated areas of the Inner Niger Delta of Mali. The code applied for clustering is presented above with a case of 2013, applied with minor modifications for the images of other years -- 2015, 2018, 2020, 2021 and 2022.
@@ -561,8 +589,8 @@ sb.heatmap(corr, cmap=cmap, center=0,
            square=True, linewidths=.05, linecolor='grey',
            cbar=True, mask=False, cbar_kws={"shrink": .5},
            )
-plt.title('Pearson correlation for land cover types in Inner Niger Delta, Mali',
-          fontsize=13, fontfamily='serif')
+plt.title('Pearson correlation for land cover types in Inner Niger Delta, 
+	   Mali', fontsize=13, fontfamily='serif')
 plt.subplots_adjust(bottom=0.15,top=0.85, right=0.90, left=0.10)
 plt.xticks(rotation=30)
 plt.yticks()
