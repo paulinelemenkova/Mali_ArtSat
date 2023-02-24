@@ -79,6 +79,8 @@
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{2pt}}m{#1}}
 
 \usepackage{tabularx}
+\usepackage{caption} 
+\captionsetup[table]{skip=10pt}
 \usepackage{booktabs}
 \usepackage{hyperref}
 \graphicspath{{figures/}} % path to folder with figures
@@ -255,19 +257,19 @@ The full programming codes used in this study for the Python and R languages, an
 \newpar The time series analysis is based on the Landsat 8-9 OLI/TIRS satellite images collrcted from the USGS survey \citep{Landsat9}. The metadata of the scenes are summarised in Table \ref{tab1}. The images were captured from the EarthExplorer repository, Figure \ref{fig02}. We used a series of the six Landsat-9 OLI-TIRS imagery to map the areas of flooded vegetation within the area of Inner Niger Delta during the years 2013, 2015, 2018, 2020, 2021 and 2022. The images were collected always on November for the following reason. Due to the seasonality of floods and repetitive cycle of inundation, a strong contrast in moisture and green vegetation reaches its peak in autumn period of intense rains, that is, from late October to mid January which enables to compare the contrasting flooded areas against the dry lands. 
 
 \begin{table}[H]
-\small
+\scriptsize
 \caption{Metadata of the satellite images used in this study: Landsat-8 OLI/TIRS USGS \textsuperscript{1}.\label{tab1}}
-		\begin{tabularx}{\textwidth}{| cccccc |}
-			\hline
-			\textbf{Date} & \textbf{Spacecraft ID} & \textbf{\makecell{Path/\\Row}} & \textbf{Entity Product ID} & \textbf{Scene ID} & \textbf{Cloud Coverage} \\
-			\hline
+\begin{tabularx}{\textwidth}{| cccccc |}
+			\toprule
+			\textbf{Date} & \textbf{\makecell{Spacecraft /\\ID}} & \textbf{\makecell{Path/\\Row}} & \textbf{Entity Product ID} & \textbf{Scene ID} & \textbf{\makecell{Cloud/\\Coverage}} \\
+			\midrule
 			2013/11/10 & Landsat 8 & 197/50 & \makecell{LC08\_L2SP\_197050\_20131110\_20200912\_02\_T1} & LC81970502013314LGN01 & 0.12 \\
 			2015/11/16 & Landsat 8 & 197/50 & \makecell{LC08\_L2SP\_197050\_20151116\_20200908\_02\_T1} & LC81970502015320LGN01 & 1.12 \\
 			2018/11/24 & Landsat 8 & 197/50 & \makecell{LC08\_L2SP\_197050\_20181124\_20200830\_02\_T1} & LC81970502018328LGN00 & 0.00 \\
 			2020/11/29 & Landsat 8 & 197/50 & \makecell{LC08\_L2SP\_197050\_20201129\_20210316\_02\_T1} & LC81970502020334LGN00 & 0.00 \\
 			2021/11/16 & Landsat 8 & 197/50 & \makecell{LC08\_L2SP\_197050\_20211116\_20211125\_02\_T1} & LC81970502021320LGN00 & 0.00 \\
 			2022/11/11 & Landsat 9 & 197/50 & \makecell{LC09\_L2SP\_197050\_20221111\_20221113\_02\_T1} & LC91970502022315LGN00 & 0.00 \\
-			\hline\hline
+			\bottomrule
 		\end{tabularx}
 	\noindent{\footnotesize{\textsuperscript{1} The Sensor ID is common for all the scenes: Landsat OLI/TIRS (Operational Land Imager and Thermal Infrared Sensor), Collection 2 Level-2. Image courtesy of the U.S. Geological Survey (USGS). Product DOI: \href{https://doi.org/10.5066/P9OGBGM6}{10.5066/P9OGBGM6}.}}
 \end{table}
@@ -664,6 +666,31 @@ plt.show()
 
 \newpar The comparison of the computed values are summarised in Table \ref{tab2} based on the SpatRaster from Bands 4 and 5 of the Landsat-8 OLI/TIRS satellite images and shown in histograms of Figure \ref{fig:06}. The lowest NDVI values in the study area were obtained from the Landsat-9 OLI/TIRS image in 2022/11/11 as -0.3072812, while the highest data are 0.5879165 received from the Landsat-9 OLI/TIRS image in 2013/11/10. 
 
+\begin{table}[H]
+\footnotesize
+\caption{Results of the NDVI computations of the Landsat-8 OLI/TIRS satellite images.\label{tab2}}
+		\newcolumntype{C}{>{\centering\arraybackslash}X}
+		\begin{tabularx}{\textwidth}{| p{2.0cm} | CCC | CCCC | p{1.8cm} | p{1.8cm} |}
+		\toprule
+	\bf{Time} & \multicolumn{3}{c|}{\bf{Dimensions}} & \multicolumn{4}{c|}{\bf{Extent}} & \multicolumn{2}{c|}{\bf{Extreme Values}} \\
+\cline{2-10}
+	Date & nrow & ncol & nlyr & $x_{min}$ & $x_{max}$ & $y_{min}$ & $y_{max}$ & min & max \\
+	\midrule
+	2013/11/10 & 7781 & 7621 & 1 & 245085 & 473715 & 1481685 & 1715115 & -0.2311377 & 0.5879165 \\
+	\hline
+	2015/11/16 & 7781 & 7631 & 1 & 246285 & 475215 & 1481385 &  1714815 & -0.2619293 & 0.5245128 \\
+	\hline
+	2018/11/24 & 7781 & 7621 & 7 & 245985 & 474615 & 1481685 & 1715115 & -0.2603942 & 0.5258653 \\
+	\hline
+	2020/11/29 & 7781 & 7621 & 7 & 246585 & 475215 & 1481685 & 1715115 & -0.2496693 & 0.4980780 \\
+	\hline
+	2021/11/16 & 7781 & 7621 & 1 & 247485 & 476115 & 1481385 & 1714815 & -0.2522458 & 0.5417392 \\
+	\hline
+	2022/11/11 & 7771 & 7621 & 7 & 244485 & 473115 & 1481685 & 1714815 & -0.3072812 & 0.5237642 \\
+	\bottomrule
+\end{tabularx}
+\end{table}
+
 \begin{figure}[H]
 	\begin{subfigure}[b]{.35\textwidth}
 		\centering
@@ -703,6 +730,31 @@ plt.show()
 \subsection*{Comparison of variations of SAVI index over years}
 
 \newpar The changes in the vegetation associations showing mosaics of areas covered by savannah against floodplain with aquatic plants and other areas were estimated by using a time series of Landsat 8-9 OLI satellite images acquired on different dates between 10.11.2013 and 11.11.2022 (Figure \ref{fig:07}). The highest SAVI values were 0.4281315 on 2013/11/10, while the in 2021/11/16, the highest SAVI was only 0.2790245, that is, the lower level of vegetation health (Table \ref{tab3}). The lowest SAVI values among all these years were obtained from image on 2013/11/10 which shows the most significant range of variation in values (Figure \ref{fig:08}), which differs from the NDVI values in relevant years (see Table \ref{tab2}) that shows the lowest NDVI values on 2022/11/11 (NDVI=-0.3072812), but corresponds to the highest values obtained for 2013/11/10 (NDVI=0.5879165).  
+
+\begin{table}[H]
+\footnotesize
+\caption{Results of the SAVI computations of the Landsat-8 OLI/TIRS satellite images.\label{tab3}}
+		\newcolumntype{C}{>{\centering\arraybackslash}X}
+		\begin{tabularx}{\textwidth}{| p{2.0cm} | CCC | CCCC | p{1.8cm} | p{1.8cm} |}
+		\toprule
+	\bf{Time} & \multicolumn{3}{c|}{\bf{Dimensions}} & \multicolumn{4}{c|}{\bf{Extent}} & \multicolumn{2}{c|}{\bf{Extreme Values}} \\
+\cline{2-10}
+	Date & nrow & ncol & nlyr & $x_{min}$ & $x_{max}$ & $y_{min}$ & $y_{max}$ & min & max \\
+	\midrule
+	2013/11/10 & 7781 & 7621 & 1 & 245085 & 473715 & 1481685 & 1715115 & -0.2235105 & 0.4281315 \\
+	\hline
+	2015/11/16 & 7781 & 7631 & 1 & 246285 & 475215 & 1481385 & 1714815 & -0.1681281 & 0.2896889 \\
+	\hline
+	2018/11/24 & 7781 & 7621 & 1 & 245985 & 474615 & 1481685 & 1715115 & -0.1830571 & 0.2938004 \\
+	\hline
+	2020/11/29 & 7781 & 7621 & 1 & 246585 & 475215 & 1481685 & 1715115 & -0.1384092 & 0.2833834 \\
+	\hline
+	2021/11/16 & 7781 & 7621 & 1  & 247485 & 476115 & 1481385 &  1714815 & -0.1564469 & 0.2790245 \\
+	\hline
+	2022/11/11 & 7771 & 7621 & 1 & 244485 & 473115 & 1481685 & 1714815 & -0.1810541 & 0.2929085 \\
+	\bottomrule
+\end{tabularx}
+\end{table}
 
 \begin{figure}[H]
 	\begin{subfigure}[b]{.5\textwidth}
@@ -861,8 +913,10 @@ plt.show()
 \end{figure}
 
 \begin{table}[H]
+\footnotesize
 \caption{Results of the EVI2 computations of the Landsat-8 OLI/TIRS satellite images.\label{tab4}}
-	\begin{tabularx}{\textwidth}{ | cccccccccc |}
+	\newcolumntype{C}{>{\centering\arraybackslash}X}
+	\begin{tabularx}{\textwidth}{| p{2.0cm} | CCC | CCCC | p{1.8cm} | p{1.8cm} |}
 	\hline
 	\bf{Time} & \multicolumn{3}{c|}{\bf{Dimensions}} & \multicolumn{4}{c|}{\bf{Extent}} & \multicolumn{2}{c|}{\bf{Extreme Values}} \\
 \cline{2-10}
@@ -888,6 +942,39 @@ plt.show()
 \newpar In the map of land cover types, we depicted 20 major dominating vegetation associations arranged from the most affected flooded areas to the relatively dry areas and untouched bare soils including the following 28 land cover types adopted from the existing studies and interpreted on the Landsat imagery \cite{Marie}: \emph{1) Woodland; 2) Floodplain with aquatic grassland; 3) Savannah; 4) Thicket; 5) Wild rice; 6) Grassland; 7) Irrigated rice fields; 8) Savannah in shallow floodplain; 9) Bare soil (loams and clays); 10) Bare soil (sands); 11) Vegetation mosaics, main channel banks; 12) Lacustrine woodland; 13) Shallow lacustrine woodland; 14) Shrubby savannah in uplands; 15) Anthropic woody savannah; 16) Thicket in uplands; 17) Woody savannah in uplands; 18) Shrubby savannah in uplands; 19) Island palm grove; 20) Margins palm grove}.
 
 \newpar The image classifications aimed at defining land cover types within the Inner Niger Delta of each Landsat-9 OLI-TIRS scene were interpreted for each of the six evaluated years within the 2013--2022 time gap. Land cover types classified based on the \emph{k}-means clustering using Landsat 8-9 OLI/TIRS images of Inner Niger Delta for November. The notation for land cover classes are as follows: 1) Woodland; 2) Floodplain with aquatic grassland; 3) Savannah; 4) Thicket; 5) Wild rice; 6) Grassland; 7) Irrigated rice fields; 8) Savannah in shallow floodplain; 9) Bare soil (loams and clays); 10) Bare soil (sands); 11) Vegetation mosaics, main channel banks; 12) Lacustrine woodland; 13) Shallow lacustrine woodland; 14) Shrubby savannah in uplands; 15) Anthropic woody savannah; 16) Thicket in uplands; 17) Woody savannah in uplands; 18) Shrubby savannah in uplands; 19) Island palm grove; 20) Margins palm grove. The summary of land cover changes is given in Table \ref{tab5}.
+
+\begin{table}[H]
+\footnotesize
+    \caption{Land cover types computed within cluster as sum of squares by cluster, based on the results of the unsupervised classification by \emph{k}-means clustering of the Landsat 8-9 OLI/TIRS images.\label{tab5}}
+    \newcolumntype{C}{>{\centering\arraybackslash}X}
+    \begin{tabularx}{\textwidth}{| CCCCCCC |}
+    \toprule
+        \textbf{Class\textsuperscript{1}} & \textbf{2013} & \textbf{2015} & \textbf{2018} & \textbf{2020} & \textbf{2021} & \textbf{2022} \\ 
+        \midrule
+        1 & 450721.2 & 0.0 & 725105.0 & 1002255.0 & 271427.3 & 375064.8 \\ \hline
+        2 & 330383.7 & 1810500.6 & 0.0 & 511908.5 & 637631.5 & 273410.8 \\ \hline
+        3 & 0.0 & 990094.0 & 1713687.4 & 764967.0 & 1702410.8 & 448303.3 \\ \hline
+        4 & 1843448.5 & 1347881.0 & 495551.2 & 1539918.9 & 866221.5 & 471363.0 \\ \hline
+        5 & 606517.2 & 617191.2 & 2117594.0 & 612894.8 & 1955721.5 & 146369.0 \\ \hline
+        6 & 758644.4 & 64444.5 & 350839.6 & 494409.6 & 156897.8 & 555084.0 \\ \hline
+        7 & 303394.0 & 774906.8 & 379540.0 & 1216142.7 & 668844.4 & 3492185.8 \\ \hline
+        8 & 712566.7 & 105417.5 & 105599.3 & 478082.8 & 2201000.8 & 809816.8 \\ \hline
+        9 & 641421.8 & 2883553.1 & 300078.3 & 636797.2 & 1517578.0 & 789718.8 \\ \hline
+        10 & 1128708.0 & 347785.5 & 925071.8 & 446857.0 & 28550.5 & 1245256.8 \\ \hline
+        11 & 517099.0 & 303398.0 & 1251352.2 & 547959.5 & 644332.4 & 522249.0 \\ \hline
+        12 & 478632.5 & 235631.3 & 398967.3 & 92410.0 & 512154.0 & 578773.1 \\ \hline
+        13 & 251147.3 & 472065.0 & 781902.8 & 160914.0 & 553647.9 & 807094.9 \\ \hline
+        14 & 251147.3 & 626952.0 & 353640.8 & 493839.3 & 0.0 & 155991.0 \\ \hline
+        15 & 365710.2 & 917335.9 & 1619218.2 & 116782.5 & 395804.8 & 187178.5 \\ \hline
+        16 & 333402.5 & 72883.0 & 270901.2 & 248322.2 & 205427.3 & 232946.2 \\ \hline
+        17 & 1104096.2 & 475055.5 & 266811.8 & 286642.7 & 791406.5 & 174713.5 \\ \hline
+        18 & 830584.8 & 424462.7 & 280482.2 & 500490.0 & 310648.0 & 823033.2 \\ \hline
+        19 & 289905.5 & 1042297.8 & 300124.3 & 366037.7 & 609962.5 & 0.0 \\ \hline
+        20 & 601898.0 & 1558704.0 & 817696.5 & 533921.5 & 454993.0 & 1253935.6 \\ 
+        \bottomrule
+    \end{tabularx}
+    \noindent{\footnotesize{\textsuperscript{1} Notations for land cover classes: 1) Woodland; 2) Floodplain with aquatic grassland; 3) Savannah; 4) Thicket; 5) Wild rice; 6) Grassland; 7) Irrigated rice fields; 8) Savannah in shallow floodplain; 9) Bare soil (loams and clays); 10) Bare soil (sands); 11) Vegetation mosaics, main channel banks; 12) Lacustrine woodland; 13) Shallow lacustrine woodland; 14) Shrubby savannah in uplands; 15) Anthropic woody savannah; 16) Thicket in uplands; 17) Woody savannah in uplands; 18) Shrubby savannah in uplands; 19) Island palm grove; 20) Margins palm grove.}}
+\end{table}
 
 \newpar For each data set, we randomly divide the image scene into 20 classes with similar properties of spectral reflectance. the random data partition is repeated for 5 cycles with 100 samples in each go, and the results of \emph{k}-means clustering over the 20 classes are reported and presented in the images. The classified land cover classes are sampled and labeled, as shown in the resulting images in Figure \ref{fig:11} for years 2013, 2015 and 2018 and Figure \ref{fig:12} for years 2020, 2021 and 2022, respectively. At each iteration of the \emph{k}-means clustering, the RSToolbox query one instance label pair of pixels and compares the values of target pixel with that of the centroid pixel representing the given group of the land cover classes from the input Landsat Bands 4, 3 and 2. After all instance-labelled pairs of pixels are queries (target-centroid), a classification model is trained and computed for labelled pixels as data from bands. The obtained statistics is summarised in the Appendices. 
 
@@ -966,38 +1053,6 @@ plt.show()
 	\end{subfigure}%
 \vspace*{20pt}\caption{Clustering based on the Landsat 8-9 OLI/TIRS images of Inner Niger Delta for November: (\textbf{a}) 2020 RGB in true colour composites (4-3-2), (\textbf{b}) 2020 classification, (\textbf{c}) 2021 RGB in true colour composites (4-3-2), (\textbf{d}) 2021 classification, (\textbf{e}) 2022 RGB in true colour composites, (\textbf{f}) 2022 classification. Mapping: RStudio. Source: authors.}\label{fig:12}
 \end{figure}
-
-\begin{table}[H]
-\scriptsize
-    \caption{Land cover types computed within cluster as sum of squares by cluster, based on the results of the unsupervised classification by \emph{k}-means clustering of the Landsat 8-9 OLI/TIRS images.\label{tab5}}
-    \begin{tabularx}{\textwidth}{| ccccccc |}
-    \hline\hline
-        \textbf{Class\textsuperscript{1}} & \textbf{2013} & \textbf{2015} & \textbf{2018} & \textbf{2020} & \textbf{2021} & \textbf{2022} \\ 
-        \hline
-        1 & 450721.2 & 0.0 & 725105.0 & 1002255.0 & 271427.3 & 375064.8 \\ \hline
-        2 & 330383.7 & 1810500.6 & 0.0 & 511908.5 & 637631.5 & 273410.8 \\ \hline
-        3 & 0.0 & 990094.0 & 1713687.4 & 764967.0 & 1702410.8 & 448303.3 \\ \hline
-        4 & 1843448.5 & 1347881.0 & 495551.2 & 1539918.9 & 866221.5 & 471363.0 \\ \hline
-        5 & 606517.2 & 617191.2 & 2117594.0 & 612894.8 & 1955721.5 & 146369.0 \\ \hline
-        6 & 758644.4 & 64444.5 & 350839.6 & 494409.6 & 156897.8 & 555084.0 \\ \hline
-        7 & 303394.0 & 774906.8 & 379540.0 & 1216142.7 & 668844.4 & 3492185.8 \\ \hline
-        8 & 712566.7 & 105417.5 & 105599.3 & 478082.8 & 2201000.8 & 809816.8 \\ \hline
-        9 & 641421.8 & 2883553.1 & 300078.3 & 636797.2 & 1517578.0 & 789718.8 \\ \hline
-        10 & 1128708.0 & 347785.5 & 925071.8 & 446857.0 & 28550.5 & 1245256.8 \\ \hline
-        11 & 517099.0 & 303398.0 & 1251352.2 & 547959.5 & 644332.4 & 522249.0 \\ \hline
-        12 & 478632.5 & 235631.3 & 398967.3 & 92410.0 & 512154.0 & 578773.1 \\ \hline
-        13 & 251147.3 & 472065.0 & 781902.8 & 160914.0 & 553647.9 & 807094.9 \\ \hline
-        14 & 251147.3 & 626952.0 & 353640.8 & 493839.3 & 0.0 & 155991.0 \\ \hline
-        15 & 365710.2 & 917335.9 & 1619218.2 & 116782.5 & 395804.8 & 187178.5 \\ \hline
-        16 & 333402.5 & 72883.0 & 270901.2 & 248322.2 & 205427.3 & 232946.2 \\ \hline
-        17 & 1104096.2 & 475055.5 & 266811.8 & 286642.7 & 791406.5 & 174713.5 \\ \hline
-        18 & 830584.8 & 424462.7 & 280482.2 & 500490.0 & 310648.0 & 823033.2 \\ \hline
-        19 & 289905.5 & 1042297.8 & 300124.3 & 366037.7 & 609962.5 & 0.0 \\ \hline
-        20 & 601898.0 & 1558704.0 & 817696.5 & 533921.5 & 454993.0 & 1253935.6 \\ 
-        \hline\hline
-    \end{tabularx}
-    \noindent{\footnotesize{\textsuperscript{1} Notations for land cover classes: 1) Woodland; 2) Floodplain with aquatic grassland; 3) Savannah; 4) Thicket; 5) Wild rice; 6) Grassland; 7) Irrigated rice fields; 8) Savannah in shallow floodplain; 9) Bare soil (loams and clays); 10) Bare soil (sands); 11) Vegetation mosaics, main channel banks; 12) Lacustrine woodland; 13) Shallow lacustrine woodland; 14) Shrubby savannah in uplands; 15) Anthropic woody savannah; 16) Thicket in uplands; 17) Woody savannah in uplands; 18) Shrubby savannah in uplands; 19) Island palm grove; 20) Margins palm grove.}}
-\end{table}
 
 \newpar These values were applied to estimate the effects of hydrological-climate fluctuations on the observed expansion of vegetation associations at target areas covered by the images. For each time window, the scenes were classified automatically using R libraries 'terra', 'raster' and 'RSToolbox' with machine-based allocations of pixels to the the land cover classes defined according to the classification. The data are evaluated per land cover classes using correlation plots to examine changes in classification from 2013 to 2022, Figure \ref{fig:13}.
 
