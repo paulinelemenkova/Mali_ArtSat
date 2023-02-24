@@ -13,6 +13,7 @@
 \usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
 \usepackage{color}
 \usepackage[usenames,dvipsnames,svgnames]{xcolor}
+\usepackage{changepage}
 
 \usepackage{cite}
 	\renewcommand\citepunct{,}
@@ -79,6 +80,21 @@
 
 \usepackage{tabularx}
 \usepackage{hyperref}
+\graphicspath{{figures/}} % path to folder with figures
+\usepackage{subcaption}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{gensymb} % for \textdegree
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{makecell}
+\usepackage{multirow}
+\usepackage{graphics}
+\usepackage{color}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepmagenta}{RGB}{195,12,214}
+\usepackage{multicol}
 % ===============================================================================================
 % start of the EDITOR section
 % ===============================================================================================
@@ -201,19 +217,49 @@ e-mails: polina.lemenkova@ulb.be, pauline.lemenkova@gmail.com \\
 
 \newpar Our approach is based on using libraries of R programming language for analysis of spatial and temporal structure of the satellite images on 2013, 2015, 2018, 2020, 2021 and 2022, respectively. Using algorithms of R, we processed the remote sensing data to yield estimates of landscape dynamics and visualise changes in major land cover types of the Inner Niger Delta that are temporally coherent. Further, we analysed fluctuations of spatial extent in fluvial wetlands caused by the hydrological processes of seasonal flooding. Finally, by allowing packages of R to support image processing, an approach to mapping vegetation by the Normalized Difference Vegetation Index (NDVI) index and visualising changes in distribution of different land cover classes over time is realized. 
 
-\subsection*{1.3. Related works}
+\subsection*{1.3. Study Area}
 
-\newpar Text
+\newpar Mali, a landlocked sub-Saharan West African country (Figure \ref{fig01}) is one of the hottest countries in the world with average temperature varying between 24°C in January and 35°C in May \citep{CCKP}. Subject to recent climate change, it is characterised by a significant variability in rainfalls, droughts and occasional floods. Rising temperatures, interannual to decadal variability in rainfalls and decreased precipitation lead to the desertification and deteriorated plant communities in the ecosystems of Mali. In turn, the decline of vegetation that earlier retained water in the soil aggravates soil dryness and depletion contributing to the desertification. For arid climate of Mali such a vicious circle of interrelated processes have disastrous consequences on the vegetation growth and as a consequence, on food production and security \citep{Davies1996}. 
 
-\subsection*{1.4. Objectives and goals}
+\newpar Since recent decades, the climate setting in West Africa changed with the most notable trends in decrease of precipitation and rainfall, rise of temperature and warming trends, increase in drought frequency and dryland expansion \citep{LEALFILHO202283,OGUNTUNDE2017121,OGUNTUNDE20061180,SIDIBE2019141}. Many papers are published on climate change issues and reported consequences for biodiversity and socio-economic systems \citep{LEHOUEROU1996133,Huang,Yu}. These processes triggered the desertification, escalated the salinity of soil and effects on ecosystems, e.g., loss of biodiversity \citep{HEUBES201348}, changed geographic distribution of species \citep{COULIBALY2023100359}, declined vegetation health and tree growth \citep{SANOGO2022100333}. Moreover, further effects include the
+decline in agricultural yields that are highly dependent on regional meteorological conditions and rainfall variability \citep{Zare}. For instance, the decrease in precipitation negatively affect rainfed crop yields in sub-Saharan Africa \citep{RAES2021108563,BAMBIO2022102288} with reported cases on rice \citep{AKPOTI2022103429,ADJAH2022512}, millet \citep{BADO2022107992}, maize \citep{SRIVASTAVA201610}, and sorghum \citep{ADAM2020102920}.
 
-\newpar Text
+\newpar In this study, we focus on monitoring the dynamics of the flooded flat plain savannah areas in the Inner Niger Delta located in central Mali (13°30' N--15°30'N). Situated in the midst of the Malian Sahel, this seasonal floodplain is comprised by multiple meandering channels of Niger River, the third largest river in Africa. The Inner Niger Delta is one of the larger wetlands in Africa with 200 km of spatial extent and area of $36,000 km^2$ \citep{KUPER200383}. The vegetational pattern of Inner Niger Delta is interspersed by the seasonally flooded savannah, plateaus with the desiccated sands and wooded areas in the north-Sudanian zone. The geomorphology of the floodplain in Inner Niger Delta presents almost flat relief with variations from 272 to 262 m \citep{Gallais2003}. 
 
-\newsection {2. GEOLOGIC BACKGROUND}
+\newpar The alluvial depositions result in a series of micro deltas where the hydrography of Niger divides forming a local basin, and then regroups in the downstream in a confluence section of the river \citep{dickens2018flows}. The geologic setting of the Inner Niger Delta includes a wide Precambrian basement occupied by primary sandstones where the interior delta is formed. A quaternary deposits, accumulated by the winds from the Sahara, added the effect of a dune dam to the generally flat relief. The Niger River meanders in the conditions of the flat low-relief plains and divides into several branches of small channels, whose alluvial ridges enclose more depressed areas \citep{Gourou}.
 
-\newpar Text
+\begin{figure}[H]
+\centering
+	\includegraphics[width=14.0 cm]{Fig_01}
+	\caption{Topographic map of Mali. Mapping software: Generic Mapping Tools (GMT) scripting toolset. Data source: GEBCO/SRTM. Cartography source: authors.
+	\label{fig01}}
+\end{figure}
 
-Text
+\newpar High poverty of Malian population increases socio-economic vulnerability and low adaptive capacity towards natural hazards in changing hydro-climatic conditions. Specifically, the environmental vulnerability of Mali to climate change -- one of the world’s poorest countries -- include such factors as hydroelectricity production and dam operations \citep{w11091766}, navigation over Niger, seasonality of the irrigated and rainfed agriculture during dry and rainy periods, flooding in the Inner Niger Delta \citep{Ghile}. As a result, climate extremes contribute to low sustainability of food resources depending on fishing and agricultural farming that are highly sensitive to seasonality and weather constraints \citep{Morand,LIERSCH2019176}. Changes in selected crop production patterns have been reported recently, For instance, \citep{LARIS20151} reported the decline in cotton yields in Mali due to rapid intensification of agriculture or soil fertility loss, while rise in maize yields as less sensible towards soil conditions and less demanding crop in farming system.
+
+\newpar The Malian climate has three distinct seasons: a dry season from March to June, a rainy season from June to September and a cold windy season from October to February. Such fluctuations of the sahelian climate correspond to the regular seasonal flooding of the Inner Niger Delta which results in a unique hydrologic phenomenon -- seasonal floods \citep{brunet1986monographie}. The Inner Niger Delta becomes inundated during several months a year with floodplains and remaining a few islets of dry land \citep{Courel}. Previous studies report \citep{Diakite} the area of $20,000 km^2$ regularly covered by the flood. For the remaining six months, the floodplain dries out again to a fertile plain with essentially grass vegetation, e.g., bourgou \citep{Planhol}. The repetitive regular pattern of climatic-hydrological shifts affects the distribution and geochemistry of soils and vegetal associations \citep{Tabeaud}. Water-rich alluvial soils, together with arid climate and
+high temperature creates perfect conditions for plantations (e.g., rice harvest) as a precious resource for Malian fishermen, pastoralists and farmers \citep{Retaille}. 
+
+\newpar At the same time, the variability of inflow into the Inner Niger Delta, the period of the floods and the extent of the regularly flooded surface area have direct consequences on livelihoods, and food production \citep{LIERSCH201318}. Repetitive droughts on the one hand and dynamic of repetitive floods on the other strongly affect the ecology and biodiversity of Inner Niger Delta with direct consequences on vegetation system \citep{mariko2003caracterisation}. Besides, shifts in precipitation and temperature patterns in Inner Niger Delta result in depletion of the irrigated soils and salinization as a consequence. Apart from the distribution of saline soils (solonchaks), this region is under pressure from the intensive irrigation system which uses poorly mineralized surface water. The decrease in precipitation, increase in annual temperature and high evapotranspiration amplify the climate related effects and result in the deposition of the dissolved salts on the surface \citep{Valenza}. 
+
+\newpar In turn, small-scale farming systems create additional environmental challenges by overgrazing and uncontrolled livestock contributing from their part to land cover changes. Besides livelihood and food-related issues, stagnant water during floods contributes to health risks of the diseases of population through rapid distribution of parasites and insects, such as malaria \citep{COOLS201334,Klinkenberg}. All these issues require to take measures on environmental monitoring of floodplain wetlands in Inner Niger Delta. Previous studies pointed the need for cartographic visualization of the unique territories of the African continent which should be supported by maps for quantitative investigations \citep{Cabot1968}, e.g., in phytogeographical studies \citep{Robequain}. Insofar as we can map hydrological processes and their relationship with vegetation growth, we can get deeper insights into the complex links of climate-environmental interactions in Africa.
+
+\newsection {2. MATERIALS AND METHODS}
+
+\subsection*{Data: Landsat 8-9 OLI/TIRS}
+
+\newpar The time series analysis is based on the Landsat 8-9 OLI/TIRS satellite images collrcted from the USGS survey \citep{Landsat9}. The metadata of the scenes are summarised in Table \ref{tab1}. The images were captured from the EarthExplorer repository, Figure \ref{fig02}. We used a series of the six Landsat-9 OLI-TIRS imagery to map the areas of flooded vegetation within the area of Inner Niger Delta during the years 2013, 2015, 2018, 2020, 2021 and 2022. The images were collected always on November for the following reason. Due to the seasonality of floods and repetitive cycle of inundation, a strong contrast in moisture and green vegetation reaches its peak in autumn period of intense rains, that is, from late October to mid January which enables to compare the contrasting flooded areas against the dry lands. 
+
+\begin{figure}[H]
+\centering
+	\includegraphics[width=14.5 cm]{Fig_02.jpg}
+	\caption{The Landsat-8 OLI/TIRS satellite image downloaded from the EarthExplorer repository, USGS. Mali, Mopti region Inner Niger Delta. Background image: ESRI World imagery.
+	\label{fig02}}
+\end{figure}
+
+\newpar While the period of rainfalls ends in the Inner Niger Delta by late October and soils and grassy vegetation become dry in the regions untouched by floods, the southern segment of the Inner Niger Delta demonstrate the highest levels of flooded areas. Such contrast in the northern, central and southern segment of the  Inner Niger Delta favours visualization of the flooded/not flooded areas and estimation of the intensity of floods in this particular year. The second target requirement was set up for all the imagery regarding the least possible cloudiness which is below 5\% for all the scenes. Therefore, we have collected the images on November for each evaluated year with the minimal cloud coverage in technical characteristics of Landsat. The characteristics of the scenes are as follows, summarised in Table 1. The map in Figure \ref{fig01} has been prepared using the Generic Mapping Tools \citep{Wessel} by applied existing cartographic workflow reported earlier \citep{su142315966,LemenkovaDebeir2022JAES}. 
+
+\newpar The cartographic technical characteristics common for each Landsat OLI/TIRS bands include the coordinate reference system World Geodetic System (WGS) 84, the Universal Transverse Mercator (UTM) zone 30N (EPSG:32630) and the spatial resolution of most of the bands at 30 meters. Specifically, the OLI multispectral bands have pixel size 30 m. These includes Bands 1 to 7: Band 1 (Coastal aerosol), Band 2 (Blue), Band 3 (Green), Band 4 (Red), Band 5 - Near Infrared (NIR), Band 6 (SWIR 1), Band 7 (SWIR 2) and Band 9 (Cirrus). The panchromatic Band 8 has a pixel size at 15 m and TIRS thermal band -- 100 m. In this study, we use the multispectral bands which limit the the precision of the maps to 30 m per pixel.
 
 \begin{enumerate}
   \item Text
