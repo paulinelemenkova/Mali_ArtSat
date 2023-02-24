@@ -933,6 +933,28 @@ plt.show()
     \noindent{\footnotesize{\textsuperscript{1} Notations for land cover classes: 1) Woodland; 2) Floodplain with aquatic grassland; 3) Savannah; 4) Thicket; 5) Wild rice; 6) Grassland; 7) Irrigated rice fields; 8) Savannah in shallow floodplain; 9) Bare soil (loams and clays); 10) Bare soil (sands); 11) Vegetation mosaics, main channel banks; 12) Lacustrine woodland; 13) Shallow lacustrine woodland; 14) Shrubby savannah in uplands; 15) Anthropic woody savannah; 16) Thicket in uplands; 17) Woody savannah in uplands; 18) Shrubby savannah in uplands; 19) Island palm grove; 20) Margins palm grove.}}
 \end{table}
 
+\newpar These values were applied to estimate the effects of hydrological-climate fluctuations on the observed expansion of vegetation associations at target areas covered by the images. For each time window, the scenes were classified automatically using R libraries 'terra', 'raster' and 'RSToolbox' with machine-based allocations of pixels to the the land cover classes defined according to the classification. The data are evaluated per land cover classes using correlation plots to examine changes in classification from 2013 to 2022, Figure \ref{fig:13}.
+
+\begin{figure}[H]
+\makebox[0.95\linewidth][r]{%
+	\begin{subfigure}[b]{.6\textwidth}
+		\caption{}\vspace{1mm}
+		\centering
+			\includegraphics[width=0.95\textwidth]{Fig_13a.jpg}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.6\textwidth}
+	\caption{}\vspace{1mm}
+		\centering
+			\includegraphics[width=0.95\textwidth]{Fig_13b.jpg}
+	\end{subfigure}%
+}
+\caption{Correlation plots showing probability cases for land cover classes in the Inner Niger Delta between 2013 and 2022 based on clustering of the Landsat 8-9 OLI/TIRS images: (\textbf{a}) Kendall correlation; (\textbf{b}) Pearson correlation. Mapping: Python. Source: authors.}\label{fig:13}
+\end{figure}
+
+\newpar Using correlation plots by Python libraries, the association of 20 major land cover types were compared and identified for each scene as a comparison between 2013 and 2022, to find out the correlations between values in previous and later years in spectral reflectance of the pixels on the images and the distribution of the vegetation associations in Inner Niger Delta: agricultural areas (irrigated rice fields), natural vegetation areas (grassland, savannah of various types -- shrubby, anthropic woody and uplands savannah, thicket in uplands), bare soil (sands, loams and clays) and specific plants typical for floodplain of the Inner Niger Delta with characteristic aquatic plants (shallow lacustrine woodland, island and margins palm grove in the inundated areas and channel banks). 
+
+
+
 \newsection {4. CONCLUSIONS}
 
 \newpar Text
