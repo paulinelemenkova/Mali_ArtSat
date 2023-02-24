@@ -667,7 +667,7 @@ plt.show()
 \newpar The comparison of the computed values are summarised in Table \ref{tab2} based on the SpatRaster from Bands 4 and 5 of the Landsat-8 OLI/TIRS satellite images and shown in histograms of Figure \ref{fig:06}. The lowest NDVI values in the study area were obtained from the Landsat-9 OLI/TIRS image in 2022/11/11 as -0.3072812, while the highest data are 0.5879165 received from the Landsat-9 OLI/TIRS image in 2013/11/10. 
 
 \begin{table}[H]
-\footnotesize
+\scriptsize
 \caption{Results of the NDVI computations of the Landsat-8 OLI/TIRS satellite images.\label{tab2}}
 		\newcolumntype{C}{>{\centering\arraybackslash}X}
 		\begin{tabularx}{\textwidth}{| p{2.0cm} | CCC | CCCC | p{1.8cm} | p{1.8cm} |}
@@ -732,7 +732,7 @@ plt.show()
 \newpar The changes in the vegetation associations showing mosaics of areas covered by savannah against floodplain with aquatic plants and other areas were estimated by using a time series of Landsat 8-9 OLI satellite images acquired on different dates between 10.11.2013 and 11.11.2022 (Figure \ref{fig:07}). The highest SAVI values were 0.4281315 on 2013/11/10, while the in 2021/11/16, the highest SAVI was only 0.2790245, that is, the lower level of vegetation health (Table \ref{tab3}). The lowest SAVI values among all these years were obtained from image on 2013/11/10 which shows the most significant range of variation in values (Figure \ref{fig:08}), which differs from the NDVI values in relevant years (see Table \ref{tab2}) that shows the lowest NDVI values on 2022/11/11 (NDVI=-0.3072812), but corresponds to the highest values obtained for 2013/11/10 (NDVI=0.5879165).  
 
 \begin{table}[H]
-\footnotesize
+\scriptsize
 \caption{Results of the SAVI computations of the Landsat-8 OLI/TIRS satellite images.\label{tab3}}
 		\newcolumntype{C}{>{\centering\arraybackslash}X}
 		\begin{tabularx}{\textwidth}{| p{2.0cm} | CCC | CCCC | p{1.8cm} | p{1.8cm} |}
@@ -913,7 +913,7 @@ plt.show()
 \end{figure}
 
 \begin{table}[H]
-\footnotesize
+\scriptsize
 \caption{Results of the EVI2 computations of the Landsat-8 OLI/TIRS satellite images.\label{tab4}}
 	\newcolumntype{C}{>{\centering\arraybackslash}X}
 	\begin{tabularx}{\textwidth}{| p{2.0cm} | CCC | CCCC | p{1.8cm} | p{1.8cm} |}
@@ -1087,6 +1087,32 @@ plt.show()
 \newpar Whereas scripting presents a purely technical tool adopted from the data science domain, the machine-based algorithms of computer vision and pattern recognition supported by R language can help gain more insights and a better understanding of the environmental processes through accurate and automated computation of vegetation indices and evaluation of land cover types via time series analysis. Thus, the discrimination of pixels on Landsat scenes obtained from the satellite imagery contributes to the more practical tasks of the environmental monitoring and assessment of the sub-Saharan African landscapes. Technically, the use of R libraries works straightforward and flexible in implementation with regard to data formats and specifications such as Landsat scenes. Therefore, the presented methods of R with supportive tools of GMT and Python can be also implemented in other environmental applications of geospatial analysis using diverse imagery types such as Sentinel-2A or the like. 
 
 \newpar Further, the image processing performed in R can be integrated in as a part of the wider studies applying a variety of software as a basis module in more complicated algorithms of geospatial data analysis and mapping. Finally, the potential applications of R include times series analysis of larger dataset of the images aimed at determination of the link between spatial patterns of land cover types and vegetation with climate data such as repeatability of rainfall and fluctuation of interannual temperature. Massive data analysis can benefit from the automated approaches of R programming for evaluation of climatic trends over several decades and larger spatial extent of target area.
+
+\vspace{12pt}
+
+\newsection {ABBREVIATIONS}
+\vspace{12pt}
+
+\begin{tabular}{@{}ll}
+DCW & Digital Chart of the World \\
+EPSG & European Petroleum Survey Group \\
+ESA & European Space Agency \\
+ESRI & Environmental Systems Research Institute \\
+EVI & Enhanced Vegetation Index \\
+GEBCO & General Bathymetric Chart of the Oceans \\
+GIS & Geographic Information System \\
+GMT & Generic Mapping Tools \\
+Landsat OLI/TIRS & Landsat Operational Land Imager and the Thermal Infrared Sensor \\
+MODIS & Moderate Resolution Imaging Spectroradiometer \\
+NASA & National Aeronautics and Space Administration \\
+NDVI & Normalized Difference Vegetation Index \\
+SAVI & Soil Adjusted Vegetation Index \\
+SPOT & Satellite Pour l'Observation de la Terre \\
+SRTM & Shuttle Radar Topography Mission \\
+USGS & United States Geological Survey \\
+UTM & Universal Transverse Mercator \\
+WGS & World Geodetic System \\
+\end{tabular}
 
 \vspace{12pt}
 
