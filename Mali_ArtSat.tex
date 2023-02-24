@@ -254,6 +254,24 @@ The full programming codes used in this study for the Python and R languages, an
 
 \newpar The time series analysis is based on the Landsat 8-9 OLI/TIRS satellite images collrcted from the USGS survey \citep{Landsat9}. The metadata of the scenes are summarised in Table \ref{tab1}. The images were captured from the EarthExplorer repository, Figure \ref{fig02}. We used a series of the six Landsat-9 OLI-TIRS imagery to map the areas of flooded vegetation within the area of Inner Niger Delta during the years 2013, 2015, 2018, 2020, 2021 and 2022. The images were collected always on November for the following reason. Due to the seasonality of floods and repetitive cycle of inundation, a strong contrast in moisture and green vegetation reaches its peak in autumn period of intense rains, that is, from late October to mid January which enables to compare the contrasting flooded areas against the dry lands. 
 
+\begin{table}[H]
+\small
+\caption{Metadata of the satellite images used in this study: Landsat-8 OLI/TIRS USGS \textsuperscript{1}.\label{tab1}}
+		\begin{tabularx}{\textwidth}{| cccccc |}
+			\hline
+			\textbf{Date} & \textbf{Spacecraft ID} & \textbf{\makecell{Path/\\Row}} & \textbf{Entity Product ID} & \textbf{Scene ID} & \textbf{Cloud Coverage} \\
+			\hline
+			2013/11/10 & Landsat 8 & 197/50 & \makecell{LC08\_L2SP\_197050\_20131110\_20200912\_02\_T1} & LC81970502013314LGN01 & 0.12 \\
+			2015/11/16 & Landsat 8 & 197/50 & \makecell{LC08\_L2SP\_197050\_20151116\_20200908\_02\_T1} & LC81970502015320LGN01 & 1.12 \\
+			2018/11/24 & Landsat 8 & 197/50 & \makecell{LC08\_L2SP\_197050\_20181124\_20200830\_02\_T1} & LC81970502018328LGN00 & 0.00 \\
+			2020/11/29 & Landsat 8 & 197/50 & \makecell{LC08\_L2SP\_197050\_20201129\_20210316\_02\_T1} & LC81970502020334LGN00 & 0.00 \\
+			2021/11/16 & Landsat 8 & 197/50 & \makecell{LC08\_L2SP\_197050\_20211116\_20211125\_02\_T1} & LC81970502021320LGN00 & 0.00 \\
+			2022/11/11 & Landsat 9 & 197/50 & \makecell{LC09\_L2SP\_197050\_20221111\_20221113\_02\_T1} & LC91970502022315LGN00 & 0.00 \\
+			\hline\hline
+		\end{tabularx}
+	\noindent{\footnotesize{\textsuperscript{1} The Sensor ID is common for all the scenes: Landsat OLI/TIRS (Operational Land Imager and Thermal Infrared Sensor), Collection 2 Level-2. Image courtesy of the U.S. Geological Survey (USGS). Product DOI: \href{https://doi.org/10.5066/P9OGBGM6}{10.5066/P9OGBGM6}.}}
+\end{table}
+
 \newpar While the period of rainfalls ends in the Inner Niger Delta by late October and soils and grassy vegetation become dry in the regions untouched by floods, the southern segment of the Inner Niger Delta demonstrate the highest levels of flooded areas. Such contrast in the northern, central and southern segment of the  Inner Niger Delta favours visualization of the flooded/not flooded areas and estimation of the intensity of floods in this particular year. The second target requirement was set up for all the imagery regarding the least possible cloudiness which is below 5\% for all the scenes. Therefore, we have collected the images on November for each evaluated year with the minimal cloud coverage in technical characteristics of Landsat. The characteristics of the scenes are as follows, summarised in Table 1. The map in Figure \ref{fig01} has been prepared using the Generic Mapping Tools \citep{Wessel} by applied existing cartographic workflow reported earlier \citep{su142315966,LemenkovaDebeir2022JAES}. 
 
 \begin{figure}[H]
