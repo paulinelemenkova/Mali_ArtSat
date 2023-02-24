@@ -60,7 +60,7 @@
     keywordstyle=\color{magenta},
     numberstyle=\tiny\color{codegray},
     stringstyle=\color{codepurple},
-    basicstyle=\ttfamily\footnotesize,
+    basicstyle=\ttfamily\scriptsize,
     breakatwhitespace=false,         
     breaklines=true,                 
     captionpos=b,                    
@@ -248,6 +248,8 @@ high temperature creates perfect conditions for plantations (e.g., rice harvest)
 
 \newsection {2. MATERIALS AND METHODS}
 
+The full programming codes used in this study for the Python and R languages, and GMT scripts are publicly provided in the open GitHub repository of the authors using the following link: \href{https://github.com/paulinelemenkova/Image_Processing_Mali_IND_Scripts}{https://github.com/paulinelemenkova/Image\_Processing\_Mali\_IND\_Scripts}. In the subsections below we describe the scripts and technical approaches in details, with the comments on the most important snippets on the codes.
+
 \subsection*{Data: Landsat 8-9 OLI/TIRS}
 
 \newpar The time series analysis is based on the Landsat 8-9 OLI/TIRS satellite images collrcted from the USGS survey \citep{Landsat9}. The metadata of the scenes are summarised in Table \ref{tab1}. The images were captured from the EarthExplorer repository, Figure \ref{fig02}. We used a series of the six Landsat-9 OLI-TIRS imagery to map the areas of flooded vegetation within the area of Inner Niger Delta during the years 2013, 2015, 2018, 2020, 2021 and 2022. The images were collected always on November for the following reason. Due to the seasonality of floods and repetitive cycle of inundation, a strong contrast in moisture and green vegetation reaches its peak in autumn period of intense rains, that is, from late October to mid January which enables to compare the contrasting flooded areas against the dry lands. 
@@ -378,7 +380,7 @@ vi <- function(img, k, i) {
 \begin{lstlisting}[language=R, caption=R code for NDVI computation and mapping,basicstyle=\ttfamily\footnotesize,keywordstyle=\color{deepmagenta},emphstyle=\color{deepred},
 stringstyle=\color{deepblue},breaklines=true,numbers=left,label={lst:02}]
 # Computing Normalized Difference Vegetation Index (NDVI) = (NIR - R) / (NIR + R). 
-For Landsat OLI\TIRS, NIR = 5, red = 4, i.e., NDVI = (Band 5 - Band 4) / (Band 5 + Band 4).
+# For Landsat OLI\TIRS, NIR = 5, red = 4, i.e., NDVI = (Band 5 - Band 4) / (Band 5 + Band 4).
 library(terra)
 library(RColorBrewer)
 library(Hmisc)
@@ -403,7 +405,7 @@ minor.tick(nx = 10, ny = 10, tick.ratio = 0.3)
 
 \subsection*{Computing Soil Adjusted Vegetation Index (SAVI)}
 
-\newpar The calculation of the correct Soil Adjusted Vegetation Index (SAVI) corrects the NDVI for the effects of soil brightness in desert regions, bare soil and other places where vegetative cover is low. The general formula used for calculation SAVI is as follows SAVI = ((Band 5 – Band 4) / (Band 5 + Band 4 + 0.5)) * (1.5). Using R syntax where NIR = Band 5, and red channel correspond to the Band 4, the computing is performed as follows in the code snippet: 
+\newpar The calculation of the correct Soil Adjusted Vegetation Index (SAVI) corrects the NDVI for the effects of soil brightness in desert regions, bare soil and other places where vegetative cover is low. The general formula used for calculation SAVI is as follows SAVI = ((Band 5 – Band 4) / (Band 5 + Band 4 + 0.5)) * (1.5). Note that the numeration of these bands corresponds to the 4 and 3, because the numeration in bands of RasterObject starts from 0 (zero). Therefore, in formula below, the NIR and Red bands are assigned numbers of 4 and 3 in the 'lapp function', as showed below. Using R syntax where NIR = Band 5, and red channel correspond to the Band 4, the computing is performed as follows in the code snippet: 
 
 \begin{footnotesize}
 \begin{verbatim}
