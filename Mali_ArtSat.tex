@@ -413,6 +413,80 @@ savi = lapp(landsat[[c(4, 3)]],
 \end{verbatim}
 \end{footnotesize}
 
+\newpar The process of computing SAVI vegetation index is performed in R library 'terra' using the following code (here: example for 2021, repeated likewise for all other images): 
+
+\begin{lstlisting}[language=R, caption=R code used for SAVI computation and mapping,basicstyle=\ttfamily\footnotesize,keywordstyle=\color{deepmagenta},emphstyle=\color{deepred},
+stringstyle=\color{deepblue},breaklines=true,numbers=left,label={lst:03}]
+library(terra)
+library(RColorBrewer)
+library(Hmisc)
+setwd("/Users/polinalemenkova/Documents/R/52_Image_Processing/SAVI")
+filenames <- paste0('LC08_L2SP_197050_20211116_20211125_02_T1_SR_B', 1:7, ".tif")
+filenames
+landsat <- rast(filenames)
+landsat
+options(scipen=10000)
+plot(savi, col = rev(brewer.pal(11, "Spectral")), font.main = 1, 
+main = "SAVI for Landsat-8 OLI/TIRS C1 image 
+LC08_L2SP_197050_20211116_20211125_02_T1_SR: 
+Inner Niger Delta, Mali (2021)", cex.main=0.9)
+minor.tick(nx = 10, ny = 10, tick.ratio = 0.3)
+# Plotting histogram of SAVI
+hist(savi, font.main = 1, main = "SAVI values for Landsat-8 OLI/TIRS C1 image
+ \nLC08_L2SP_197050_20211116_20211125_02_T1_SR: 
+Inner Niger Delta, Mali (2021)", xlab = "NDVI", ylab= "Frequency",
+    col = "chocolate1", xlim = c(-0.5, 1),  breaks = 30, xaxt = "n")
+axis(side=1, at = seq(-0.6, 1, 0.1), labels = seq(-0.6, 1, 0.1))
+minor.tick(nx = 10, ny = 10, tick.ratio = 0.3)
+\end{lstlisting}
+
+\newpar The differences between soil colour and brightness around the regions near the Saharan desert, such as Mali, and affects the NDVI values. As a result, the lower boundary condition of identified plants may affect and bias land cover mapping in the Sahel region. To this end, we visualised the set of SAVI indices for the sequence of years from 2013 to 2022 and compared them to the previously computed NDVI visually and numerically.
+
+\subsection*{Computing Enhanced Vegetation Index (EVI)}
+
+\newpar Computing the EVI was based using the equation of Landsat 4 and 5 bands: EVI2 = 2.4 * (Band 5 - Band 4) / (Band 5 + Band 4 + 1). In R language, this formula was defined and converted using its syntax as follows:  
+
+\begin{footnotesize}
+\begin{verbatim}
+evi2_fun = function(nir, red){
+  2.4 * ((nir - red) / (nir + red + 1))
+}
+evi2 = lapp(landsat[[c(4, 3)]],
+            fun = evi2_fun)
+\end{verbatim}
+\end{footnotesize}
+
+\newpar The calculation and visualization of the Enhanced Vegetation Index (EVI) was based using the following script: 
+
+\begin{lstlisting}[language=R,caption=R code used for computing Enhanced Vegetation Index 2 (EVI2), basicstyle=\ttfamily\footnotesize,keywordstyle=\color{deepmagenta},emphstyle=\color{deepred},
+stringstyle=\color{deepblue},breaklines=true,numbers=left,label={lst:04}]
+# Computing vegetation indices
+library(terra)
+library(RColorBrewer)
+library(Hmisc)
+library(pals)
+setwd("/Users/polinalemenkova/Documents/R/52_Image_Processing/EVI")
+# For Landsat NIR = 5, red = 4.
+filenames <- paste0('LC08_L2SP_197050_20211116_20211125_02_T1_SR_B', 1:7, ".tif")
+filenames
+landsat <- rast(filenames)
+landsat
+colors <- jet(100)
+options(scipen=10000)
+plot(evi2, col = colors, font.main = 2, main = "Enhanced Vegetation Index 2 (EVI2) for Landsat-8 OLI/TIRS C1 image LC08_L2SP_197050_20211116_20211125_02_T1: Inner Niger Delta, Mali (2021)", cex.main=0.9)
+minor.tick(nx = 10, ny = 10, tick.ratio = 0.3)
+# Computing histogram for EVI2
+hist(evi2, font.main = 1, main = "EVI2 values for Landsat-9 OLI/TIRS C1 image \n LC08_L2SP_197050_20211116_20211125_02_T1, Inner Niger Delta, Mali (2021)", xlab = "SAVI", ylab= "Frequency",
+    col = "cyan1", xlim = c(-0.4, 0.4),  breaks = 30, xaxt = "n")
+axis(side=1, at = seq(-0.4, 0.4, 0.1), labels = seq(-0.4, 0.4, 0.1))
+minor.tick(nx = 10, ny = 10, tick.ratio = 0.3)
+\end{lstlisting}
+
+\newpar The time series of EVI are used to recognise the agriculture lands and planting areas (e.g., detecting rice planting and harvest for millet, maize and sorghum) in contrast to the savannah, flooded areas and bare lands. Besides, mapping variations of EVI over years obtained from the satellite images is useful for assessment of land degradation and desertification in semi-arid and arid regions of Sahel and southern Sahara of Mali. 
+
+
+
+
 
 
 
