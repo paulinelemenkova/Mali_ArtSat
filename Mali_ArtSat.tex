@@ -484,7 +484,45 @@ minor.tick(nx = 10, ny = 10, tick.ratio = 0.3)
 
 \newpar The time series of EVI are used to recognise the agriculture lands and planting areas (e.g., detecting rice planting and harvest for millet, maize and sorghum) in contrast to the savannah, flooded areas and bare lands. Besides, mapping variations of EVI over years obtained from the satellite images is useful for assessment of land degradation and desertification in semi-arid and arid regions of Sahel and southern Sahara of Mali. 
 
+\subsection*{Unsupervised Classification}
 
+\newpar The \emph{k}-means method was selected since it enables to allocate pixels into classes automatically, and thus to present a reliable correspondence between the groups of land cover classes and assigned pixels. Finding correspondence between the value of pixels and land cover categories is a key operation in remote sensing data processing. Given several pixels identical up to spectral brightness, the task is to identify a set of similar pixels and group them into relevant classes well distinct from the others. This task is readily generalised by R library 'RSToolbox' using embedded algorithms of image processing and analysis of pixels on the raster scene. The \emph{k}-means clustering technique is base don idea of partitioning of pixels on the raster image into clusters base don their spectral reflectance. the code of clustering algorithm is summarised in Listing \ref{lst:05} .
+
+\begin{lstlisting}[language=R,caption=R code used for unsupervised classification by k-means clustering, basicstyle=\ttfamily\footnotesize,keywordstyle=\color{deepmagenta},emphstyle=\color{deepred},
+stringstyle=\color{deepblue},breaklines=true,numbers=left,label={lst:05}]
+library(rgdal)
+library(raster)
+library(terra)
+library(RColorBrewer)
+library(pals)
+library(colorspace)
+library(RStoolbox)
+library(graphics)
+# Set up working directory
+setwd("/Users/polinalemenkova/Documents/R/52_Image_Processing/K-means")
+# Importing data
+Landsat_2013 <- list.files("/Users/polinalemenkova/Documents/R/52_Image_Processing/K-means")
+# Printing the list
+list.files()
+# creating SpatRaster object
+landsat <- rast(Landsat_2013)
+# check properties
+landsat
+landsatRGB <- landsat[[c(4,3,2)]]
+plotRGB(landsatRGB, r=1, g=2, b=3, axes=FALSE, stretch="lin")
+# Running the classification
+set.seed(25)
+unC <- unsuperClass(landsatRGB, nSamples = 100, nClasses = 20, nStarts = 5)
+unC
+# Creating color palette
+colors <- jet(20)
+# plotting a map
+plot(unC$map, main = "K-means Clustering for Landsat-8 OLI/TIRS C1 image of Mali, Inner Niger Delta \nLC08_L2SP_197050_20131110_20200912_02_T1 (2013)", font.main=1, cex.main = 0.85, col = colors, axes = FALSE, box = FALSE, legend = FALSE)
+# adding legend
+legend(x = "bottomright", legend=c("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"), fill = colors, title = "LULC ID Classes", horiz = FALSE,  bty = "n", text.font=1, ncol=1, y.intersp = 0.7)
+\end{lstlisting}
+
+\newpar Thus, the classification task is formulated as a pixel-based unsupervised clustering using \emph{k}-means. The technical approach is performed by libraries terra', 'raster' and 'RSToolbox' to efficiently discriminate land cover features and their changes over time. The target centroid of pixels were selected automatically with allocated neighbouring pixels assigned to groups based on the similarity of values. In such a way, the inter-annual variability of vegetation associations was detected in the inundated areas of the Inner Niger Delta of Mali. The code applied for clustering is presented above with a case of 2013, applied with minor modifications for the images of other years -- 2015, 2018, 2020, 2021 and 2022.
 
 
 
