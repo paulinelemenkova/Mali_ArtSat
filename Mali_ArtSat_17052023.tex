@@ -255,9 +255,9 @@ decline in agricultural yields that are highly dependent on regional meteorologi
 
 \hl{The workflow in R environment for image processing included running the scripts of the R library 'terra' and auxiliary packages with embedded algorithms. The processed images were then visualised to maps and compared for several time spans: 2013, 2015, 2018, 2020, 2021 and 2022. The usage of the R framework for remote sensing data processing is implemented by means of the sequence of programming commands demonstrated in Appendix and in the repository (here, the examples are given for the images on selected years and repeated likewise for all the rest of the data.}
 
-\subsection*{Data: Landsat 8-9 OLI/TIRS}
+\subsection*{Data: Landsat \textcolor{blue}{8-9 images}}
 
-\newpar The time series analysis is based on the Landsat 8-9 OLI/TIRS satellite images collected from the USGS survey \citep{Landsat9} on the surroundings of Mopti and Djenne, Mali. The metadata of the scenes are summarised in Table \ref{tab1}. The images were captured from the EarthExplorer repository, Figure \ref{fig02}. We used a series of the six Landsat-9 OLI-TIRS imagery to map the areas of flooded vegetation within the area of Inner Niger Delta during the years 2013, 2015, 2018, 2020, 2021 and 2022. The images were collected always on November for the following reason. Due to the seasonality of floods and repetitive cycle of inundation, a strong contrast in moisture and green vegetation reaches its peak in autumn period of intense rains, that is, from late October to mid January which enables to compare the contrasting flooded areas against the dry lands. 
+\newpar The time series analysis is based on the Landsat 8-9 OLI/TIRS satellite images collected from the USGS survey \citep{Landsat9} on the surroundings of Mopti and Djenne, Mali. The metadata of the scenes are summarised in Table \ref{tab1}. The images were captured from the EarthExplorer repository, Figure \ref{fig02}. We used a series of the six Landsat \hl{8-9} OLI\hl{ images} to map the areas of flooded vegetation within the area of Inner Niger Delta during the years 2013, 2015, 2018, 2020, 2021 and 2022. The images were collected always on November for the following reason. Due to the seasonality of floods and repetitive cycle of inundation, a strong contrast in moisture and green vegetation reaches its peak in autumn period of intense rains, that is, from late October to mid January which enables to compare the contrasting flooded areas against the dry lands. 
 
 \begin{table}[H]
 \scriptsize
@@ -282,11 +282,11 @@ decline in agricultural yields that are highly dependent on regional meteorologi
 \begin{figure}[H]
 \centering
 	\includegraphics[width=14.5 cm]{Fig_02.jpg}
-	\vspace*{20pt}\caption{The Landsat-8 OLI/TIRS satellite image downloaded from the EarthExplorer repository, USGS. Mali, Mopti region of the Inner Niger Delta. Background image: ESRI World imagery.
+	\vspace*{20pt}\caption{The \hl{location of the }Landsat \hl{8-9} satellite image \hl{in} Mali, Mopti region of the Inner Niger Delta\hl{. The images were }downloaded from the EarthExplorer repository, USGS. Background image\hl{: }ESRI World imagery.
 	\label{fig02}}
 \end{figure}
 
-\newpar The cartographic technical characteristics common for each Landsat OLI/TIRS bands include the coordinate reference system World Geodetic System (WGS) 84, the Universal Transverse Mercator (UTM) zone 30N (EPSG:32630) and the spatial resolution of most of the bands at 30 meters. Specifically, the OLI multispectral bands have pixel size 30 m. These includes Bands 1 to 7: Band 1 (Coastal aerosol), Band 2 (Blue), Band 3 (Green), Band 4 (Red), Band 5 - Near Infrared (NIR), Band 6 (SWIR 1), Band 7 (SWIR 2) and Band 9 (Cirrus). The panchromatic Band 8 has a pixel size at 15 m and TIRS thermal band -- 100 m. In this study, we use the multispectral bands which limit the the precision of the maps to 30 m per pixel.
+\newpar The cartographic technical characteristics common for each Landsat OLI/TIRS bands include the coordinate reference system World Geodetic System (WGS) 84, the Universal Transverse Mercator (UTM) zone 30N (EPSG:32630) and the spatial resolution of most of the bands at 30 meters. Specifically, the OLI multispectral bands have pixel size 30 m. These includes Bands 1 to 7: Band 1 (Coastal aerosol), Band 2 (Blue), Band 3 (Green), Band 4 (Red), Band 5 - Near Infrared (NIR), Band 6 (SWIR 1), Band 7 (SWIR 2) and Band 9 (Cirrus). The panchromatic Band 8\hl{ }and \hl{Thermal Infrared (TIRS) 1 and 2 bands were not used in this study. Here, we used} the multispectral bands which \hl{allow the} precision of the maps to 30 m per pixel.
 
 \begin{figure}[H]
 	\begin{subfigure}[b]{.35\textwidth}
