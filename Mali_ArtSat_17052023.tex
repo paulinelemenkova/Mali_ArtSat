@@ -324,7 +324,7 @@ The full programming codes used in this study for the Python and R languages, an
 
 \newpar In this section, we briefly describe our GMT scripting method used to plot the topographic map of Mali. The spatial analysis aims to correctly identify the land properties and geographic setting. First, we define the image spatial subset using the \emph{grdcut} module with target study area of Mali by argument "-R-13/5/9.5/25.5". The map was visualised in Equidistant conic projection, a conformal equal-area projection, defined in module \emph{pscoast} by the argument '-JD-4/18/9.5/25.5/6.5i', where -4° and 18° stand for longitude (W) and latitude (N) of the projection centre, the 9.5°/25.5° are the two standard parallels depicting the southern and northern borders of the map of Mali in Figure \ref{fig01}, and the '6.5i' defines the physical dimensions of the map as 6.5. inches. 
 
-\newpar Also, we consider plotting the isolines using the \emph{grdcontour} module visualised with interval 1000 m. The \emph{psclip} module was applied for optional translucency of the background image of the neighbouring countries. Generating texts and annotations was done using \emph{pstext} module. Once the geographic image was plotted, the \emph{psbasemap} module was adjusted to visualise cartographic grid. We used the GEBCO/SRTM grid raster file for main image, and ETOPO1 for plotting the generalised contours. The textual annotations and country borders were adopted from the Digital Chart of the World (DCW) data. The final mapping procedure is given in Listing \ref{lst:01}.
+\newpar Also, we consider plotting the isolines using the \emph{grdcontour} module visualised with interval 1000 m. The \emph{psclip} module was applied for optional translucency of the background image of the neighbouring countries. Generating texts and annotations was done using \emph{pstext} module. Once the geographic image was plotted, the \emph{psbasemap} module was adjusted to visualise cartographic grid. We used the GEBCO/SRTM grid raster file for main image, and ETOPO1 for plotting the generalised contours. The textual annotations and country borders were adopted from the Digital Chart of the World (DCW) data. The final mapping procedure is given in \hl{Listing} \ref{lst:01}.
 
 \subsection*{Image processing by R}
 
@@ -354,7 +354,7 @@ vi <- function(img, k, i) {
 	\label{fig04}}
 \end{figure}
 
-\newpar A raster object was made from the combination of Bands 4 and 5 and divided into the three dimensional cells (rows, columns, and layers). The calculation and mapping of NDVI was followed by plotting the histograms that show the data distribution for each of the NDVI diapason of values. Here each pixel from the Band 5 (NIR) and Band 4 (Red) quantifies the vegetation biomass and plant vigour with a general range from -1 (min) to +1 (max). We used the R 'terra' library and applied the code in Appendix in Listing \ref{lst:02} (here, a case for 2015, repeated likewise for images on 2013, 2018, 2020, 2021 and 2022).
+\newpar A raster object was made from the combination of Bands 4 and 5 and divided into the three dimensional cells (rows, columns, and layers). The calculation and mapping of NDVI was followed by plotting the histograms that show the data distribution for each of the NDVI diapason of values. Here each pixel from the Band 5 (NIR) and Band 4 (Red) quantifies the vegetation biomass and plant vigour with a general range from -1 (min) to +1 (max). We used the R 'terra' library and applied the code \hl{in Appendix in Listing} \ref{lst:02} (here, a case for 2015, repeated likewise for images on 2013, 2018, 2020, 2021 and 2022).
 
 \subsection*{Computing Soil Adjusted Vegetation Index (SAVI)}
 
@@ -370,7 +370,7 @@ savi = lapp(landsat[[c(4, 3)]],
 \end{verbatim}
 \end{small}
 
-\newpar The process of computing SAVI vegetation index is performed in R library 'terra' using the code in Listing \ref{lst:03} (here: example for 2021, repeated likewise for all other images).
+\newpar The process of computing SAVI vegetation index is performed in R library 'terra' using the code in \hl{Appendix in Listing} \ref{lst:03} (here: example for 2021, repeated likewise for all other images).
 
 \newpar The differences between soil colour and brightness around the regions near the Saharan desert, such as Mali, and affects the NDVI values. As a result, the lower boundary condition of identified plants may affect and bias land cover mapping in the Sahel region. To this end, we visualised the set of SAVI indices for the sequence of years from 2013 to 2022 and compared them to the previously computed NDVI visually and numerically.
 
@@ -388,34 +388,7 @@ evi2 = lapp(landsat[[c(4, 3)]],
 \end{verbatim}
 \end{small}
 
-\newpar The calculation and visualization of the Enhanced Vegetation Index (EVI) was based using the following script: 
-
-\begin{lstlisting}[language=R,caption=R code used for computing Enhanced Vegetation Index 2 (EVI2), basicstyle=\ttfamily\footnotesize,keywordstyle=\color{deepmagenta},emphstyle=\color{deepred},
-stringstyle=\color{deepblue},breaklines=true,numbers=left,label={lst:04}]
-library(terra)
-library(RColorBrewer)
-library(Hmisc)
-library(pals)
-setwd("/Users/polinalemenkova/Documents/R/52_Image_Processing/EVI")
-filenames <- paste0('LC08_L2SP_197050_20211116_20211125_02_T1_SR_B', 
-	1:7, ".tif")
-filenames
-landsat <- rast(filenames)
-landsat
-colors <- jet(100)
-options(scipen=10000)
-plot(evi2, col = colors, font.main = 2, main = "Enhanced Vegetation Index 2 
-	(EVI2) for Landsat-8 OLI/TIRS C1 image 
-	LC08_L2SP_197050_20211116_20211125_02_T1: Inner Niger Delta, Mali 
-	(2021)", cex.main=0.9)
-minor.tick(nx = 10, ny = 10, tick.ratio = 0.3)
-hist(evi2, font.main = 1, main = "EVI2 values for Landsat-9 OLI/TIRS C1 
-	image \n LC08_L2SP_197050_20211116_20211125_02_T1, Inner 
-	Niger Delta, Mali (2021)", xlab = "SAVI", ylab= "Frequency",
-    col = "cyan1", xlim = c(-0.4, 0.4),  breaks = 30, xaxt = "n")
-axis(side=1, at = seq(-0.4, 0.4, 0.1), labels = seq(-0.4, 0.4, 0.1))
-minor.tick(nx = 10, ny = 10, tick.ratio = 0.3)
-\end{lstlisting}
+\newpar The calculation and visualization of the Enhanced Vegetation Index (EVI) was based using the script \hl{in Appendix in Listing} \ref{lst:04}.
 
 \newpar The time series of EVI are used to recognise the agriculture lands and planting areas (e.g., detecting rice planting and harvest for millet, maize and sorghum) in contrast to the savannah, flooded areas and bare lands. Besides, mapping variations of EVI over years obtained from the satellite images is useful for assessment of land degradation and desertification in semi-arid and arid regions of Sahel and southern Sahara of Mali. 
 
@@ -1102,7 +1075,34 @@ axis(side=1, at = seq(-0.6, 1, 0.1), labels = seq(-0.6, 1, 0.1))
 minor.tick(nx = 10, ny = 10, tick.ratio = 0.3)
 \end{lstlisting}
 
-\subsection*{The results of clustering for Landsat OLI/TIRS images on Inner Niger Delta, Mali on 2020 (29 November 2020)}
+\subsection*{R code for computing Enhanced Vegetation Index 2 (EVI2)}
+
+\begin{lstlisting}[language=R,caption=R code used for computing Enhanced Vegetation Index 2 (EVI2), basicstyle=\ttfamily\footnotesize,keywordstyle=\color{deepmagenta},emphstyle=\color{deepred},
+stringstyle=\color{deepblue},breaklines=true,numbers=left,label={lst:04}]
+library(terra)
+library(RColorBrewer)
+library(Hmisc)
+library(pals)
+setwd("/Users/polinalemenkova/Documents/R/52_Image_Processing/EVI")
+filenames <- paste0('LC08_L2SP_197050_20211116_20211125_02_T1_SR_B', 
+	1:7, ".tif")
+filenames
+landsat <- rast(filenames)
+landsat
+colors <- jet(100)
+options(scipen=10000)
+plot(evi2, col = colors, font.main = 2, main = "Enhanced Vegetation Index 2 
+	(EVI2) for Landsat-8 OLI/TIRS C1 image 
+	LC08_L2SP_197050_20211116_20211125_02_T1: Inner Niger Delta, Mali 
+	(2021)", cex.main=0.9)
+minor.tick(nx = 10, ny = 10, tick.ratio = 0.3)
+hist(evi2, font.main = 1, main = "EVI2 values for Landsat-9 OLI/TIRS C1 
+	image \n LC08_L2SP_197050_20211116_20211125_02_T1, Inner 
+	Niger Delta, Mali (2021)", xlab = "SAVI", ylab= "Frequency",
+    col = "cyan1", xlim = c(-0.4, 0.4),  breaks = 30, xaxt = "n")
+axis(side=1, at = seq(-0.4, 0.4, 0.1), labels = seq(-0.4, 0.4, 0.1))
+minor.tick(nx = 10, ny = 10, tick.ratio = 0.3)
+\end{lstlisting}
 
 \subsection*{The results of clustering for Landsat OLI/TIRS images on Inner Niger Delta, Mali on 2021 (25 November 2021)}
 
