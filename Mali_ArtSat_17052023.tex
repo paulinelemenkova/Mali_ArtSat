@@ -370,32 +370,7 @@ savi = lapp(landsat[[c(4, 3)]],
 \end{verbatim}
 \end{small}
 
-\newpar The process of computing SAVI vegetation index is performed in R library 'terra' using the following code (here: example for 2021, repeated likewise for all other images): 
-
-\begin{lstlisting}[language=R, caption=R code used for SAVI computation and mapping,basicstyle=\ttfamily\footnotesize,keywordstyle=\color{deepmagenta},emphstyle=\color{deepred},
-stringstyle=\color{deepblue},breaklines=true,numbers=left,label={lst:03}]
-library(terra)
-library(RColorBrewer)
-library(Hmisc)
-setwd("/Users/polinalemenkova/Documents/R/52_Image_Processing/SAVI")
-filenames <- paste0('LC08_L2SP_197050_20211116_20211125_02_T1_SR_B', 1:7, 
-	".tif")
-filenames
-landsat <- rast(filenames)
-landsat
-options(scipen=10000)
-plot(savi, col = rev(brewer.pal(11, "Spectral")), font.main = 1, 
-main = "SAVI for Landsat-8 OLI/TIRS C1 image 
-LC08_L2SP_197050_20211116_20211125_02_T1_SR: 
-Inner Niger Delta, Mali (2021)", cex.main=0.9)
-minor.tick(nx = 10, ny = 10, tick.ratio = 0.3)
-hist(savi, font.main = 1, main = "SAVI values for Landsat-8 OLI/TIRS C1 
-	image \nLC08_L2SP_197050_20211116_20211125_02_T1_SR: 
-Inner Niger Delta, Mali (2021)", xlab = "NDVI", ylab= "Frequency",
-    col = "chocolate1", xlim = c(-0.5, 1),  breaks = 30, xaxt = "n")
-axis(side=1, at = seq(-0.6, 1, 0.1), labels = seq(-0.6, 1, 0.1))
-minor.tick(nx = 10, ny = 10, tick.ratio = 0.3)
-\end{lstlisting}
+\newpar The process of computing SAVI vegetation index is performed in R library 'terra' using the code in Listing \ref{lst:03} (here: example for 2021, repeated likewise for all other images).
 
 \newpar The differences between soil colour and brightness around the regions near the Saharan desert, such as Mali, and affects the NDVI values. As a result, the lower boundary condition of identified plants may affect and bias land cover mapping in the Sahel region. To this end, we visualised the set of SAVI indices for the sequence of years from 2013 to 2022 and compared them to the previously computed NDVI visually and numerically.
 
@@ -1100,7 +1075,32 @@ xlab = "NDVI", ylab= "Frequency", col = "darkolivegreen1",
 minor.tick(nx = 10, ny = 10, tick.ratio = 0.3)
 \end{lstlisting}
 
-\subsection*{The results of clustering for Landsat OLI/TIRS images on Inner Niger Delta, Mali on 2018 (24 November 2018)}
+\subsection*{R code for SAVI computation and mapping}
+
+\begin{lstlisting}[language=R, caption=R code used for SAVI computation and mapping,basicstyle=\ttfamily\footnotesize,keywordstyle=\color{deepmagenta},emphstyle=\color{deepred},
+stringstyle=\color{deepblue},breaklines=true,numbers=left,label={lst:03}]
+library(terra)
+library(RColorBrewer)
+library(Hmisc)
+setwd("/Users/polinalemenkova/Documents/R/52_Image_Processing/SAVI")
+filenames <- paste0('LC08_L2SP_197050_20211116_20211125_02_T1_SR_B', 1:7, 
+	".tif")
+filenames
+landsat <- rast(filenames)
+landsat
+options(scipen=10000)
+plot(savi, col = rev(brewer.pal(11, "Spectral")), font.main = 1, 
+main = "SAVI for Landsat-8 OLI/TIRS C1 image 
+LC08_L2SP_197050_20211116_20211125_02_T1_SR: 
+Inner Niger Delta, Mali (2021)", cex.main=0.9)
+minor.tick(nx = 10, ny = 10, tick.ratio = 0.3)
+hist(savi, font.main = 1, main = "SAVI values for Landsat-8 OLI/TIRS C1 
+	image \nLC08_L2SP_197050_20211116_20211125_02_T1_SR: 
+Inner Niger Delta, Mali (2021)", xlab = "NDVI", ylab= "Frequency",
+    col = "chocolate1", xlim = c(-0.5, 1),  breaks = 30, xaxt = "n")
+axis(side=1, at = seq(-0.6, 1, 0.1), labels = seq(-0.6, 1, 0.1))
+minor.tick(nx = 10, ny = 10, tick.ratio = 0.3)
+\end{lstlisting}
 
 \subsection*{The results of clustering for Landsat OLI/TIRS images on Inner Niger Delta, Mali on 2020 (29 November 2020)}
 
