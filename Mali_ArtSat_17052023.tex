@@ -332,11 +332,11 @@ decline in agricultural yields that are highly dependent on regional meteorologi
 
 \subsection*{Image processing by R}
 
-\newpar The image processing was performed using R programming language \citep{RCoreTeam} and selected libraries for graphical visualization \citep{Murrell}. The key to successful image processing aimed at vegetation analysis and land cover types identification is correctly establishing band (or channels) correspondence. For images with present flooded areas and dominant savannah vegetation that have diverse composition and plant structure due to the effects of the climatic gradient, correspondence extraction is difficult since repeating structures creates mosaics of vegetation associations many of which are repetitive. Woody and herbaceous vegetation often intersperse by partitioning the landscapes into smaller patches. To accurately classify savannah, grasslands and agricultural lands, we applied the automated method of \emph{k}-means clustering and used well established vegetation indices that indicate the presence of green healthy vegetation on the scenes. To this end, we used the Normalized Difference Vegetation Index (NDVI) \citep{Tarpley}, Soil Adjusted Vegetation Index (SAVI) \citep{HUETE1988295,Huete} and Enhanced Vegetation Index (EVI) \citep{HUETE2002195} with methods described below. 
+\newpar The image processing was performed using R programming language \citep{RCoreTeam} and selected libraries for graphical visualization \citep{Murrell}. The key to successful image processing aimed at vegetation analysis and land cover types identification is correctly establishing band (or channels) correspondence. For images with present flooded areas and dominant savannah vegetation that have diverse composition and plant structure due to the effects of the climatic gradient, correspondence extraction is difficult since repeating structures creates mosaics of vegetation associations many of which are repetitive. Woody and herbaceous vegetation often intersperse by partitioning the landscapes into smaller patches. To accurately classify savannah, grasslands and agricultural lands, we applied the automated method of \emph{k}-means clustering and used well established vegetation indices that indicate the presence of green healthy vegetation on the scenes. To this end, we \hl{computed several vegetation indices for the region of Inner Niger Delta} with methods \hl{and formulae }described below \hl{for each index}. 
 
 \subsection*{Computing Normalized Difference Vegetation Index (NDVI)}
 
-\newpar The NDVI was computed using a general formula of band combination for NDVI = (NIR - Red) / (NIR + Red). In R syntax, the NDVI was defined using the following code:
+\newpar The \hl{Normalized Difference Vegetation Index (NDVI)} was computed using a general formula of band combination for NDVI = (NIR - Red) / (NIR + Red) \citep{Tarpley}. In R syntax, the NDVI was defined using the following code:
 
 \begin{footnotesize}
 \begin{verbatim}
@@ -362,7 +362,7 @@ vi <- function(img, k, i) {
 
 \subsection*{Computing Soil Adjusted Vegetation Index (SAVI)}
 
-\newpar The calculation of the correct Soil Adjusted Vegetation Index (SAVI) corrects the NDVI for the effects of soil brightness in desert regions, bare soil and other places where vegetative cover is low. The general formula used for calculation SAVI is as follows SAVI = ((Band 5 – Band 4) / (Band 5 + Band 4 + 0.5)) * (1.5). Note that the numeration of these bands corresponds to the 4 and 3, because the numeration in bands of RasterObject starts from 0 (zero). Therefore, in formula below, the NIR and Red bands are assigned numbers of 4 and 3 in the 'lapp function', as showed below. Using R syntax where NIR = Band 5, and red channel correspond to the Band 4, the computing is performed as follows in the code snippet: 
+\newpar The calculation of the\hl{ Soil Adjusted Vegetation Index (SAVI)} \citep{HUETE1988295} corrects the NDVI for the effects of soil brightness in desert regions, bare soil and other places where vegetative cover is low. The general formula used for calculation SAVI is as follows SAVI = ((Band 5 – Band 4) / (Band 5 + Band 4 + 0.5)) * (1.5) \citep{HUETE1988295,Huete}. Note that the numeration of these bands corresponds to the 4 and 3, because the numeration in \hl{R syntax} of RasterObject starts from 0 (zero). Therefore, in formula below, the NIR and Red bands are assigned numbers of 4 and 3 in the 'lapp function', as showed below. Using R syntax where NIR = Band 5, and red channel correspond to the Band 4, the computing is performed as follows in the code snippet: 
 
 \begin{small}
 \begin{verbatim}
@@ -380,7 +380,7 @@ savi = lapp(landsat[[c(4, 3)]],
 
 \subsection*{Computing Enhanced Vegetation Index (EVI)}
 
-\newpar Computing the EVI was based using the equation of Landsat 4 and 5 bands: EVI2 = 2.4 * (Band 5 - Band 4) / (Band 5 + Band 4 + 1). In R language, this formula was defined and converted using its syntax as follows:  
+\newpar Computing the \hl{Enhanced Vegetation Index (EVI)} was based using the equation of Landsat 4 and 5 bands: EVI2 = 2.4 * (Band 5 - Band 4) / (Band 5 + Band 4 + 1) \citep{HUETE2002195}. In R language, this formula was defined and converted using its syntax as follows:  
 
 \begin{small}
 \begin{verbatim}
