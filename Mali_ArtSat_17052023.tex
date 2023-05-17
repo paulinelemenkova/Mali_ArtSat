@@ -394,81 +394,13 @@ evi2 = lapp(landsat[[c(4, 3)]],
 
 \subsection*{Unsupervised Classification}
 
-\newpar The \emph{k}-means method was selected since it enables to allocate pixels into classes automatically, and thus to present a reliable correspondence between the groups of land cover classes and assigned pixels. Finding correspondence between the value of pixels and land cover categories is a key operation in remote sensing data processing. Given several pixels identical up to spectral brightness, the task is to identify a set of similar pixels and group them into relevant classes well distinct from the others. This task is readily generalised by R library 'RSToolbox' using embedded algorithms of image processing and analysis of pixels on the raster scene. The \emph{k}-means clustering technique is based on the idea of partitioning of pixels on the raster image into clusters base don their spectral reflectance. the code of clustering algorithm is summarised in Listing \ref{lst:05} .
-
-\begin{lstlisting}[language=R,caption=R code used for unsupervised classification by k-means clustering, basicstyle=\ttfamily\scriptsize,keywordstyle=\color{deepmagenta},emphstyle=\color{deepred},
-stringstyle=\color{deepblue},breaklines=true,numbers=left,label={lst:05}]
-library(rgdal)
-library(raster)
-library(terra)
-library(RColorBrewer)
-library(pals)
-library(colorspace)
-library(RStoolbox)
-library(graphics)
-setwd("/Users/polinalemenkova/Documents/R/52_Image_Processing/K-means")
-Landsat_2013 <- list.files("/Users/polinalemenkova/Documents/R/
-	52_Image_Processing/K-means")
-list.files()
-landsat <- rast(Landsat_2013)
-landsat
-landsatRGB <- landsat[[c(4,3,2)]]
-plotRGB(landsatRGB, r=1, g=2, b=3, axes=FALSE, stretch="lin")
-set.seed(25)
-unC <- unsuperClass(landsatRGB, nSamples = 100, nClasses = 20, nStarts = 5)
-unC
-colors <- jet(20)
-plot(unC$map, main = "K-means Clustering for Landsat-8 OLI/TIRS C1 image of 
-	Mali, Inner Niger Delta \nLC08_L2SP_197050_20131110_20200912_02_T1 
-	(2013)", font.main=1, cex.main = 0.85, col = colors, axes = FALSE, 
-	box = FALSE, legend = FALSE)
-legend(x = "bottomright", legend=c("1", "2", "3", "4", "5", "6", "7", "8", 
-	"9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"), 
-	fill = colors, title = "LULC ID Classes", horiz = FALSE,  
-	bty = "n", text.font=1, ncol=1, y.intersp = 0.7)
-\end{lstlisting}
+\newpar The \emph{k}-means method was selected since it enables to allocate pixels into classes automatically, and thus to present a reliable correspondence between the groups of land cover classes and assigned pixels. Finding correspondence between the value of pixels and land cover categories is a key operation in remote sensing data processing. Given several pixels identical up to spectral brightness, the task is to identify a set of similar pixels and group them into relevant classes well distinct from the others. This task is readily generalised by R library 'RSToolbox' using embedded algorithms of image processing and analysis of pixels on the raster scene. The \emph{k}-means clustering technique is based on the idea of partitioning of pixels on the raster image into clusters base don their spectral reflectance. the code of clustering algorithm is summarised in Listing \ref{lst:05} \hl{in the Appendix}.
 
 \newpar Thus, the classification task is formulated as a pixel-based unsupervised clustering using \emph{k}-means. The technical approach is performed by libraries terra', 'raster' and 'RSToolbox' to efficiently discriminate land cover features and their changes over time. The target centroid of pixels were selected automatically with allocated neighbouring pixels assigned to groups based on the similarity of values. In such a way, the inter-annual variability of vegetation associations was detected in the inundated areas of the Inner Niger Delta of Mali. The code applied for clustering is presented above with a case of 2013, applied with minor modifications for the images of other years -- 2015, 2018, 2020, 2021 and 2022.
 
 \subsection*{Statistical Analysis}
 
-\newpar The correlation analysis was performed using plots of Kendall and Pearson methods in Python by the following code (here a case for Pearson method, modified and applied for the case of Kendall method):  
-
-\begin{lstlisting}[language=python,caption=Python code used for data inspection by correlation analysis, basicstyle=\ttfamily\scriptsize,keywordstyle=\color{deepmagenta},emphstyle=\color{deepred},
-stringstyle=\color{deepblue},breaklines=true,numbers=left,label={lst:06}]
-#!/usr/bin/env python
-# coding: utf-8
-import os
-import numpy as np
-import pandas as pd
-import matplotlib.pylab as pylab
-from matplotlib import pyplot as plt
-import seaborn as sb
-os.chdir('/Users/polinalemenkova/Documents/Python/Scripts')
-sb.set(style='white')
-sb.set_context('paper')
-params = {'figure.figsize': (10, 10), 'legend.fontsize': 14,
-        'font.family': 'Times'
-        }
-pylab.rcParams.update(params)
-df = pd.read_csv("Table_stat.csv")
-corr = df.corr(method='pearson')
-cmap="RdBu"
-f, ax = plt.subplots()
-sb.heatmap(corr, cmap=cmap, center=0, vmin=-1.1, vmax=1.1,
-           annot=True, annot_kws={"size":8},
-           square=True, linewidths=.05, linecolor='grey',
-           cbar=True, mask=False, cbar_kws={"shrink": .5},
-           )
-plt.title('Pearson correlation for land cover types in Inner Niger 
-	  Delta, Mali', fontsize=13, fontfamily='serif')
-plt.subplots_adjust(bottom=0.15,top=0.85, right=0.90, left=0.10)
-plt.xticks(rotation=30)
-plt.yticks()
-plt.tight_layout()
-plt.savefig('plot_CorrK.png', dpi=300)
-plt.show()
-\end{lstlisting}
+\newpar The correlation analysis was performed using plots of Kendall and Pearson methods in Python by the code \hl{in Listing} \ref{lst:06} \hl{in the Appendix} (here a case for Pearson method, modified and applied for the case of Kendall method).  
 
 %\pagebreak
 \newsection {3. RESULTS AND DISCUSSION}
@@ -1104,9 +1036,77 @@ axis(side=1, at = seq(-0.4, 0.4, 0.1), labels = seq(-0.4, 0.4, 0.1))
 minor.tick(nx = 10, ny = 10, tick.ratio = 0.3)
 \end{lstlisting}
 
-\subsection*{The results of clustering for Landsat OLI/TIRS images on Inner Niger Delta, Mali on 2021 (25 November 2021)}
+\subsection*{R code for unsupervised classification by k-means clustering}
 
-\subsection*{The results of clustering for Landsat OLI/TIRS images on Inner Niger Delta, Mali on 2022 (13 November 2022)}
+\begin{lstlisting}[language=R,caption=R code used for unsupervised classification by k-means clustering, basicstyle=\ttfamily\scriptsize,keywordstyle=\color{deepmagenta},emphstyle=\color{deepred},
+stringstyle=\color{deepblue},breaklines=true,numbers=left,label={lst:05}]
+library(rgdal)
+library(raster)
+library(terra)
+library(RColorBrewer)
+library(pals)
+library(colorspace)
+library(RStoolbox)
+library(graphics)
+setwd("/Users/polinalemenkova/Documents/R/52_Image_Processing/K-means")
+Landsat_2013 <- list.files("/Users/polinalemenkova/Documents/R/
+	52_Image_Processing/K-means")
+list.files()
+landsat <- rast(Landsat_2013)
+landsat
+landsatRGB <- landsat[[c(4,3,2)]]
+plotRGB(landsatRGB, r=1, g=2, b=3, axes=FALSE, stretch="lin")
+set.seed(25)
+unC <- unsuperClass(landsatRGB, nSamples = 100, nClasses = 20, nStarts = 5)
+unC
+colors <- jet(20)
+plot(unC$map, main = "K-means Clustering for Landsat-8 OLI/TIRS C1 image of 
+	Mali, Inner Niger Delta \nLC08_L2SP_197050_20131110_20200912_02_T1 
+	(2013)", font.main=1, cex.main = 0.85, col = colors, axes = FALSE, 
+	box = FALSE, legend = FALSE)
+legend(x = "bottomright", legend=c("1", "2", "3", "4", "5", "6", "7", "8", 
+	"9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"), 
+	fill = colors, title = "LULC ID Classes", horiz = FALSE,  
+	bty = "n", text.font=1, ncol=1, y.intersp = 0.7)
+\end{lstlisting}
+
+\subsection*{Python code used for data inspection by correlation analysis}
+
+\begin{lstlisting}[language=python,caption=Python code used for data inspection by correlation analysis, basicstyle=\ttfamily\scriptsize,keywordstyle=\color{deepmagenta},emphstyle=\color{deepred},
+stringstyle=\color{deepblue},breaklines=true,numbers=left,label={lst:06}]
+#!/usr/bin/env python
+# coding: utf-8
+import os
+import numpy as np
+import pandas as pd
+import matplotlib.pylab as pylab
+from matplotlib import pyplot as plt
+import seaborn as sb
+os.chdir('/Users/polinalemenkova/Documents/Python/Scripts')
+sb.set(style='white')
+sb.set_context('paper')
+params = {'figure.figsize': (10, 10), 'legend.fontsize': 14,
+        'font.family': 'Times'
+        }
+pylab.rcParams.update(params)
+df = pd.read_csv("Table_stat.csv")
+corr = df.corr(method='pearson')
+cmap="RdBu"
+f, ax = plt.subplots()
+sb.heatmap(corr, cmap=cmap, center=0, vmin=-1.1, vmax=1.1,
+           annot=True, annot_kws={"size":8},
+           square=True, linewidths=.05, linecolor='grey',
+           cbar=True, mask=False, cbar_kws={"shrink": .5},
+           )
+plt.title('Pearson correlation for land cover types in Inner Niger 
+	  Delta, Mali', fontsize=13, fontfamily='serif')
+plt.subplots_adjust(bottom=0.15,top=0.85, right=0.90, left=0.10)
+plt.xticks(rotation=30)
+plt.yticks()
+plt.tight_layout()
+plt.savefig('plot_CorrK.png', dpi=300)
+plt.show()
+\end{lstlisting}
 
 {\bf Acknowledgements.} The authors thank the reviewers for reading, commenting and careful review of this paper which improved the initial version of the manuscript. 
 
