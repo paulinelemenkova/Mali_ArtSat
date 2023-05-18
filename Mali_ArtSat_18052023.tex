@@ -1,0 +1,1103 @@
+\documentclass[12pt,a4paper,oneside]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{times}
+\usepackage[none]{hyphenat}
+\usepackage{setspace}
+\usepackage[protrusion=false,letterspace=75]{microtype}
+\usepackage{ragged2e}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{makeidx}
+\usepackage{graphicx}
+\usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage{color}
+\usepackage[usenames,dvipsnames,svgnames]{xcolor}
+\usepackage{changepage}
+
+\usepackage{cite}
+	\renewcommand\citepunct{,}
+\usepackage{url}
+\usepackage[hidelinks=true,bookmarks=true,hyperindex,breaklinks]{hyperref}
+	\hypersetup{bookmarksdepth=paragraph,colorlinks=true,linkcolor=Navy,urlcolor=DarkBlue,citecolor=DarkBlue}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[authoryear,comma,round,semicolon]{natbib}
+	\newcommand*{\doi}[1]{\href{http://dx.doi.org/#1}{doi: #1}}
+	\setlength{\bibsep}{5pt} % plus 0.3ex
+	%\setlength\parindent{10pt}
+	\setlength\parindent{0pt}
+	\setlength\bibhang{0em}
+%\bibliographystyle{agsm}
+%\bibliographystyle{plainnat}
+%\bibliographystyle{abbrvnat}
+%\bibliographystyle{unsrtnat}
+\bibliographystyle{dcu}
+%\bibliographystyle{apalike}
+\usepackage{url}
+
+\usepackage{soul}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{float}
+\usepackage[labelfont=bf,labelsep=period,font=singlespacing,skip=-10pt,hypcapspace=0pt,margin=5mm]{caption}
+	\captionsetup[boxed]{skip=0pt,margin=5mm}
+	\setlength{\belowcaptionskip}{-10pt}
+\usepackage{graphicx}
+	
+\usepackage{listings}   
+\usepackage{setspace}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+%\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{backcolour}{RGB}{255,250,240}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},  
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\scriptsize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\usepackage{array}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{2pt}}m{#1}}
+
+\usepackage{tabularx}
+\usepackage{caption} 
+\captionsetup[table]{skip=10pt}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\graphicspath{{figures/}} % path to folder with figures
+\usepackage{subcaption}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{gensymb} % for \textdegree
+\usepackage{array}
+\usepackage{makecell}
+\usepackage{multirow}
+\usepackage{graphics}
+\usepackage{color}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepmagenta}{RGB}{195,12,214}
+\usepackage{multicol}
+% ===============================================================================================
+% start of the EDITOR section
+% ===============================================================================================
+
+% definitions
+
+\def \newsection{\vspace{12pt}\textbf}
+\def \newsubsection{\vspace{12pt}\textbf}
+\def \newsubsubsection{\vspace{12pt}\textit}
+\def \newpar{\vspace{6pt}}
+\def \newref{\vspace{6pt}}
+\def \figtab{\small}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+
+% first page header and dates information
+
+\newcommand{\YEAR}{0}
+\newcommand{\VOLUME}{0}
+\newcommand{\NUMBER}{0}
+\newcommand{\DOI}{10.2478/arsa-0000-0000}
+%\setcounter{page}{1} 
+
+% header
+
+\usepackage{fancyhdr}
+\lhead
+{
+	\begin{picture}(0,0)
+	\put(0,-18){\includegraphics[width=2.7cm]{sciendo.png}}  
+	\put(100,-6){\textbf{ARTIFICIAL SATELLITES, Vol. \VOLUME, No. \NUMBER ~-- \YEAR}}
+	\put(100,-22){\textbf{DOI: \DOI}}
+	\end{picture}
+}
+
+% footer
+
+\lfoot
+{
+	\begin{picture}(0,0)
+	\put(0,0){\includegraphics[width=2cm]{cr.png}}  
+	\put(70,16){\tiny $\copyright$ 
+	{\tiny The Author(s). This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY 4.0,}}
+	\put(70,8){\tiny {\href{https://creativecommons.org/licenses/by/4.0/}{https://creativecommons.org/licenses/by/4.0/}), which permits use, distribution, and reproduction in any medium, provided that the}}
+	\put(70,0){\tiny Article is properly cited.}
+	\end{picture}}
+\cfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% -----------------------------------------------------------------------------------------------
+% end of the EDITOR section
+% -----------------------------------------------------------------------------------------------
+
+\graphicspath{{figures/}} % path to folder with figures
+
+\begin{document}
+\sloppy
+\thispagestyle{fancy}
+
+\vspace*{38pt}
+
+% ===============================================================================================
+% start of the AUTHOR section
+% ===============================================================================================
+
+% title A script-driven approach to mapping satellite-derived topography and gravity data over Zagros Fold and Thrust Belt, Iran
+
+\begin{center}{\large\bf\uppercase{
+Time Series Analysis of Landsat Images for Monitoring \\Flooded Areas in the Inner Niger Delta, Mali}}
+\end{center}
+
+\vspace*{4pt}
+
+% author(s)
+
+\begin{center}
+\textls{
+Polina \uppercase{Lemenkova}$^1$, Olivier \uppercase{Debeir}$^1$,  \\
+
+\vspace{6pt}
+
+$^1$Université Libre de Bruxelles (ULB), École polytechnique de Bruxelles \\ Laboratory of Image Synthesis and Analysis (LISA), Brussels, Belgium. \\
+
+
+\vspace{6pt}
+
+e-mails: polina.lemenkova@ulb.be, olivier.debeir@ulb.be \\
+}
+\end{center}
+
+\vspace{30pt}
+
+% abstract and keywords
+
+{\bf ABSTRACT.} This paper presents an R based approach to mapping dynamics of the flooded areas in the Inner Niger Delta (IND), Mali, using time series analysis of Landsat 8-9 OLI/TIRS satellite images. The largest inland wetland in West Africa, the habitats of IND offers high potential for biodiversity of the flood-dependent ecosystems. IND is one of the most productive areas in West Africa. Mapping flooded areas based on satellite images enables to provide strategies for land management and rice planting and modelling vegetation types of IND. Our approach is based on using libraries of R programming language for processing six Landsat images, each November from 2013 to 2022. By capturing spatial and temporal structure of the satellite images on 2013, 2015, 2018, 2020, 2021 and 2022, the remote sensing data are combined to yield estimates of landscape dynamics that is temporally coherent, while helping to analyse fluctuations of spatial extent in fluvial wetlands caused by the hydrological processes of seasonal flooding. Further, by allowing packages of R to support image processing, an approach to mapping vegetation by NDVI, SAVI and EVI indices and visualising changes in distribution of different land cover classes over time is realized. In this context, processing Earth observation data by advanced scripting tools of R language provides new insights into complex interlace of climate-hydrological processes and vegetation responses. Our study contributes to the sustainable management of natural resources and improving knowledge on the functioning of IND ecosystems in Mali, West Africa. 
+
+\newpar {\bf Keywords:} West Africa; R language; Satellite Image; Remote Sensing; Vegetation Index.
+
+% article content
+
+\newsection {1. INTRODUCTION}
+
+\subsection*{1.1. Background and motivation}
+
+\newpar The analysis of the environmental dynamics using remote sensing data has received considerable attention in Earth sciences during the last decades \citep{SULTANA2023267,PAYRA2023239,MERTIKAS2021107}. Satellite images are widely recognised as a valuable source of spatial information \citep{Richards,Costel,Lerat}. To process these data effectively and accurately, a variety of algorithms for processing satellite images have been developed in remote sensing domain. A general approach of using multi-temporal satellite images for environmental monitoring is based on their pairwise comparison aimed at evaluating changes in land cover patterns \citep{OGILVIE2015368,Hiernaux}. Time series analysis of Earth observation data proven to be effective in evaluation of landscape changes using several images covering the same area in various consecutive years. For instance, satellite-derived trends are used as monitoring methods in a wide variety of environmental applications: assessment of deforestation and forest degradation \citep{MASOLELE2021112600,rs11242999,ijgi11110573,rs9090905}, monitoring wetland dynamics \citep{KOVACS2022113267,land11122137}, evaluation of vegetation cover fraction and soil depletion \cite{DUBE2017112,rs15010020}, computing vegetation indices \citep{VENTER2020106206,app122412554,f13122066}, estimating variations in land surface temperature \citep{CARRILLONIQUETE2022104280} and many more. 
+
+\newpar Such case studies assume that evaluating land cover changes using time series analysis of satellite images is possible by a comparison of images taken with repetitive time gap of years during the same months. This is based on the finding the differences in spectral reflectance of land cover types in various bands of a satellite image for the same spatial extent and processing images using various classification techniques \citep{SHAHI202385,MERRY2023269,GANDHI201681}. Since spatial object depicted on the image scenes have different brightness reflected in distinct colours of pixels, a proper combination of spectral band followed by image classification enables to highlight target features that categorise land surface objects. Hence, one can compare the shifts in spatial geometry of the land patterns on the Earth using a sequence of satellite images taken in different years for the same region. 
+
+\newpar This assumption, however, requires effective methods of image processing for analysis of a time series rapidly and accurately. While many existing GIS software involve a variety of manual operations for processing each image \citep{TAPPAN200738,SPIEKERMANN2015113,EPUH2022100067}\hl{, the success in classification of the satellite images requires the development of more advanced approaches. The tasks of satellite image processing requires machine-based programming algorithms for accurate classification and mapping. Thus, remote sensing data processing and analysis for mapping vegetation indices involves several steps of workflow including the analysis and composites of spectral bands, computing the indices using algorithms, originating from existing formulae, visualising and mapping the results, which makes it a cumbersome task by traditional GIS software. In contrast, automated workflow which involves programming languages such as R, recognises specific features of images using machine-based algorithms and scripts, and computer vision algorithms of image processing that can classify the images using spectral reflectance data or compute the vegetation indices accurately and rapidly where manual image processing takes more efforts and time}. 
+
+\newpar We believe that the traditional GIS approaches do not meet the requirements of modern applications of image processing in time series. For example, the efficiency of time series analysis based on rapid and accurate processing of the image set is a fundamental requirement to be able to perform comparative analysis of the land cover types by classification of multiple scenes taken on different years. The satellite image collections are growing at significant rates. For instance, only the Landsat-8 and Landsat-9 are collecting daily 1,500 new scenes archived into the USGS public repositories \citep{USGS}. Together with other satellites (Sentinel by ESA, MODIS by NOAA) including commercial ones (SPOT), this creates a precious pool of spatial information \citep{MainiAgrawal}. The processing of such big data requires automated tools for rapid and effective handling to convert them from the raw source of information into practical knowledge. 
+
+\newpar In contrast, programming methods of image processing use machine-based algorithms for detecting object features and pattern recognition \citep{9297369,jimaging8120317,8882177,9121731}. In such cases, the automated discrimination of land cover types is supported by the embedded algorithms of image processing with minimised control and supervision from the user. Furthermore, while a set of programming libraries can be used to process the lines of the prewritten code in general tasks, the interactive nature of image processing and the algorithms of classification calls for the ability to allow users to define land cover classes \citep{Liuetal2009}. Thus, besides the statistical analysis of R applied in various research and reported in relevant studies \citep{BIVAND20001043,Lemenkova201991,GRUNSKY20021219}, it can also be effectively used in mapping for discriminating land cover types. 
+
+\newpar Land cover types automatically discriminated on the satellite images can be divided into diverse categories to be recognised and retrieved from the images using real situation of the local vegetation patterns. For instance, vegetation associations can include various types of forests, grasslands and savannah, wetlands and floodplains, bare soil, urban lands, cultivated agricultural spots, built-up areas and artificial objects (buildings, roads, etc) \citep{lillesand1994remote}. The automated approach to classifying pixels for object interpretation using the programming approach is based on machine-based discrimination of the similar spectral characteristics and allocating them to the target land use class.
+
+\subsection*{1.2. Objectives and Motivation}
+
+\newpar In this paper, we present a case study of remote sensing data assessment by R language for environmental monitoring of Inner Niger Delta, Mali, West Africa (Figure \ref{fig01}). The largest inland wetland in West Africa, the habitats of Inner Niger Delta offers high potential for biodiversity of the flood-dependent ecosystems with endemic woody plants and endangered species. Moreover, rich water and land resources of the Inner Niger Delta create high agricultural potential and favourable conditions for irrigated agriculture and rice crop. As a result, the Inner Niger Delta is one of the most productive areas of rice in West Africa and environmentally vulnerable region of Mali.
+
+\newpar Despite the environmental importance of this region, there are relatively few published \hl{papers on the analysis} of the land cover dynamics \hl{in} Inner Niger Delta\hl{, Mali,} using Earth observation data. Existing studies have focused on the meteorological observations from the gauge stations, fieldwork measurements and locally obtained agro-hydrological information (e.g. \citep{dadson2010wetland}) assessing ecosystem services \citep{REBELO201358}\hl{, }simulations of datasets by statistical analysis \cite{Mascaro}, hydrodynamic modelling based on streamflow data and water levels to estimate the inundation extent \citep{HAQUE2020100703,HAQUE2021104187}. In contrast, obtaining information about the object through the analysis of its characteristics acquired from \hl{the }space-borne data collected at a distance present a more accurate, advanced and reliable method \citep{Maini,rs70202127}. 
+
+\hl{To }contribute to the environmental assessment of this geographically unique region by \hl{the }advanced methods, we provide a general machine-based solution of \hl{satellite }image \hl{processing. The objective is the } evaluation of land cover dynamics using six Landsat OLI\hl{ }images of the surroundings of Mopti and Djenne, \hl{central Mali. Each images was taken on }November from 2013 to 2022. The evaluation of \hl{the land} cover types \hl{and vegetation patterns }using remote sensing data processed by \hl{the }programming methods enables to get better insights into landscape dynamics resulted from the complex land-atmosphere interactions\hl{.}
+
+\newpar Our approach is based on using libraries of R programming language for analysis of spatial and temporal structure of the satellite images on 2013, 2015, 2018, 2020, 2021 and 2022, respectively. Using algorithms of R, we processed the remote sensing data to yield estimates of landscape dynamics and visualise changes in major land cover types of the Inner Niger Delta that are temporally coherent. Further, we analysed fluctuations of spatial extent in fluvial wetlands caused by the hydrological processes of seasonal flooding. Finally, by allowing packages of R to support image processing, an approach to mapping \hl{several} vegetation \hl{indices} and visualising changes in distribution of different land cover classes over time is realized. \hl{We tested R approaches on three computed vegetation indices which included }the Normalized Difference Vegetation Index (NDVI)\hl{, the Soil Adjusted Vegetation Index (SAVI) and the Enhanced Vegetation Index 2 (EVI2)}.
+
+\subsection*{1.3. Study Area}
+
+\newpar Mali, a landlocked sub-Saharan West African country (Figure \ref{fig01}) is one of the hottest countries in the world with average temperature varying between 24°C in January and 35°C in May \citep{CCKP}. Subject to recent climate change, it is characterised by a significant variability in rainfalls, droughts and occasional floods. Rising temperatures, interannual to decadal variability in rainfalls and decreased precipitation lead to the desertification and deteriorated plant communities in the ecosystems of Mali. 
+
+\begin{figure}[H]
+\centering
+	\includegraphics[width=16.0 cm]{Fig_01}
+	\vspace*{20pt}\caption{Topographic map of Mali. Mapping software: Generic Mapping Tools (GMT) scripting toolset. Data source: GEBCO/SRTM. Cartography source: authors.
+	\label{fig01}}
+\end{figure}
+
+\newpar In turn, the decline of vegetation that earlier retained water in the soil aggravates soil dryness and depletion contributing to the desertification. For arid climate of Mali such a vicious circle of interrelated processes have disastrous consequences on the vegetation growth and as a consequence, on food production and security \citep{Davies1996}. Since recent decades, the climate setting in West Africa changed with the most notable trends in decrease of precipitation and rainfall, rise of temperature and warming trends, increase in drought frequency and dryland expansion \citep{LEALFILHO202283,OGUNTUNDE2017121,OGUNTUNDE20061180,SIDIBE2019141}. Many papers are published on climate change issues and reported consequences for biodiversity and socio-economic systems \citep{LEHOUEROU1996133,Huang,Yu}. 
+
+\newpar These processes triggered the desertification, escalated the salinity of soil and effects on ecosystems, e.g., loss of biodiversity \citep{HEUBES201348}, changed geographic distribution of species \citep{COULIBALY2023100359}, declined vegetation health and tree growth \citep{SANOGO2022100333}. Moreover, further effects include the
+decline in agricultural yields that are highly dependent on regional meteorological conditions and rainfall variability \citep{Zare}. For instance, the decrease in precipitation negatively affect rainfed crop yields in sub-Saharan Africa \citep{RAES2021108563,BAMBIO2022102288} with reported cases on rice \citep{AKPOTI2022103429,ADJAH2022512}, millet \citep{BADO2022107992}, maize \citep{SRIVASTAVA201610}, and sorghum \citep{ADAM2020102920}.
+
+\newpar In this study, we focus on monitoring the dynamics of the flooded flat plain savannah areas in the Inner Niger Delta located in central Mali (13°30' N--15°30'N). Situated in the midst of the Malian Sahel, this seasonal floodplain is comprised by multiple meandering channels of Niger River, the third largest river in Africa. The Inner Niger Delta is one of the larger wetlands in Africa with 200 km of spatial extent and area of $36,000 km^2$ \citep{KUPER200383}. The vegetational pattern of Inner Niger Delta is interspersed by the seasonally flooded savannah, plateaus with the desiccated sands and wooded areas in the north-Sudanian zone. The geomorphology of the floodplain in Inner Niger Delta presents almost flat relief with variations from 272 to 262 m \citep{Gallais2003}. 
+
+\newpar The alluvial depositions result in a series of micro deltas where the hydrography of Niger divides forming a local basin, and then regroups in the downstream in a confluence section of the river \citep{dickens2018flows}. The geologic setting of the Inner Niger Delta includes a wide Precambrian basement occupied by primary sandstones where the interior delta is formed. A quaternary deposits, accumulated by the winds from the Sahara, added the effect of a dune dam to the generally flat relief. The Niger River meanders in the conditions of the flat low-relief plains and divides into several branches of small channels, whose alluvial ridges enclose more depressed areas \citep{Gourou}.
+
+\newpar High poverty of Malian population increases socio-economic vulnerability and low adaptive capacity towards natural hazards in changing hydro-climatic conditions. Specifically, the environmental vulnerability of Mali to climate change -- one of the world’s poorest countries -- include such factors as hydroelectricity production and dam operations \citep{w11091766}, navigation over Niger, seasonality of the irrigated and rainfed agriculture during dry and rainy periods, flooding in the Inner Niger Delta \citep{Ghile}. As a result, climate extremes contribute to low sustainability of food resources depending on fishing and agricultural farming that are highly sensitive to seasonality and weather constraints \citep{Morand,LIERSCH2019176}. Changes in selected crop production patterns have been reported recently, For instance, \citep{LARIS20151} reported the decline in cotton yields in Mali due to rapid intensification of agriculture or soil fertility loss, while rise in maize yields as less sensible towards soil conditions and less demanding crop in farming system.
+
+\newpar The Malian climate has three distinct seasons: a dry season from March to June, a rainy season from June to September and a cold windy season from October to February. Such fluctuations of the sahelian climate correspond to the regular seasonal flooding of the Inner Niger Delta which results in a unique hydrologic phenomenon -- seasonal floods \citep{brunet1986monographie}. The Inner Niger Delta becomes inundated during several months a year with floodplains and remaining a few islets of dry land \citep{Courel}. Previous studies report \citep{Diakite} the area of $20,000 km^2$ regularly covered by the flood. For the remaining six months, the floodplain dries out again to a fertile plain with essentially grass vegetation, e.g., bourgou \citep{Planhol}. The repetitive regular pattern of climatic-hydrological shifts affects the distribution and geochemistry of soils and vegetal associations \citep{Tabeaud}. Water-rich alluvial soils, together with arid climate and high temperature creates perfect conditions for plantations (e.g., rice harvest) as a precious resource for Malian fishermen, pastoralists and farmers \citep{Retaille}. However, harvest is at risk of lost during flash heavy rains or floods. 
+
+\newpar At the same time, the variability of inflow into the Inner Niger Delta, the period of the floods and the extent of the regularly flooded surface area have direct consequences on livelihoods, and food production \citep{LIERSCH201318}. Repetitive droughts on the one hand and dynamic of repetitive floods on the other strongly affect the ecology and biodiversity of Inner Niger Delta with direct consequences on vegetation system \citep{mariko2003caracterisation}. Besides, shifts in precipitation and temperature patterns in Inner Niger Delta result in depletion of the irrigated soils and salinization as a consequence. Apart from the distribution of saline soils (solonchaks), this region is under pressure from the intensive irrigation system which uses poorly mineralized surface water. The decrease in precipitation, increase in annual temperature and high evapotranspiration amplify the climate related effects and result in the deposition of the dissolved salts on the surface \citep{Valenza}. 
+
+\newpar In turn, small-scale farming systems create additional environmental challenges by overgrazing and uncontrolled livestock contributing from their part to land cover changes. Besides livelihood and food-related issues, stagnant water during floods contributes to health risks of the diseases of population through rapid distribution of parasites and insects, such as malaria \citep{COOLS201334,Klinkenberg}. All these issues require to take measures on environmental monitoring of floodplain wetlands in Inner Niger Delta. Previous studies pointed the need for cartographic visualization of the unique territories of the African continent which should be supported by maps for quantitative investigations \citep{Cabot1968}, e.g., in phytogeographical studies \citep{Robequain}. Insofar as we can map hydrological processes and their relationship with vegetation growth, we can get deeper insights into the complex links of climate-environmental interactions in Africa.
+
+\newsection {2. MATERIALS AND METHODS}
+
+\hl{The workflow in R environment for image processing included running the scripts of the R library 'terra' and auxiliary packages with embedded algorithms. The processed images were then visualised to maps and compared for several time spans: 2013, 2015, 2018, 2020, 2021 and 2022. The usage of the R framework for remote sensing data processing is implemented by means of the sequence of programming commands demonstrated in Appendix and in the repository (here, the examples are given for the images on selected years and repeated likewise for all the rest of the data.}
+
+\subsection*{Data: Landsat \textcolor{blue}{8-9 images}}
+
+\newpar The time series analysis is based on the Landsat 8-9 OLI/TIRS satellite images collected from the USGS survey \citep{Landsat9} on the surroundings of Mopti and Djenne, Mali. The metadata of the scenes are summarised in Table \ref{tab1}. The images were captured from the EarthExplorer repository, Figure \ref{fig02}. We used a series of the six Landsat \hl{8-9} OLI\hl{ images} to map the areas of flooded vegetation within the area of Inner Niger Delta during the years 2013, 2015, 2018, 2020, 2021 and 2022. The images were collected always on November for the following reason. Due to the seasonality of floods and repetitive cycle of inundation, a strong contrast in moisture and green vegetation reaches its peak in autumn period of intense rains, that is, from late October to mid January which enables to compare the contrasting flooded areas against the dry lands. 
+
+\begin{table}[H]
+\scriptsize
+\caption{Metadata of the satellite images used in this study: Landsat-8 OLI/TIRS USGS \textsuperscript{1}.\label{tab1}}
+\begin{tabularx}{\textwidth}{| cccccc |}
+			\toprule
+			\textbf{Date} & \textbf{\makecell{Spacecraft /\\ID}} & \textbf{\makecell{Path/\\Row}} & \textbf{Entity Product ID} & \textbf{Scene ID} & \textbf{\makecell{Cloud/\\Coverage}} \\
+			\midrule
+			2013/11/10 & Landsat 8 & 197/50 & \makecell{LC08\_L2SP\_197050\_20131110\_20200912\_02\_T1} & LC81970502013314LGN01 & 0.12 \\
+			2015/11/16 & Landsat 8 & 197/50 & \makecell{LC08\_L2SP\_197050\_20151116\_20200908\_02\_T1} & LC81970502015320LGN01 & 1.12 \\
+			2018/11/24 & Landsat 8 & 197/50 & \makecell{LC08\_L2SP\_197050\_20181124\_20200830\_02\_T1} & LC81970502018328LGN00 & 0.00 \\
+			2020/11/29 & Landsat 8 & 197/50 & \makecell{LC08\_L2SP\_197050\_20201129\_20210316\_02\_T1} & LC81970502020334LGN00 & 0.00 \\
+			2021/11/16 & Landsat 8 & 197/50 & \makecell{LC08\_L2SP\_197050\_20211116\_20211125\_02\_T1} & LC81970502021320LGN00 & 0.00 \\
+			2022/11/11 & Landsat 9 & 197/50 & \makecell{LC09\_L2SP\_197050\_20221111\_20221113\_02\_T1} & LC91970502022315LGN00 & 0.00 \\
+			\bottomrule
+		\end{tabularx}
+	\noindent{\footnotesize{\textsuperscript{1} The Sensor ID is common for all the scenes: Landsat OLI/TIRS (Operational Land Imager and Thermal Infrared Sensor), Collection 2 Level-2. Image courtesy of the U.S. Geological Survey (USGS). Product DOI: \href{https://doi.org/10.5066/P9OGBGM6}{10.5066/P9OGBGM6}.}}
+\end{table}
+
+\newpar While the period of rainfalls ends in the Inner Niger Delta by late October and soils and grassy vegetation become dry in the regions untouched by floods, the southern segment of the Inner Niger Delta demonstrate the highest levels of flooded areas. Such contrast in the northern, central and southern segment of the  Inner Niger Delta favours visualization of the flooded/not flooded areas and estimation of the intensity of floods in this particular year. The second target requirement was set up for all the imagery regarding the least possible cloudiness which is below 5\% for all the scenes. Therefore, we have collected the images on November for each evaluated year with the minimal cloud coverage in technical characteristics of Landsat. The characteristics of the scenes are as follows, summarised in Table 1. The map in Figure \ref{fig01} has been prepared using the Generic Mapping Tools \citep{Wessel} by applied existing cartographic workflow reported earlier \citep{su142315966,LemenkovaDebeir2022JAES}. 
+
+\begin{figure}[H]
+\centering
+	\includegraphics[width=14.5 cm]{Fig_02.jpg}
+	\vspace*{20pt}\caption{The \hl{location of the }Landsat \hl{8-9} satellite image \hl{in} Mali, Mopti region of the Inner Niger Delta\hl{. The images were }downloaded from the EarthExplorer repository, USGS. Background image\hl{: }ESRI World imagery.
+	\label{fig02}}
+\end{figure}
+
+\newpar The cartographic technical characteristics common for each Landsat OLI/TIRS bands include the coordinate reference system World Geodetic System (WGS) 84, the Universal Transverse Mercator (UTM) zone 30N (EPSG:32630) and the spatial resolution of most of the bands at 30 meters. Specifically, the OLI multispectral bands have pixel size 30 m. These includes Bands 1 to 7: Band 1 (Coastal aerosol), Band 2 (Blue), Band 3 (Green), Band 4 (Red), Band 5 - Near Infrared (NIR), Band 6 (SWIR 1), Band 7 (SWIR 2) and Band 9 (Cirrus). The panchromatic Band 8\hl{ }and \hl{Thermal Infrared (TIRS) 1 and 2 bands were not used in this study. Here, we used} the multispectral bands which \hl{allow the} precision of the maps to 30 m per pixel.
+
+\begin{figure}[H]
+	\begin{subfigure}[b]{.35\textwidth}
+		\centering
+			\includegraphics[width=0.87\textwidth]{Fig_03a.jpg}
+		\caption{2013}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.35\textwidth}
+		\centering
+		\includegraphics[width=0.87\textwidth]{Fig_03b.jpg}
+		\caption{2015}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.35\textwidth}
+		\centering
+		\includegraphics[width=0.87\textwidth]{Fig_03c.jpg}
+		\caption{2018}
+	\end{subfigure}%
+\\
+\vfill \vspace{1mm}
+	\begin{subfigure}[b]{.35\textwidth}
+		\centering
+			\includegraphics[width=0.87\textwidth]{Fig_03d.jpg}
+		\caption{2020}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.35\textwidth}
+		\centering
+		\includegraphics[width=0.87\textwidth]{Fig_03e.jpg}
+		\caption{2021}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.35\textwidth}
+		\centering
+		\includegraphics[width=0.87\textwidth]{Fig_03f.jpg}
+		\caption{2022}
+	\end{subfigure}%
+\vspace*{20pt}\caption{Landsat 8 OLI/TIRS image of Inner Niger Delta in natural colour RGB values showing floodplain for six years (always November): (\textbf{a}) 2013, (\textbf{b}) 2015, (\textbf{c}) 2018, (\textbf{d}) 2020, (\textbf{e}) 2021, (\textbf{f}) 2022.}\label{fig:03}
+\end{figure}
+
+\subsection*{Cartographic scripting in GMT}
+
+\newpar In this section, we briefly describe our GMT scripting method used to plot the topographic map of Mali. The spatial analysis aims to correctly identify the land properties and geographic setting. First, we define the image spatial subset using the \emph{grdcut} module with target study area of Mali by argument "-R-13/5/9.5/25.5". The map was visualised in Equidistant conic projection, a conformal equal-area projection, defined in module \emph{pscoast} by the argument '-JD-4/18/9.5/25.5/6.5i', where -4° and 18° stand for longitude (W) and latitude (N) of the projection centre, the 9.5°/25.5° are the two standard parallels depicting the southern and northern borders of the map of Mali in Figure \ref{fig01}, and the '6.5i' defines the physical dimensions of the map as 6.5. inches. 
+
+\newpar Also, we consider plotting the isolines using the \emph{grdcontour} module visualised with interval 1000 m. The \emph{psclip} module was applied for optional translucency of the background image of the neighbouring countries. Generating texts and annotations was done using \emph{pstext} module. Once the geographic image was plotted, the \emph{psbasemap} module was adjusted to visualise cartographic grid. We used the GEBCO/SRTM grid raster file for main image, and ETOPO1 for plotting the generalised contours. The textual annotations and country borders were adopted from the Digital Chart of the World (DCW) data. The final mapping procedure is given in \hl{Listing} \ref{lst:01}.
+
+\subsection*{Image processing by R}
+
+\newpar The image processing was performed using R programming language \citep{RCoreTeam} and selected libraries for graphical visualization \citep{Murrell}. The key to successful image processing aimed at vegetation analysis and land cover types identification is correctly establishing band (or channels) correspondence. For images with present flooded areas and dominant savannah vegetation that have diverse composition and plant structure due to the effects of the climatic gradient, correspondence extraction is difficult since repeating structures creates mosaics of vegetation associations many of which are repetitive. Woody and herbaceous vegetation often intersperse by partitioning the landscapes into smaller patches. To accurately classify savannah, grasslands and agricultural lands, we applied the automated method of \emph{k}-means clustering and used well established vegetation indices that indicate the presence of green healthy vegetation on the scenes. To this end, we \hl{computed several vegetation indices for the region of Inner Niger Delta} with methods \hl{and formulae }described below \hl{for each index}. 
+
+\subsection*{Computing Normalized Difference Vegetation Index (NDVI)}
+
+\newpar The \hl{Normalized Difference Vegetation Index (NDVI)} was computed using a general formula of band combination for NDVI = (NIR - Red) / (NIR + Red) \citep{Tarpley}. In R syntax, the NDVI was defined using the following code:
+
+\begin{footnotesize}
+\begin{verbatim}
+vi <- function(img, k, i) {
+  bk <- img[[k]]
+  bi <- img[[i]]
+  vi <- (bk - bi) / (bk + bi)
+  return(vi)
+}
+\end{verbatim}
+\end{footnotesize}
+
+\newpar The SpatRaster was created from the Bands 4 and 5 as a spatially referenced surface in RStudio (Figure \ref{fig04}). 
+
+\begin{figure}[H]
+\centering
+	\includegraphics[width=14.0 cm]{Fig_04.jpg}
+		\vspace*{20pt}\caption{Processing Landsat OLI/TIRS satellite image in RStudio for extracting NDVI.
+	\label{fig04}}
+\end{figure}
+
+\newpar A raster object was made from the combination of Bands 4 and 5 and divided into the three dimensional cells (rows, columns, and layers). The calculation and mapping of NDVI was followed by plotting the histograms that show the data distribution for each of the NDVI diapason of values. Here each pixel from the Band 5 (NIR) and Band 4 (Red) quantifies the vegetation biomass and plant vigour with a general range from -1 (min) to +1 (max). We used the R 'terra' library and applied the code \hl{in Appendix in Listing} \ref{lst:02} (here, a case for 2015, repeated likewise for images on 2013, 2018, 2020, 2021 and 2022).
+
+\subsection*{Computing Soil Adjusted Vegetation Index (SAVI)}
+
+\newpar The calculation of the\hl{ Soil Adjusted Vegetation Index (SAVI)} \citep{HUETE1988295} corrects the NDVI for the effects of soil brightness in desert regions, bare soil and other places where vegetative cover is low. The general formula used for calculation SAVI is as follows SAVI = ((Band 5 – Band 4) / (Band 5 + Band 4 + 0.5)) * (1.5) \citep{HUETE1988295,Huete}. Note that the numeration of these bands corresponds to the 4 and 3, because the numeration in \hl{R syntax} of RasterObject starts from 0 (zero). Therefore, in formula below, the NIR and Red bands are assigned numbers of 4 and 3 in the 'lapp function', as showed below. Using R syntax where NIR = Band 5, and red channel correspond to the Band 4, the computing is performed as follows in the code snippet: 
+
+\begin{small}
+\begin{verbatim}
+savi_fun = function(nir, red){
+  ((nir - red) / (nir + red + 0.5)) * 1.5
+}
+savi = lapp(landsat[[c(4, 3)]],
+            fun = savi_fun)
+\end{verbatim}
+\end{small}
+
+\newpar The process of computing SAVI vegetation index is performed in R library 'terra' using the code in \hl{Appendix in Listing} \ref{lst:03} (here: example for 2021, repeated likewise for all other images).
+
+\newpar The differences between soil colour and brightness around the regions near the Saharan desert, such as Mali, and affects the NDVI values. As a result, the lower boundary condition of identified plants may affect and bias land cover mapping in the Sahel region. To this end, we visualised the set of SAVI indices for the sequence of years from 2013 to 2022 and compared them to the previously computed NDVI visually and numerically.
+
+\subsection*{Computing Enhanced Vegetation Index (EVI)}
+
+\newpar Computing the \hl{Enhanced Vegetation Index (EVI)} was based using the equation of Landsat 4 and 5 bands: EVI2 = 2.4 * (Band 5 - Band 4) / (Band 5 + Band 4 + 1) \citep{HUETE2002195}. In R language, this formula was defined and converted using its syntax as follows:  
+
+\begin{small}
+\begin{verbatim}
+evi2_fun = function(nir, red){
+  2.4 * ((nir - red) / (nir + red + 1))
+}
+evi2 = lapp(landsat[[c(4, 3)]],
+            fun = evi2_fun)
+\end{verbatim}
+\end{small}
+
+\newpar The calculation and visualization of the Enhanced Vegetation Index (EVI) was based using the script \hl{in Appendix in Listing} \ref{lst:04}.
+
+\newpar The time series of EVI are used to recognise the agriculture lands and planting areas (e.g., detecting rice planting and harvest for millet, maize and sorghum) in contrast to the savannah, flooded areas and bare lands. Besides, mapping variations of EVI over years obtained from the satellite images is useful for assessment of land degradation and desertification in semi-arid and arid regions of Sahel and southern Sahara of Mali. 
+
+\subsection*{Unsupervised Classification}
+
+\newpar \hl{The k-means clustering technique was used for unsupervised image classification. The k-means clustering in image processing by R presents a method of image partition that divides the raster matrix with n pixels (or cells of this matrix) into k groups. Here, each pixel of the image scene belongs to one cluster based on the value of its spectral reflectance. the criterium of this partition is the nearest mean where the cluster centroids present the centres of the groups. More specifically, the initial class means are the two important class parameters of the pixels on the satellite images that were defined using the characteristics of spectral reflectance of the recording of the pixels (i.e., cells of the image matrix). The algorithm is implemented via the image analysis techniques in unsupervised classification by R. Spectral reflectance is a common parameter of the image's pixels which represent the earth surface features.}
+
+\newpar \hl{The difference in reflectance characteristics of various land cover types is explained by different ration in energy reflected and incident by these surfaces. Therefore, various land cover types (water, land, diverse vegetation types, asphalt-covered roads or buildings) have different spectral reflectance. Spectral reflectance is measured as a function of wavelength in Landsat bands. Such spectral characteristics enables to separate these pixels into classes on the images which is possible by k-means algorithm. The matrix of image cells is defined as the as a sequence of cells containing pixels representing land cover types with 30-m resolution as for Landsat 8-9 images. In k-means clustering technique, the consecutive massive of the pixels on the raster image with similar values is changed by the move to another land cover types which interrupts the mosaic of landscapes (e.g., water-land borders), and followed by the next landscape patch.  }
+
+\newpar \hl{The landscape mosaic is identified through iterative assignment of pixels to target land cover classes  on the whole image in a repetitive way. Thus, land cover types on the image are defined using search for the closest (minimal) distance between each pixel on the scene and the centroid of the k-means clusters, which are defined automatically by R. The assignment of the pixel to a given land cover class is based on the search algorithm which evaluates the sequence of the cells of image matrix based on the principle of the closest distance between the pixel and the cluster's centroid. Each iteration is recalculating the mean values of the class and re-assigning pixels to the new means until optimal values are reached using the embedded algorithms by R.}
+
+\newpar The \emph{k}-means method was selected since it enables to allocate pixels into classes automatically, and thus to present a reliable correspondence between the groups of land cover classes and assigned pixels. Finding correspondence between the value of pixels and land cover categories is a key operation in remote sensing data processing. Given several pixels identical up to spectral brightness, the task is to identify a set of similar pixels and group them into relevant classes well distinct from the others. This task is readily generalised by R library 'RSToolbox' using embedded algorithms of image processing and analysis of pixels on the raster scene. The \emph{k}-means clustering technique is based on the idea of partitioning of pixels on the raster image into clusters base don their spectral reflectance. the code of clustering algorithm is summarised in Listing \ref{lst:05} \hl{in the Appendix}.
+
+\newpar Thus, the classification task is formulated as a pixel-based unsupervised clustering using \emph{k}-means. The technical approach is performed by libraries terra', 'raster' and 'RSToolbox' to efficiently discriminate land cover features and their changes over time. The target centroid of pixels were selected automatically with allocated neighbouring pixels assigned to groups based on the similarity of values. In such a way, the inter-annual variability of vegetation associations was detected in the inundated areas of the Inner Niger Delta of Mali. The code applied for clustering is presented above with a case of 2013, applied with minor modifications for the images of other years -- 2015, 2018, 2020, 2021 and 2022.
+
+\newpar \hl{In the map of land cover types, we depicted 20 major dominating vegetation associations} arranged from the most affected flooded areas to the relatively dry areas and untouched bare soils including the following 28 land cover types adopted from the existing studies and interpreted on the Landsat imagery \cite{Marie}: \emph{1) Woodland; 2) Floodplain with aquatic grassland; 3) Savannah; 4) Thicket; 5) Wild rice; 6) Grassland; 7) Irrigated rice fields; 8) Savannah in shallow floodplain; 9) Bare soil (loams and clays); 10) Bare soil (sands); 11) Vegetation mosaics, main channel banks; 12) Lacustrine woodland; 13) Shallow lacustrine woodland; 14) Shrubby savannah in uplands; 15) Anthropic woody savannah; 16) Thicket in uplands; 17) Woody savannah in uplands; 18) Shrubby savannah in uplands; 19) Island palm grove; 20) Margins palm grove}.
+
+\subsection*{Statistical Analysis}
+
+\newpar The correlation analysis was performed using plots of Kendall and Pearson methods in Python by the code \hl{in Listing} \ref{lst:06} \hl{in the Appendix} (here a case for Pearson method, modified and applied for the case of Kendall method).  
+
+%\pagebreak
+\newsection {3. RESULTS AND DISCUSSION}
+
+\subsection*{Variations of NDVI index over years}
+
+\newpar The results of the NDVI computation show the difference in the vegetation health varying by years 2013 to 2022, Figure \ref{fig:05}.
+
+\begin{figure}[H]
+	\begin{subfigure}[b]{.5\textwidth}
+		\centering
+			\includegraphics[width=0.95\textwidth]{Fig_05a.png}
+		\caption{2013}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.5\textwidth}
+		\centering
+		\includegraphics[width=0.95\textwidth]{Fig_05b.png}
+		\caption{2015}
+	\end{subfigure}%
+\\
+\vfill \vspace{1mm}
+	\begin{subfigure}[b]{.5\textwidth}
+		\centering
+			\includegraphics[width=0.95\textwidth]{Fig_05c.png}
+		\caption{2018}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.5\textwidth}
+		\centering
+		\includegraphics[width=0.95\textwidth]{Fig_05d.png}
+		\caption{2020}
+	\end{subfigure}%
+\\
+\vfill \vspace{1mm}
+	\begin{subfigure}[b]{.5\textwidth}
+		\centering
+			\includegraphics[width=0.95\textwidth]{Fig_05e.png}
+		\caption{2021}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.5\textwidth}
+		\centering
+		\includegraphics[width=0.95\textwidth]{Fig_05f.png}
+		\caption{2022}
+	\end{subfigure}%
+\vspace*{20pt}\caption{NDVI based on Landsat 8-9 OLI/TIRS images of Inner Niger Delta for November: (\textbf{a}) 2013, (\textbf{b}) 2015, (\textbf{c}) 2018, (\textbf{d}) 2020, (\textbf{e}) 2021, (\textbf{f}) 2022. Mapping: RStudio. Source: authors.}\label{fig:05}
+\end{figure}
+
+\newpar The comparison of the computed values are summarised in Table \ref{tab2} based on the SpatRaster from Bands 4 and 5 of the Landsat-8 OLI/TIRS satellite images and shown in histograms of Figure \ref{fig:06}. The lowest NDVI values in the study area were obtained from the Landsat-9 OLI/TIRS image in 2022/11/11 as -0.3072812, while the highest data are 0.5879165 received from the Landsat-9 OLI/TIRS image in 2013/11/10. 
+
+\begin{table}[H]
+\scriptsize
+\caption{Results of the NDVI computations of the Landsat-8 OLI/TIRS satellite images.\label{tab2}}
+		\newcolumntype{C}{>{\centering\arraybackslash}X}
+		\begin{tabularx}{\textwidth}{| p{2.0cm} | CCC | CCCC | p{1.8cm} | p{1.8cm} |}
+		\toprule
+	\bf{Time} & \multicolumn{3}{c|}{\bf{Dimensions}} & \multicolumn{4}{c|}{\bf{Extent}} & \multicolumn{2}{c|}{\bf{Extreme Values}} \\
+\cline{2-10}
+	Date & nrow & ncol & nlyr & $x_{min}$ & $x_{max}$ & $y_{min}$ & $y_{max}$ & min & max \\
+	\midrule
+	2013/11/10 & 7781 & 7621 & 1 & 245085 & 473715 & 1481685 & 1715115 & -0.2311377 & 0.5879165 \\
+	\hline
+	2015/11/16 & 7781 & 7631 & 1 & 246285 & 475215 & 1481385 &  1714815 & -0.2619293 & 0.5245128 \\
+	\hline
+	2018/11/24 & 7781 & 7621 & 7 & 245985 & 474615 & 1481685 & 1715115 & -0.2603942 & 0.5258653 \\
+	\hline
+	2020/11/29 & 7781 & 7621 & 7 & 246585 & 475215 & 1481685 & 1715115 & -0.2496693 & 0.4980780 \\
+	\hline
+	2021/11/16 & 7781 & 7621 & 1 & 247485 & 476115 & 1481385 & 1714815 & -0.2522458 & 0.5417392 \\
+	\hline
+	2022/11/11 & 7771 & 7621 & 7 & 244485 & 473115 & 1481685 & 1714815 & -0.3072812 & 0.5237642 \\
+	\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{figure}[H]
+	\begin{subfigure}[b]{.35\textwidth}
+		\centering
+		\includegraphics[width=0.95\textwidth]{Fig_06a.jpg}
+		\caption{2013}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.35\textwidth}
+		\centering
+		\includegraphics[width=0.95\textwidth]{Fig_06b.jpg}
+		\caption{2015}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.35\textwidth}
+		\centering
+		\includegraphics[width=0.95\textwidth]{Fig_06c.jpg}
+		\caption{2018}
+	\end{subfigure}%
+\\
+\vfill \vspace{1mm}
+	\begin{subfigure}[b]{.35\textwidth}
+		\centering
+			\includegraphics[width=0.95\textwidth]{Fig_06d.jpg}
+		\caption{2020}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.35\textwidth}
+		\centering
+		\includegraphics[width=0.95\textwidth]{Fig_06e.jpg}
+		\caption{2021}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.35\textwidth}
+		\centering
+		\includegraphics[width=0.95\textwidth]{Fig_06f.jpg}
+		\caption{2022}
+	\end{subfigure}%
+\vspace*{20pt}\caption{Histograms of the NDVI based on the Landsat 8-9 OLI/TIRS images of Inner Niger Delta for November: (\textbf{a}) 2013, (\textbf{b}) 2015, (\textbf{c}) 2018, (\textbf{d}) 2020, (\textbf{e}) 2021, (\textbf{f}) 2022. Plots: RStudio. Source: authors.}\label{fig:06}
+\end{figure}
+
+\subsection*{Comparison of variations of SAVI index over years}
+
+\newpar The changes in the vegetation associations showing mosaics of areas covered by savannah against floodplain with aquatic plants and other areas were estimated by using a time series of Landsat 8-9 OLI satellite images acquired on different dates between 10.11.2013 and 11.11.2022 (Figure \ref{fig:07}). The highest SAVI values were 0.4281315 on 2013/11/10, while the in 2021/11/16, the highest SAVI was only 0.2790245, that is, the lower level of vegetation health (Table \ref{tab3}). The lowest SAVI values among all these years were obtained from image on 2013/11/10 which shows the most significant range of variation in values (Figure \ref{fig:08}), which differs from the NDVI values in relevant years (see Table \ref{tab2}) that shows the lowest NDVI values on 2022/11/11 (NDVI=-0.3072812), but corresponds to the highest values obtained for 2013/11/10 (NDVI=0.5879165).  
+
+\begin{table}[H]
+\scriptsize
+\caption{Results of the SAVI computations of the Landsat-8 OLI/TIRS satellite images.\label{tab3}}
+		\newcolumntype{C}{>{\centering\arraybackslash}X}
+		\begin{tabularx}{\textwidth}{| p{2.0cm} | CCC | CCCC | p{1.8cm} | p{1.8cm} |}
+		\toprule
+	\bf{Time} & \multicolumn{3}{c|}{\bf{Dimensions}} & \multicolumn{4}{c|}{\bf{Extent}} & \multicolumn{2}{c|}{\bf{Extreme Values}} \\
+\cline{2-10}
+	Date & nrow & ncol & nlyr & $x_{min}$ & $x_{max}$ & $y_{min}$ & $y_{max}$ & min & max \\
+	\midrule
+	2013/11/10 & 7781 & 7621 & 1 & 245085 & 473715 & 1481685 & 1715115 & -0.2235105 & 0.4281315 \\
+	\hline
+	2015/11/16 & 7781 & 7631 & 1 & 246285 & 475215 & 1481385 & 1714815 & -0.1681281 & 0.2896889 \\
+	\hline
+	2018/11/24 & 7781 & 7621 & 1 & 245985 & 474615 & 1481685 & 1715115 & -0.1830571 & 0.2938004 \\
+	\hline
+	2020/11/29 & 7781 & 7621 & 1 & 246585 & 475215 & 1481685 & 1715115 & -0.1384092 & 0.2833834 \\
+	\hline
+	2021/11/16 & 7781 & 7621 & 1  & 247485 & 476115 & 1481385 &  1714815 & -0.1564469 & 0.2790245 \\
+	\hline
+	2022/11/11 & 7771 & 7621 & 1 & 244485 & 473115 & 1481685 & 1714815 & -0.1810541 & 0.2929085 \\
+	\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{figure}[H]
+	\begin{subfigure}[b]{.5\textwidth}
+		\centering
+			\includegraphics[width=.95\textwidth]{Fig_07a.jpg}
+		\caption{2013}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.5\textwidth}
+		\centering
+		\includegraphics[width=.95\textwidth]{Fig_07b.jpg}
+		\caption{2015}
+	\end{subfigure}%
+\\
+\vfill \vspace{1mm}
+	\begin{subfigure}[b]{.5\textwidth}
+		\centering
+			\includegraphics[width=.95\textwidth]{Fig_07c.jpg}
+		\caption{2018}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.5\textwidth}
+		\centering
+		\includegraphics[width=.95\textwidth]{Fig_07d.jpg}
+		\caption{2020}
+	\end{subfigure}%
+\\
+\vfill \vspace{1mm}
+	\begin{subfigure}[b]{.5\textwidth}
+		\centering
+			\includegraphics[width=.95\textwidth]{Fig_07e.jpg}
+		\caption{2021}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.5\textwidth}
+		\centering
+		\includegraphics[width=.95\textwidth]{Fig_07f.jpg}
+		\caption{2022}
+	\end{subfigure}%
+\vspace*{20pt}\caption{Soil Adjusted Vegetation Index (SAVI) based on the Landsat 8-9 OLI/TIRS images of Inner Niger Delta for November: (\textbf{a}) 2013, (\textbf{b}) 2015, (\textbf{c}) 2018, (\textbf{d}) 2020, (\textbf{e}) 2021, (\textbf{f}) 2022. Mapping visualization: RStudio. Source: authors.}\label{fig:07}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{subfigure}[b]{.35\textwidth}
+		\centering
+			\includegraphics[width=0.95\textwidth]{Fig_08a.jpg}
+		\caption{2013}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.35\textwidth}
+		\centering
+		\includegraphics[width=0.95\textwidth]{Fig_08b.jpg}
+		\caption{2015}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.35\textwidth}
+		\centering
+		\includegraphics[width=0.95\textwidth]{Fig_08c.jpg}
+		\caption{2018}
+	\end{subfigure}%
+\\
+\vfill \vspace{1mm}
+	\begin{subfigure}[b]{.35\textwidth}
+		\centering
+			\includegraphics[width=0.95\textwidth]{Fig_08d.jpg}
+		\caption{2020}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.35\textwidth}
+		\centering
+		\includegraphics[width=0.95\textwidth]{Fig_08e.jpg}
+		\caption{2021}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.35\textwidth}
+		\centering
+		\includegraphics[width=0.95\textwidth]{Fig_08f.jpg}
+		\caption{2022}
+	\end{subfigure}%
+\vspace*{20pt}\caption{Histograms of SAVI based on the Landsat 8-9 OLI/TIRS images of Inner Niger Delta for November: (\textbf{a}) 2013, (\textbf{b}) 2015, (\textbf{c}) 2018, (\textbf{d}) 2020, (\textbf{e}) 2021, (\textbf{f}) 2022. Plots: RStudio. Source: authors.}\label{fig:08}
+\end{figure}
+
+\subsection*{Comparison of variations of EVI over years}
+
+\newpar The values of EVI (Table \ref{tab4}) were compared to the other two different well-known vegetation indices (NDVI and EVI) were calculated and used from each satellite image as a time-series format of six scenes. We found that EVI values calculated from Landsat 8 OLI satellite images are higher than other satellites, i.e., the extent of minimal and maximal values has a greater span of values. Thus, the examination of data (Table \ref{tab4}) shows that EVI values were extremal in 2013/11/10 when they ranged between -0.3576084 and +0.6849960, which corresponds to the consequences of the large drought in 2012 in the Sahel region which was hit by a major climate extremes (decrease in precipitation and rise in temperatures) which weakened vulnerable vegetation communities in the consequent years, as reflected in the values of the vegetation indices in 2013. In the consequent years, these effects gradually diminished along with the stabilisation in the ecosystem.  
+
+\newpar The radiometric and biophysical advantages of EVI (Figure \ref{fig:09}) for mapping vegetation canopy in Malian environment is that, compared to NDVI which better saturates in high biomass regions such as tropical forests, EVI remains sensitive to canopy variations that is suitable to savannah of Sahel arid and semi-arid regions. Specifically, EVI shows a correspondence between the canopy reflectances of plants as detected on the pixels and its values obtained from the Landsat OLI/TIRS sensor specifically for semi-arid grasslands, thicket and shrubby savannah in uplands, savannah in shallow floodplains of the Inner Niger Delta, and spots of woody savannah. 
+
+\begin{figure}[H]
+	\begin{subfigure}[b]{.5\textwidth}
+		\centering
+			\includegraphics[width=.95\textwidth]{Fig_09a.jpg}
+		\caption{2013}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.5\textwidth}
+		\centering
+		\includegraphics[width=.95\textwidth]{Fig_09b.jpg}
+		\caption{2015}
+	\end{subfigure}%
+\\
+\vfill \vspace{1mm}
+	\begin{subfigure}[b]{.5\textwidth}
+		\centering
+			\includegraphics[width=.95\textwidth]{Fig_09c.jpg}
+		\caption{2018}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.5\textwidth}
+		\centering
+		\includegraphics[width=.95\textwidth]{Fig_09d.jpg}
+		\caption{2020}
+	\end{subfigure}%
+\\
+\vfill \vspace{1mm}
+	\begin{subfigure}[b]{.5\textwidth}
+		\centering
+			\includegraphics[width=.95\textwidth]{Fig_09e.jpg}
+		\caption{2021}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.5\textwidth}
+		\centering
+		\includegraphics[width=.95\textwidth]{Fig_09f.jpg}
+		\caption{2022}
+	\end{subfigure}%
+\vspace*{20pt}\caption{Enhanced Vegetation Index (EVI) based on the Landsat 8-9 OLI/TIRS images of Inner Niger Delta for November: (\textbf{a}) 2013, (\textbf{b}) 2015, (\textbf{c}) 2018, (\textbf{d}) 2020, (\textbf{e}) 2021, (\textbf{f}) 2022. Mapping visualization: RStudio. Source: authors.}\label{fig:09}
+\end{figure}
+
+\newpar Clearly visible two peaks on the histograms (Figure \ref{fig:10}) correspond to the flooded inundated water-covered areas with negative values (EVI from 0 to -0.35 in a general extent) followed by the low data typical for floodplains and aquatic plants, against the bright vegetation areas that correspond to the grasslands, savannah and thickets (EVI values from 0.30 to 0.68), and the middle values that are typical for the agricultural areas (rice) with mediocre values (EVI values from 0.20 to 0.30).
+
+\begin{figure}[H]
+	\begin{subfigure}[b]{.35\textwidth}
+		\centering
+			\includegraphics[width=0.95\textwidth]{Fig_10a.jpg}
+		\caption{2013}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.35\textwidth}
+		\centering
+		\includegraphics[width=0.95\textwidth]{Fig_10b.jpg}
+		\caption{2015}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.35\textwidth}
+		\centering
+		\includegraphics[width=0.95\textwidth]{Fig_10c.jpg}
+		\caption{2018}
+	\end{subfigure}%
+\\
+\vfill \vspace{1mm}
+	\begin{subfigure}[b]{.35\textwidth}
+		\centering
+			\includegraphics[width=0.95\textwidth]{Fig_10d.jpg}
+		\caption{2020}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.35\textwidth}
+		\centering
+		\includegraphics[width=0.95\textwidth]{Fig_10e.jpg}
+		\caption{2021}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.35\textwidth}
+		\centering
+		\includegraphics[width=0.95\textwidth]{Fig_10f.jpg}
+		\caption{2022}
+	\end{subfigure}%
+\vspace*{20pt}\caption{Histograms of EVI based on the Landsat 8-9 OLI/TIRS images of Inner Niger Delta for November: (\textbf{a}) 2013, (\textbf{b}) 2015, (\textbf{c}) 2018, (\textbf{d}) 2020, (\textbf{e}) 2021, (\textbf{f}) 2022. Plots: RStudio. Source: authors.}\label{fig:10}
+\end{figure}
+
+\begin{table}[H]
+\scriptsize
+\caption{Results of the EVI2 computations of the Landsat-8 OLI/TIRS satellite images.\label{tab4}}
+	\newcolumntype{C}{>{\centering\arraybackslash}X}
+	\begin{tabularx}{\textwidth}{| p{2.0cm} | CCC | CCCC | p{1.8cm} | p{1.8cm} |}
+	\hline
+	\bf{Time} & \multicolumn{3}{c|}{\bf{Dimensions}} & \multicolumn{4}{c|}{\bf{Extent}} & \multicolumn{2}{c|}{\bf{Extreme Values}} \\
+\cline{2-10}
+	Date & nrow & ncol & nlyr & $x_{min}$ & $x_{max}$ & $y_{min}$ & $y_{max}$ & min & max \\
+	\midrule
+	2013/11/10 & 7781 & 7621 & 1 & 245085 & 473715 & 1481685 & 1715115 & -0.3576084 & 0.6849960 \\
+	\hline
+	2015/11/16 & 7781 & 7631 & 1 & 246285 & 475215 & 1481385 & 1714815 & -0.2689985 & 0.4634939 \\
+	\hline
+	2018/11/24 & 7781 & 7621 & 7 & 245985 & 474615 & 1481685 & 1715115 & -0.2928849 & 0.4700728 \\
+	\hline
+	2020/11/29 & 7781 & 7621 & 7 & 246585 & 475215 & 1481685 & 1715115 & -0.2214491 & 0.4534074 \\
+	\hline
+	2021/11/16 & 7781 &  7621 & 1 & 247485 & 476115 & 1481385 & 1714815 & -0.2503089 & 0.4464335 \\
+	\hline
+	2022/11/11 & 7771 & 7621 & 1 & 244485 & 473115 & 1481685 & 1714815 & -0.2896799 & 0.4686475 \\
+	\hline
+\end{tabularx}
+\end{table}
+
+\subsection*{Comparison of the dynamics in land cover types}
+
+\newpar The image classifications aimed at defining land cover types within the Inner Niger Delta of each Landsat-9 OLI-TIRS scene were interpreted for each of the six evaluated years within the 2013--2022 time gap. Land cover types classified based on the \emph{k}-means clustering using Landsat 8-9 OLI/TIRS images of Inner Niger Delta for November. The notation for land cover classes are as follows: 1) Woodland; 2) Floodplain with aquatic grassland; 3) Savannah; 4) Thicket; 5) Wild rice; 6) Grassland; 7) Irrigated rice fields; 8) Savannah in shallow floodplain; 9) Bare soil (loams and clays); 10) Bare soil (sands); 11) Vegetation mosaics, main channel banks; 12) Lacustrine woodland; 13) Shallow lacustrine woodland; 14) Shrubby savannah in uplands; 15) Anthropic woody savannah; 16) Thicket in uplands; 17) Woody savannah in uplands; 18) Shrubby savannah in uplands; 19) Island palm grove; 20) Margins palm grove. The summary of land cover changes is given in Table \hl{with obtained statistics on pixels provided in repository}.
+
+\newpar For each data set, we randomly divide the image scene into 20 classes with similar properties of spectral reflectance. \hl{The} random data partition is repeated for 5 cycles with 100 samples in each go, and the results of \emph{k}-means clustering over the 20 classes are reported and presented in the images. The classified land cover classes are sampled and labeled, as shown in the resulting images in Figure \ref{fig:11} for years 2013, 2015 and 2018 and Figure \ref{fig:12} for years 2020, 2021 and 2022, respectively. At each iteration of the \emph{k}-means clustering, the RSToolbox query one instance label pair of pixels and compares the values of target pixel with that of the centroid pixel representing the given group of the land cover classes from the input Landsat Bands 4, 3 and 2. After all instance-labelled pairs of pixels are queries (target-centroid), a classification model is trained and computed for labelled pixels as data from bands. The obtained statistics is summarised in the Appendices. 
+
+\begin{figure}[H]
+	\begin{subfigure}[b]{.5\textwidth}
+		\centering
+			\includegraphics[width=0.78\textwidth]{Fig_11a.jpg}
+		\caption{2013: RGB (Landsat bands 4-3-2)}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.5\textwidth}
+		\centering
+		\includegraphics[width=0.95\textwidth]{Fig_11b.jpg}
+		\caption{2013: Clustering}
+	\end{subfigure}%
+\\
+\vfill \vspace{1mm}
+	\begin{subfigure}[b]{.5\textwidth}
+		\centering
+			\includegraphics[width=0.78\textwidth]{Fig_11c.jpg}
+		\caption{2015: RGB (Landsat bands 4-3-2)}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.5\textwidth}
+		\centering
+		\includegraphics[width=0.95\textwidth]{Fig_11d.jpg}
+		\caption{2015: Clustering}
+	\end{subfigure}%
+\\
+\vfill \vspace{1mm}
+	\begin{subfigure}[b]{.5\textwidth}
+		\centering
+			\includegraphics[width=0.78\textwidth]{Fig_11e.jpg}
+		\caption{2018: RGB (Landsat bands 4-3-2)}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.5\textwidth}
+		\centering
+		\includegraphics[width=0.95\textwidth]{Fig_11f.jpg}
+		\caption{2018: Clustering}
+	\end{subfigure}%
+\vspace*{20pt}\caption{Clustering based on the Landsat 8-9 OLI/TIRS images (bands 4-3-2): (\textbf{a}) 2013 RGB in true colour composites, (\textbf{b}) 2013 clusters, (\textbf{c}) 2015 RGB in true colour composites, (\textbf{d}) 2015 clusters, (\textbf{e}) 2018 RGB in true colour composites, (\textbf{f}) 2018 clusters. Mapping: RStudio. Source: authors.}\label{fig:11}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{subfigure}[b]{.5\textwidth}
+		\centering
+			\includegraphics[width=0.78\textwidth]{Fig_12a.jpg}
+		\caption{2020: RGB (Landsat bands 4-3-2)}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.5\textwidth}
+		\centering
+		\includegraphics[width=0.95\textwidth]{Fig_12b.jpg}
+		\caption{2020: Clustering}
+	\end{subfigure}%
+\\
+\vfill \vspace{1mm}
+	\begin{subfigure}[b]{.5\textwidth}
+		\centering
+			\includegraphics[width=0.78\textwidth]{Fig_12c.jpg}
+		\caption{2021: RGB (Landsat bands 4-3-2)}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.5\textwidth}
+		\centering
+		\includegraphics[width=0.95\textwidth]{Fig_12d.jpg}
+		\caption{2021: Clustering}
+	\end{subfigure}%
+\\
+\vfill \vspace{1mm}
+	\begin{subfigure}[b]{.5\textwidth}
+		\centering
+			\includegraphics[width=0.78\textwidth]{Fig_12e.jpg}
+		\caption{2022: RGB (Landsat bands 4-3-2)}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.5\textwidth}
+		\centering
+		\includegraphics[width=0.95\textwidth]{Fig_12f.jpg}
+		\caption{2022: Clustering}
+	\end{subfigure}%
+\vspace*{20pt}\caption{Clustering based on the Landsat 8-9 OLI/TIRS images of Inner Niger Delta for November: (\textbf{a}) 2020 RGB in true colour composites (4-3-2), (\textbf{b}) 2020 classification, (\textbf{c}) 2021 RGB in true colour composites (4-3-2), (\textbf{d}) 2021 classification, (\textbf{e}) 2022 RGB in true colour composites, (\textbf{f}) 2022 classification. Mapping: RStudio. Source: authors.}\label{fig:12}
+\end{figure}
+
+\newpar These values were applied to estimate the effects of hydrological-climate fluctuations on the observed expansion of vegetation associations at target areas covered by the images. For each time window, the scenes were classified automatically using R libraries 'terra', 'raster' and 'RSToolbox' with machine-based allocations of pixels to the the land cover classes defined according to the classification. The data are evaluated per land cover classes using correlation plots to examine changes in classification from 2013 to 2022, Figure \ref{fig:13}.
+
+\begin{figure}[H]
+	\begin{subfigure}[b]{.5\textwidth}
+		\centering
+			\includegraphics[width=0.95\textwidth]{Fig_13a.jpg}
+		\caption{}%\vspace{1mm}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.5\textwidth}
+		\centering
+			\includegraphics[width=0.95\textwidth]{Fig_13b.jpg}
+		\caption{}%\vspace{1mm}
+	\end{subfigure}%
+\vspace*{20pt}\caption{Correlation plots showing probability cases for land cover classes in the Inner Niger Delta between 2013 and 2022 based on the results of the clustering of the Landsat 8-9 OLI/TIRS images: (\textbf{a}) Kendall correlation; (\textbf{b}) Pearson correlation. Mapping: Python. Source: authors.}\label{fig:13}
+\end{figure}
+
+\newpar Using correlation plots by Python libraries, the association of 20 major land cover types were compared and identified for each scene as a comparison between 2013 and 2022, to find out the correlations between values in previous and later years in spectral reflectance of the pixels on the images and the distribution of the vegetation associations in Inner Niger Delta: agricultural areas (irrigated rice fields), natural vegetation areas (grassland, savannah of various types -- shrubby, anthropic woody and uplands savannah, thicket in uplands), bare soil (sands, loams and clays) and specific plants typical for floodplain of the Inner Niger Delta with characteristic aquatic plants (shallow lacustrine woodland, island and margins palm grove in the inundated areas and channel banks). 
+
+\newsection {4. CONCLUSIONS}
+
+\newpar In this study, we demonstrated the integrated use of the three types of scripting techniques -- GMT, R and Python -- as effective tools for processing Earth observation data. The advanced use of R language for satellite image processing provides new insights into complex interlace of climate-hydrological processes and vegetation responses based on automatic classification of the Landsat OLI/TIRS bands. \hl{The full programming codes used in this study for the Python and R languages, and GMT scripts} are publicly provided in the open GitHub repository of the authors using the following link: \href{https://github.com/paulinelemenkova/Image_Processing_Mali_IND_Scripts}{https://github.com/paulinelemenkova/Image\_Processing\_Mali\_IND\_Scripts}. 
+
+\newpar In the subsections of the Methodology\hl{, we described} the scripts and technical approaches in details, with the comments on the most important snippets on the codes \hl{provided in the Appendix}. In this way, our study contributed both to the technical development of the advanced methods in remote sensing and handling geospatial data, and to the practical purposes of the environmental monitoring of West Africa. Sustainable management of natural resources and improving knowledge on the functioning of Inner Niger Delta ecosystems in Mali can largely benefit from the advanced machine based methods of data computation and visualization. Mapping flooded areas on basis of the satellite images supports strategies for land management and rice planting, and assessment of vegetation health in vulnerable ecosystem of Inner Niger Delta, Mali. 
+
+\newpar The physio-geographic phenomenon of seasonal floods in Inner Niger Delta makes it a unique ecosystem of Malian environment. The variations of hydrologic cycle and vegetation associations in such a special area were effectively visualized using a time series of the satellite images processed by R libraries for machine-based image analysis and  algorithms of computer vision, as well as auxiliary programming scripts by Python and GMT. Thus, we provide a visualization of NDVI, SAVI and EVI vegetation indices and automated classification of land cover types by \emph{k}-means clustering for years 2013, 2015, 2018, 2020, 2021 and 2022. A series of the Landsat OLI/TIRS images were taken always on November due to the environmental specifics explained above: in this period, the highest contrast between the inundated lands and flooded areas can be depicted on the image scenes. Our experiments show that  the images obtained from the OLI/TIRS sensors of the Landsat 8-9 satellites are useful for evaluation of the dynamics of land cover types, as we showed with a case of environmental monitoring of Inner Niger Delta, Mali. 
+
+\newpar The proposed R-based image processing is a data-independent method which significantly outperforms the GIS in terms of speed and automation, which is essential for time series analysis. Thus, instead of manual operations with image classification in traditional software, R libraries use scripts for the machine-based data handling and discrimination of land cover classes and vegetation indices using computer vision algorithms. We provide a theoretical justification that R programming approach implements an unbiased estimate of land cover classes and the computations of several vegetation indices such as NDVI, SAVI and EVI, and it has a faster performance for processing several images as time series for evaluation of interannual dynamics of flooded areas during seasonal inundation. 
+
+\newpar We applied a robust image classification algorithm of R for classification of land cover types in Inner Niger Delta with regard to the floods affecting vegetation in seasonally inundated wet land areas of the floodplain. Pattern recognition algorithms of R libraries were adopted to processing satellite images aimed at estimating the difference in land cover types through analysis of time series of the sequential Landsat-9 OLI-TIRS imagery for the period 2013-2022 over the Inner Niger Delta, highlighting the inter-annual differences in vegetation associations of the floodplain. R libraries also perform best in automated depicting of the values of three major vegetation indices (NDVI, SAVI and EVI) for interpreting grassy vegetation health and extent of growth using data-independent algorithms of R-based image processing. Thus, we demonstrated a console-based techniques of remote sensing data analysis for applications of programming in geographical studies. 
+
+\newpar Such advanced technical methods is a reliable tool that can be used in environmental analysis for estimation of the inter-annual variability of flood patterns that persist in central Mali. The analysis of land cover types and vegetation indices is closely related to the hydrological cycle, as discussed above. Therefore, the triggers of the climatic processes and rainfall seasonality may be added as additional variables in future studies to evaluate their effects on soil geochemistry and fluctuations in salinity during floods and arid periods, respectively. Cartographic visualization and mapping of land cover types as the results of experiments show that the Inner Niger Delta experience changes over the assessed years which proves the existing trends in the environmental dynamics.  
+
+\newpar Whereas scripting presents a purely technical tool adopted from the data science domain, the machine-based algorithms of computer vision and pattern recognition supported by R language can help gain more insights and a better understanding of the environmental processes through accurate and automated computation of vegetation indices and evaluation of land cover types via time series analysis. Thus, the discrimination of pixels on Landsat scenes obtained from the satellite imagery contributes to the more practical tasks of the environmental monitoring and assessment of the sub-Saharan African landscapes. Technically, the use of R libraries works straightforward and flexible in implementation with regard to data formats and specifications such as Landsat scenes. Therefore, the presented methods of R with supportive tools of GMT and Python can be also implemented in other environmental applications of geospatial analysis using diverse imagery types such as Sentinel-2A or the like. 
+
+\newpar Further, the image processing performed in R can be integrated in as a part of the wider studies applying a variety of software as a basis module in more complicated algorithms of geospatial data analysis and mapping. Finally, the potential applications of R include times series analysis of larger dataset of the images aimed at determination of the link between spatial patterns of land cover types and vegetation with climate data such as repeatability of rainfall and fluctuation of interannual temperature. Massive data analysis can benefit from the automated approaches of R programming for evaluation of climatic trends over several decades and larger spatial extent of target area.
+
+\vspace{12pt}
+
+\newsection {ABBREVIATIONS}
+\vspace{12pt}
+
+\begin{tabular}{@{}ll}
+DCW & Digital Chart of the World \\
+EPSG & European Petroleum Survey Group \\
+ESA & European Space Agency \\
+ESRI & Environmental Systems Research Institute \\
+EVI & Enhanced Vegetation Index \\
+GEBCO & General Bathymetric Chart of the Oceans \\
+GIS & Geographic Information System \\
+GMT & Generic Mapping Tools \\
+Landsat OLI/TIRS & Landsat Operational Land Imager and the Thermal Infrared Sensor \\
+MODIS & Moderate Resolution Imaging Spectroradiometer \\
+NASA & National Aeronautics and Space Administration \\
+NDVI & Normalized Difference Vegetation Index \\
+SAVI & Soil Adjusted Vegetation Index \\
+SPOT & Satellite Pour l'Observation de la Terre \\
+SRTM & Shuttle Radar Topography Mission \\
+USGS & United States Geological Survey \\
+UTM & Universal Transverse Mercator \\
+WGS & World Geodetic System \\
+\end{tabular}
+
+\vspace{12pt}
+
+\newsection {APPENDIX}
+\vspace{12pt}
+
+\subsection*{GMT cartographic scripts}
+
+\begin{lstlisting}[language=bash, caption=GMT code for cartographic data visualization,basicstyle=\ttfamily\footnotesize,keywordstyle=\color{deepmagenta},emphstyle=\color{deepred},
+stringstyle=\color{deepblue},breaklines=true,numbers=left,label={lst:01}]
+gmt grdcut ETOPO1_Ice_g_gmt4.grd -R-13/5/9.5/25.5 -Gml1_relief.nc
+gmt grdcut GEBCO_2019.nc -R-13/5/9.5/25.5 -Gml_relief.nc
+gdalinfo -stats ml1_relief.nc
+gmt makecpt -Csrtm -V -T27/1590 > pauline.cpt
+gmt pscoast -R-13/5/9.5/25.5 -JD-4/18/9.5/25.5/6.5i -Dh -M -EML > Mali.txt
+ps=Topo_ML.ps
+gmt grdimage ml_relief.nc -Cpauline.cpt -R-13/5/9.5/25.5 \
+	-JD-4/18/9.5/25.5/6.5i -I+a15+ne0.75 -t40 -Xc -P -K > $ps
+gmt grdcontour ml1_relief.nc -R -J -C1000 -A1000+f7p,26,darkbrown \
+	-Wthinner,darkbrown -O -K >> $ps
+gmt pscoast -R -J -Ia/thin,blue -Na -N1/thick,tomato -W0.1p -Df -O -K >> $ps
+gmt psclip -R-13/5/9.5/25.5 -JD-4/18/9.5/25.5/6.5i Mali.txt -O -K >> $ps
+gmt grdimage ml_relief.nc -Cpauline.cpt -R-13/5/9.5/25.5 \
+	-JD-4/18/9.5/25.5/6.5i -I+a15+ne0.75 -Xc -P -O -K >> $ps
+gmt grdcontour ml1_relief.nc -R -J -C500 -Wthinnest,darkbrown -O -K >> $ps
+gmt pscoast -R -J -Ia/thin,blue -Na -N1/thick,tomato -W0.1p -Df -O -K >> $ps
+gmt psclip -C -O -K >> $ps   
+gmt psscale -Dg-13.3/8.1+w16.5c/0.15i+h+o0.3/0i+ml+e -R -J -Cpauline.cpt \
+    -Bg50f10a100+l"Colormap: 'earth' Colors for global topography relief \
+    	[R=-T29/896, H, C=RGB]" -I0.2 -By+lm -O -K >> $ps
+gmt psbasemap -R -J  -Bpxg4f1a2 -Bpyg4f2a2 -Bsxg2 -Bsyg2 \
+	-B+t"Topographic map of Mali" -O -K >> $ps
+gmt psbasemap -R -J -Lx14.0c/-2.4c+c10+w500k+l"Equidistant conic \ 
+	projection. Scale (km)"+f -UBL/0p/-70p -O -K >> $ps
+gmt pstext -R -J -N -O -K -F+f11p,21,lemonchiffon+jLB >> $ps << EOF
+-5.67 12.50 Koutiala
+EOF
+gmt psxy -R -J -Sc -W0.5p -Gyellow -O -K << EOF >> $ps
+-5.47 12.38 0.20c
+EOF
+# ditto for all the cities and objects with adjusted coordinates
+gmt psbasemap -R -J -O -K -DjTL+w3.5c+o-0.2c/-0.2c+stmp >> $ps
+read x0 y0 w h < tmp
+gmt pscoast --MAP_GRID_PEN_PRIMARY=thin,grey -Rg -JG-1.0/8.0N/$w -Da \
+	-Glightgoldenrod1 -A5000 -Bga -Wfaint -EML+gred -Sdodgerblue \
+	-O -K -X$x0 -Y$y0 >> $ps
+gmt psxy -R -J -O -K -T  -X-${x0} -Y-${y0} >> $ps
+gmt logo -Dx7.0/-3.1+o0.1i/0.1i+w2c -O -K >> $ps
+gmt pstext -R0/10/0/15 -JX10/10 -X0.5c -Y8.7c -N -O \
+    -F+f10p,0,black+jLB >> $ps << EOF
+2.5 10.4 Digital elevation data: SRTM/GEBCO, 15 arc sec resolution grid
+EOF
+gmt psconvert Topo_ML.ps -A0.5c -E720 -Tj -Z
+\end{lstlisting}
+
+\subsection*{R code for NDVI computation and mapping}
+
+\begin{lstlisting}[language=R, caption=R code for NDVI computation and mapping,basicstyle=\ttfamily\footnotesize,keywordstyle=\color{deepmagenta},emphstyle=\color{deepred},
+stringstyle=\color{deepblue},breaklines=true,numbers=left,label={lst:02}]
+library(terra)
+library(RColorBrewer)
+library(Hmisc)
+setwd("/Users/polinalemenkova/Documents/R/52_Image_Processing/NDVI")
+filenames <- paste0('LC08_L2SP_197050_20151116_20200908_02_T1_SR_B',
+	1:7, ".tif")
+filenames
+landsat <- rast(filenames)
+landsat
+ndvi <- vi(landsat, 5, 4)
+options(scipen=10000)
+plot(ndvi, col=brewer.pal(11, "RdYlGn"), font.main = 1, 
+	main = "NDVI for Landsat-8 OLI/TIRS C1 
+image LC08_L2SP_197050_20151116_20200908_02_T1_SR: 
+	Inner Niger Delta, Mali (2015)", 
+cex.main=0.9) minor.tick(nx = 10, ny = 10, tick.ratio = 0.3)
+hist(ndvi, font.main = 1, main = "NDVI values for Landsat-8 OLI/TIRS C1 
+	image  \nLC08_L2SP_197050_20151116_20200908_02_T1_SR: 
+	Inner Niger Delta, Mali (2015)", 
+xlab = "NDVI", ylab= "Frequency", col = "darkolivegreen1", 
+	xlim = c(-0.5, 1), breaks = 30, xaxt = "n") axis(side=1, 
+	at = seq(-0.6, 1, 0.1), labels = seq(-0.6, 1, 0.1))
+minor.tick(nx = 10, ny = 10, tick.ratio = 0.3)
+\end{lstlisting}
+
+\subsection*{R code for SAVI computation and mapping}
+
+\begin{lstlisting}[language=R, caption=R code used for SAVI computation and mapping,basicstyle=\ttfamily\footnotesize,keywordstyle=\color{deepmagenta},emphstyle=\color{deepred},
+stringstyle=\color{deepblue},breaklines=true,numbers=left,label={lst:03}]
+library(terra)
+library(RColorBrewer)
+library(Hmisc)
+setwd("/Users/polinalemenkova/Documents/R/52_Image_Processing/SAVI")
+filenames <- paste0('LC08_L2SP_197050_20211116_20211125_02_T1_SR_B', 1:7, 
+	".tif")
+filenames
+landsat <- rast(filenames)
+landsat
+options(scipen=10000)
+plot(savi, col = rev(brewer.pal(11, "Spectral")), font.main = 1, 
+main = "SAVI for Landsat-8 OLI/TIRS C1 image 
+LC08_L2SP_197050_20211116_20211125_02_T1_SR: 
+Inner Niger Delta, Mali (2021)", cex.main=0.9)
+minor.tick(nx = 10, ny = 10, tick.ratio = 0.3)
+hist(savi, font.main = 1, main = "SAVI values for Landsat-8 OLI/TIRS C1 
+	image \nLC08_L2SP_197050_20211116_20211125_02_T1_SR: 
+Inner Niger Delta, Mali (2021)", xlab = "NDVI", ylab= "Frequency",
+    col = "chocolate1", xlim = c(-0.5, 1),  breaks = 30, xaxt = "n")
+axis(side=1, at = seq(-0.6, 1, 0.1), labels = seq(-0.6, 1, 0.1))
+minor.tick(nx = 10, ny = 10, tick.ratio = 0.3)
+\end{lstlisting}
+
+\subsection*{R code for computing Enhanced Vegetation Index 2 (EVI2)}
+
+\begin{lstlisting}[language=R,caption=R code used for computing Enhanced Vegetation Index 2 (EVI2), basicstyle=\ttfamily\footnotesize,keywordstyle=\color{deepmagenta},emphstyle=\color{deepred},
+stringstyle=\color{deepblue},breaklines=true,numbers=left,label={lst:04}]
+library(terra)
+library(RColorBrewer)
+library(Hmisc)
+library(pals)
+setwd("/Users/polinalemenkova/Documents/R/52_Image_Processing/EVI")
+filenames <- paste0('LC08_L2SP_197050_20211116_20211125_02_T1_SR_B', 
+	1:7, ".tif")
+filenames
+landsat <- rast(filenames)
+landsat
+colors <- jet(100)
+options(scipen=10000)
+plot(evi2, col = colors, font.main = 2, main = "Enhanced Vegetation Index 2 
+	(EVI2) for Landsat-8 OLI/TIRS C1 image 
+	LC08_L2SP_197050_20211116_20211125_02_T1: Inner Niger Delta, Mali 
+	(2021)", cex.main=0.9)
+minor.tick(nx = 10, ny = 10, tick.ratio = 0.3)
+hist(evi2, font.main = 1, main = "EVI2 values for Landsat-9 OLI/TIRS C1 
+	image \n LC08_L2SP_197050_20211116_20211125_02_T1, Inner 
+	Niger Delta, Mali (2021)", xlab = "SAVI", ylab= "Frequency",
+    col = "cyan1", xlim = c(-0.4, 0.4),  breaks = 30, xaxt = "n")
+axis(side=1, at = seq(-0.4, 0.4, 0.1), labels = seq(-0.4, 0.4, 0.1))
+minor.tick(nx = 10, ny = 10, tick.ratio = 0.3)
+\end{lstlisting}
+
+\subsection*{R code for unsupervised classification by k-means clustering}
+
+\begin{lstlisting}[language=R,caption=R code used for unsupervised classification by k-means clustering, basicstyle=\ttfamily\scriptsize,keywordstyle=\color{deepmagenta},emphstyle=\color{deepred},
+stringstyle=\color{deepblue},breaklines=true,numbers=left,label={lst:05}]
+library(rgdal)
+library(raster)
+library(terra)
+library(RColorBrewer)
+library(pals)
+library(colorspace)
+library(RStoolbox)
+library(graphics)
+setwd("/Users/polinalemenkova/Documents/R/52_Image_Processing/K-means")
+Landsat_2013 <- list.files("/Users/polinalemenkova/Documents/R/
+	52_Image_Processing/K-means")
+list.files()
+landsat <- rast(Landsat_2013)
+landsat
+landsatRGB <- landsat[[c(4,3,2)]]
+plotRGB(landsatRGB, r=1, g=2, b=3, axes=FALSE, stretch="lin")
+set.seed(25)
+unC <- unsuperClass(landsatRGB, nSamples = 100, nClasses = 20, nStarts = 5)
+unC
+colors <- jet(20)
+plot(unC$map, main = "K-means Clustering for Landsat-8 OLI/TIRS C1 image of 
+	Mali, Inner Niger Delta \nLC08_L2SP_197050_20131110_20200912_02_T1 
+	(2013)", font.main=1, cex.main = 0.85, col = colors, axes = FALSE, 
+	box = FALSE, legend = FALSE)
+legend(x = "bottomright", legend=c("1", "2", "3", "4", "5", "6", "7", "8", 
+	"9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"), 
+	fill = colors, title = "LULC ID Classes", horiz = FALSE,  
+	bty = "n", text.font=1, ncol=1, y.intersp = 0.7)
+\end{lstlisting}
+
+\subsection*{Python code used for data inspection by correlation analysis}
+
+\begin{lstlisting}[language=python,caption=Python code used for data inspection by correlation analysis, basicstyle=\ttfamily\scriptsize,keywordstyle=\color{deepmagenta},emphstyle=\color{deepred},
+stringstyle=\color{deepblue},breaklines=true,numbers=left,label={lst:06}]
+#!/usr/bin/env python
+# coding: utf-8
+import os
+import numpy as np
+import pandas as pd
+import matplotlib.pylab as pylab
+from matplotlib import pyplot as plt
+import seaborn as sb
+os.chdir('/Users/polinalemenkova/Documents/Python/Scripts')
+sb.set(style='white')
+sb.set_context('paper')
+params = {'figure.figsize': (10, 10), 'legend.fontsize': 14,
+        'font.family': 'Times'
+        }
+pylab.rcParams.update(params)
+df = pd.read_csv("Table_stat.csv")
+corr = df.corr(method='pearson')
+cmap="RdBu"
+f, ax = plt.subplots()
+sb.heatmap(corr, cmap=cmap, center=0, vmin=-1.1, vmax=1.1,
+           annot=True, annot_kws={"size":8},
+           square=True, linewidths=.05, linecolor='grey',
+           cbar=True, mask=False, cbar_kws={"shrink": .5},
+           )
+plt.title('Pearson correlation for land cover types in Inner Niger 
+	  Delta, Mali', fontsize=13, fontfamily='serif')
+plt.subplots_adjust(bottom=0.15,top=0.85, right=0.90, left=0.10)
+plt.xticks(rotation=30)
+plt.yticks()
+plt.tight_layout()
+plt.savefig('plot_CorrK.png', dpi=300)
+plt.show()
+\end{lstlisting}
+
+{\bf Acknowledgements.} The authors thank the reviewers for reading, commenting and careful review of this paper which improved the initial version of the manuscript. 
+
+%\newsection {REFERENCES}
+%\bibliographystyle{apalike}
+%\bibliographystyle{plain}
+%\bibliographystyle{plainnat}
+\bibliography{Mali.bib}
+%\nocite{*}
+
+% -----------------------------------------------------------------------------------------------
+% end of the AUTHOR section
+% -----------------------------------------------------------------------------------------------
+
+\end{document}
