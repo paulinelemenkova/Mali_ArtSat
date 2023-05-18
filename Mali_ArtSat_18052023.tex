@@ -418,7 +418,7 @@ evi2 = lapp(landsat[[c(4, 3)]],
 
 \subsection*{Statistical Analysis}
 
-\newpar The correlation analysis was performed using plots of Kendall and Pearson methods in Python by the code \hl{in Listing} \ref{lst:06} \hl{in the Appendix} (here a case for Pearson method, modified and applied for the case of Kendall method).  
+\newpar The correlation analysis was performed using plots of Kendall \hl{correlation method} \citep{Kendall1938} and Pearson \hl{correlation method} \citep{Pearson1895}\hl{. Both methods are used to measure the association between the two measured quantities, that is, land cover classes and the probability of the correct association of the pixels assigned to these classes. In} Python\hl{, these algorithms were implemented }by the code \hl{presented in Listing} \ref{lst:06} \hl{in the Appendix} (here a case for Pearson method, modified and applied for the case of Kendall method). \hl{The correlation between two computed land cover classes is high when observations have a similar values, and vice versa.}
 
 %\pagebreak
 \newsection {3. RESULTS AND DISCUSSION}
@@ -841,6 +841,10 @@ evi2 = lapp(landsat[[c(4, 3)]],
 \newpar Using correlation plots by Python libraries, the association of 20 major land cover types were compared and identified for each scene as a comparison between 2013 and 2022, to find out the correlations between values in previous and later years in spectral reflectance of the pixels on the images and the distribution of the vegetation associations in Inner Niger Delta: agricultural areas (irrigated rice fields), natural vegetation areas (grassland, savannah of various types -- shrubby, anthropic woody and uplands savannah, thicket in uplands), bare soil (sands, loams and clays) and specific plants typical for floodplain of the Inner Niger Delta with characteristic aquatic plants (shallow lacustrine woodland, island and margins palm grove in the inundated areas and channel banks). 
 
 \newsection {4. CONCLUSIONS}
+
+\newpar \hl{The aim of the performed image processing and algorithms of classification and computing vegetation indices is to transform the original raster pixels constituting the satellite image into a land cover object classes and areas with higher or lower values of vegetation indices that indicate the state of the plants. To this end, the tested six Landsat images have been processed and the values of the VIs are extracted from the original raster image with a 30-m resolution using formulae of the indices computed using R. The classification was done by library(terra) of R using clustering algorithm and resulted in the classified classes of images representing various land cover types.}
+
+\newpar \hl{}
 
 \newpar In this study, we demonstrated the integrated use of the three types of scripting techniques -- GMT, R and Python -- as effective tools for processing Earth observation data. The advanced use of R language for satellite image processing provides new insights into complex interlace of climate-hydrological processes and vegetation responses based on automatic classification of the Landsat OLI/TIRS bands. \hl{The full programming codes used in this study for the Python and R languages, and GMT scripts} are publicly provided in the open GitHub repository of the authors using the following link: \href{https://github.com/paulinelemenkova/Image_Processing_Mali_IND_Scripts}{https://github.com/paulinelemenkova/Image\_Processing\_Mali\_IND\_Scripts}. 
 
