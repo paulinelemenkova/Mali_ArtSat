@@ -597,6 +597,7 @@ evi2 = lapp(landsat[[c(4, 3)]],
 The highest SAVI values were 0.4281315 on 2013/11/10, while the in 2021/11/16, the highest SAVI was only 0.2790245, that is, the lower level of vegetation health (Table \ref{tab3}). The lowest SAVI values among all these years were obtained from image on 2013/11/10 which shows the most significant range of variation in values (Figure \ref{fig09}), which differs from the NDVI values in relevant years (see Table \ref{tab2}) that shows the lowest NDVI values on 2022/11/11 (NDVI=-0.3072812), but corresponds to the highest values obtained for 2013/11/10 (NDVI=0.5879165).  
 
 \begin{table}[H]
+\begin{threeparttable}
 \scriptsize
 \caption{Results of the SAVI computations of the Landsat-8 OLI/TIRS satellite images.\label{tab3}}
 		\newcolumntype{C}{>{\centering\arraybackslash}X}
@@ -619,6 +620,11 @@ The highest SAVI values were 0.4281315 on 2013/11/10, while the in 2021/11/16, t
 	2022/11/11 & 7771 & 7621 & 1 & 244485 & 473115 & 1481685 & 1714815 & -0.1810541 & 0.2929085 \\
 	\bottomrule
 \end{tabularx}
+ \begin{tablenotes}
+      \scriptsize
+      	\item \emph{Note for Table 3} \hl{'nrow' -- number of rows on the image matrix, 'ncol' -- number of rows, 'nlyr' -- number of layers, $x_{min}$ and $y_{min}$ -- the minimal values of pixel on the image in x and y dimensions of the pixel's matrix, $x_{max}$ and $y_{max}$ -- the maximal values of pixel on the image in x and y dimensions of the pixel's matrix, 'min' -- minimal value of the VI, 'max' -- maximal value of the VI.}
+    \end{tablenotes}
+  \end{threeparttable}
 \end{table}
 
 \begin{figure}[H]
@@ -742,6 +748,7 @@ The highest SAVI values were 0.4281315 on 2013/11/10, while the in 2021/11/16, t
 \end{figure}
 
 \begin{table}[H]
+\begin{threeparttable}
 \scriptsize
 \caption{Results of the EVI2 computations of the Landsat-8 OLI/TIRS satellite images.\label{tab4}}
 	\newcolumntype{C}{>{\centering\arraybackslash}X}
@@ -764,6 +771,11 @@ The highest SAVI values were 0.4281315 on 2013/11/10, while the in 2021/11/16, t
 	2022/11/11 & 7771 & 7621 & 1 & 244485 & 473115 & 1481685 & 1714815 & -0.2896799 & 0.4686475 \\
 	\hline
 \end{tabularx}
+ \begin{tablenotes}
+      \scriptsize
+      	\item \emph{Note for Table 3} \hl{'nrow' -- number of rows on the image matrix, 'ncol' -- number of rows, 'nlyr' -- number of layers, $x_{min}$ and $y_{min}$ -- the minimal values of pixel on the image in x and y dimensions of the pixel's matrix, $x_{max}$ and $y_{max}$ -- the maximal values of pixel on the image in x and y dimensions of the pixel's matrix, 'min' -- minimal value of the VI, 'max' -- maximal value of the VI.}
+    \end{tablenotes}
+  \end{threeparttable}
 \end{table}
 
 \subsection*{Comparison of the dynamics in land cover types}
