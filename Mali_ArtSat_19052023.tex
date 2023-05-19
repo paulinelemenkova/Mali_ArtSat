@@ -14,6 +14,7 @@
 \usepackage{color}
 \usepackage[usenames,dvipsnames,svgnames]{xcolor}
 \usepackage{changepage}
+\usepackage{threeparttablex}
 
 \usepackage{cite}
 	\renewcommand\citepunct{,}
@@ -481,10 +482,11 @@ evi2 = lapp(landsat[[c(4, 3)]],
 \newpar The comparison of the computed values are summarised in Table \ref{tab2} based on the SpatRaster from Bands 4 and 5 of the Landsat-8 OLI/TIRS satellite images and shown in histograms of Figure \ref{fig07}. The lowest NDVI values in the study area were obtained from the Landsat-9 OLI/TIRS image in 2022/11/11 as -0.3072812, while the highest data are 0.5879165 received from the Landsat-9 OLI/TIRS image in 2013/11/10. 
 
 \begin{table}[H]
+\begin{threeparttable}
 \scriptsize
 \caption{Results of the NDVI computations of the Landsat-8 OLI/TIRS satellite images.\label{tab2}}
 		\newcolumntype{C}{>{\centering\arraybackslash}X}
-		\begin{tabularx}{\textwidth}{| p{2.0cm} | CCC | CCCC | p{1.8cm} | p{1.8cm} |}
+\begin{tabularx}{\textwidth}{| p{2.0cm} | CCC | CCCC | p{1.8cm} | p{1.8cm} |}
 		\toprule
 	\bf{Time} & \multicolumn{3}{c|}{\bf{Dimensions}} & \multicolumn{4}{c|}{\bf{Extent}} & \multicolumn{2}{c|}{\bf{Extreme Values}} \\
 \cline{2-10}
@@ -503,9 +505,12 @@ evi2 = lapp(landsat[[c(4, 3)]],
 	2022/11/11 & 7771 & 7621 & 7 & 244485 & 473115 & 1481685 & 1714815 & -0.3072812 & 0.5237642 \\
 	\bottomrule
 \end{tabularx}
+ \begin{tablenotes}
+      \scriptsize
+      	\item \emph{Note for Table 2} \hl{'nrow' -- number of rows on the image matrix, 'ncol' -- number of rows, 'nlyr' -- number of layers, $x_{min}$ and $y_{min}$ -- the minimal values of pixel on the image in x and y dimensions of the pixel's matrix, $x_{max}$ and $y_{max}$ -- the maximal values of pixel on the image in x and y dimensions of the pixel's matrix, 'min' -- minimal value of the VI, 'max' -- maximal value of the VI.}
+    \end{tablenotes}
+  \end{threeparttable}
 \end{table}
-
-\hl{The abbreviations in the table have the following meaning: 'nrow' -- number of rows on the image matrix, 'ncol' -- number of rows, 'nlyr' -- number of layers, $x_{min}$ and $y_{min}$ -- the minimal values of pixel on the image in x and y dimensions of the pixel's matrix, $x_{max}$ and $y_{max}$ -- the maximal values of pixel on the image in x and y dimensions of the pixel's matrix, 'min' - minimal value of the VI, 'max' - maximal value of the VI.}
 
 \begin{figure}[H]
 	\begin{subfigure}[b]{.35\textwidth}
