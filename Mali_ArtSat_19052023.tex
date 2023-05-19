@@ -627,6 +627,8 @@ The highest SAVI values were 0.4281315 on 2013/11/10, while the in 2021/11/16, t
   \end{threeparttable}
 \end{table}
 
+\hl{Figure} \ref{fig09} \hl{shows the frequency of the SAVI values by pixels on the image representing their associations with land cover types. The higher the SAVI values are, the denser and more healthy is the vegetation coverage. The actual range of values of the Inner Niger Delta, Mali, for the taken images varies from -0.15 to +0.35, although the general theoretical range of values may change between -1.0 and +1.0, similar to the NDVI. Since SAVI is adjusted for soil brightness for areas with low vegetative coverage, it is particularly suitable for the African Sahel region with desert and sandy areas in arid and semi-arid climate. Woodland, palm groves have values over 0.30 to 0.35; grassland -- 0.2 to 0.3 which is similar to NDVI, vegetation mosaics including shrub and lacustrine woodland -- 0.10 to 0.15, areas covered by irrigated and wild rice from 0.15 to 0.20,  thickets -- 0.20 to 0.25 and savannah -- 0.25 to 0.30.the lush wetland vegetation in flooded areas with aquatic plants ranges between 0.25 to 0.35, i.e., have the highest values of SAVI.}
+
 \begin{figure}[H]
 	\begin{subfigure}[b]{.35\textwidth}
 		\centering
@@ -660,14 +662,12 @@ The highest SAVI values were 0.4281315 on 2013/11/10, while the in 2021/11/16, t
 		\includegraphics[width=0.95\textwidth]{Fig_09f.jpg}
 		\caption{2022}
 	\end{subfigure}%
-\vspace*{20pt}\caption{Histograms of SAVI based on the Landsat 8-9 OLI/TIRS images of Inner Niger Delta for November: (\textbf{a}) 2013, (\textbf{b}) 2015, (\textbf{c}) 2018, (\textbf{d}) 2020, (\textbf{e}) 2021, (\textbf{f}) 2022. Plots: RStudio. Source: authors.}\label{fig09}
+\vspace*{20pt}\caption{Histograms of SAVI based on the Landsat 8-9\hl{ }images of Inner Niger Delta\hl{: }(\textbf{a}) 2013, (\textbf{b}) 2015, (\textbf{c}) 2018, (\textbf{d}) 2020, (\textbf{e}) 2021, (\textbf{f}) 2022. Plots: RStudio. Source: authors.}\label{fig09}
 \end{figure}
 
 \subsection*{Comparison of variations of EVI over years}
 
 \newpar The radiometric and biophysical advantages of EVI (Figure \ref{fig10}) for mapping vegetation canopy in Malian environment is that, compared to NDVI which better saturates in high biomass regions such as tropical forests, EVI remains sensitive to canopy variations that is suitable to savannah of Sahel arid and semi-arid regions. Specifically, EVI shows a correspondence between the canopy reflectances of plants as detected on the pixels and its values obtained from the Landsat OLI/TIRS sensor specifically for semi-arid grasslands, thicket and shrubby savannah in uplands, savannah in shallow floodplains of the Inner Niger Delta, and spots of woody savannah. 
-
-\newpar The values of EVI (Table \ref{tab4}) were compared to the other two different well-known vegetation indices (NDVI and EVI) were calculated and used from each satellite image as a time-series format of six scenes. We found that EVI values calculated from Landsat 8 OLI satellite images are higher than \hl{earlier} satellites \hl{of the Landsat mission, because of their lower resolution, e.g., compared to Landsat-MSS or TM}, i.e., the extent of minimal and maximal values has a greater span of values. 
 
 \begin{figure}[H]
 	\begin{subfigure}[b]{.5\textwidth}
@@ -706,6 +706,8 @@ The highest SAVI values were 0.4281315 on 2013/11/10, while the in 2021/11/16, t
 	\end{subfigure}%
 \vspace*{20pt}\caption{Enhanced Vegetation Index (EVI) based on the Landsat 8-9 OLI/TIRS images of Inner Niger Delta for November: (\textbf{a}) 2013, (\textbf{b}) 2015, (\textbf{c}) 2018, (\textbf{d}) 2020, (\textbf{e}) 2021, (\textbf{f}) 2022. Mapping visualization: RStudio. Source: authors.}\label{fig10}
 \end{figure}
+
+\newpar The values of EVI (Table \ref{tab4}) were compared to the other two different well-known vegetation indices (NDVI and EVI) were calculated and used from each satellite image as a time-series format of six scenes. We found that EVI values calculated from Landsat 8 OLI satellite images are higher than \hl{earlier} satellites \hl{of the Landsat mission, because of their lower resolution, e.g., compared to Landsat-MSS or TM}, i.e., the extent of minimal and maximal values has a greater span of values. 
 
 \newpar The examination of data (Table \ref{tab4}) shows that EVI values were extremal in 2013/11/10 when they ranged between -0.3576084 and +0.6849960, which corresponds to the consequences of the large drought in 2012 in the Sahel region which was hit by a major climate extremes (decrease in precipitation and rise in temperatures) which weakened vulnerable vegetation communities in the consequent years, as reflected in the values of the vegetation indices in 2013. In the consequent years, these effects gradually diminished along with the stabilisation in the ecosystem.  
 
