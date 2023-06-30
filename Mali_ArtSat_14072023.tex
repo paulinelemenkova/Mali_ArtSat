@@ -304,7 +304,7 @@ The images were collected always on November for the following reason. Due to th
 
 \newpar The cartographic technical characteristics common for each Landsat OLI/TIRS bands include the coordinate reference system World Geodetic System (WGS) 84, the Universal Transverse Mercator (UTM) zone 30N (EPSG:32630) and the spatial resolution of most of the bands at 30 meters. Specifically, the OLI multispectral bands have pixel size 30 m. These includes Bands 1 to 7: Band 1 (Coastal aerosol), Band 2 (Blue), Band 3 (Green), Band 4 (Red), Band 5 - Near Infrared (NIR), Band 6 (SWIR 1), Band 7 (SWIR 2) and Band 9 (Cirrus). The panchromatic Band 8 and Thermal Infrared (TIRS) 1 and 2 bands were not used in this study. Here, we used the multispectral bands which allow the precision of the maps to 30 m per pixel. The six Landsat 8-9 OLI image used in this study are visualized in RGB colours in Figure \ref{fig04}.
 
-\newpar The principal characteristics of the Landsat 8-9 images consists in multi-spectral bands which enable to detect difference in reflectance characteristics of various land cover types by image analysis. This is explained by different ratio in energy reflected and incident by these surfaces and recorded in wavelengths. Therefore, various land cover types (water, land, diverse vegetation types, asphalt-covered roads or buildings) have different spectral reflectance. Spectral reflectance is measured as a function of wavelength in the Landsat 8-9 OLI bands. Such spectral characteristics enables to separate these pixels into classes on the images.
+\newpar The principal characteristics of the Landsat 8-9 images consists in multi-spectral bands which enable to detect difference in reflectance characteristics of various land cover types by image analysis. This is explained by different ratio in energy reflected and incident by these surfaces and recorded in wavelengths. Therefore, various land cover types (water, land, diverse vegetation types, asphalt-covered roads or buildings) have different spectral reflectance \citep{RichardsJia,ChapmanGasparovic}. Spectral reflectance is measured as a function of wavelength in the Landsat 8-9 OLI bands. Such spectral characteristics enables to separate these pixels into classes on the images.
 
 \begin{figure}[H]
 	\begin{subfigure}[b]{.35\textwidth}
@@ -354,18 +354,7 @@ The images were collected always on November for the following reason. Due to th
 
 \subsection*{Computing Normalized Difference Vegetation Index (NDVI)}
 
-\newpar The Normalized Difference Vegetation Index (NDVI) was computed using a general formula of band combination for NDVI = (NIR - Red) / (NIR + Red) \citep{Tarpley}. In R syntax, the NDVI was defined using the following code:
-
-\begin{footnotesize}
-\begin{verbatim}
-vi <- function(img, k, i) {
-  bk <- img[[k]]
-  bi <- img[[i]]
-  vi <- (bk - bi) / (bk + bi)
-  return(vi)
-}
-\end{verbatim}
-\end{footnotesize}
+\newpar The Normalized Difference Vegetation Index (NDVI) was computed using a general formula of band combination for NDVI = (NIR - Red) / (NIR + Red) \citep{Tarpley}. In R syntax, the NDVI was defined using the code \hl{presented in Listing} \ref{lst:02}.
 
 \newpar The SpatRaster was created from the Bands 4 and 5 as a spatially referenced surface in RStudio (Figure \ref{fig05}). 
 
@@ -380,17 +369,7 @@ vi <- function(img, k, i) {
 
 \subsection*{Computing Soil Adjusted Vegetation Index (SAVI)}
 
-\newpar The calculation of the Soil Adjusted Vegetation Index (SAVI) \citep{HUETE1988295} corrects the NDVI for the effects of soil brightness in desert regions, bare soil and other places where vegetative cover is low. The general formula used for calculation SAVI is as follows SAVI = ((Band 5 – Band 4) / (Band 5 + Band 4 + 0.5)) * (1.5) \citep{HUETE1988295,Huete}. Note that the numeration of these bands corresponds to the 4 and 3, because the numeration in R syntax of RasterObject starts from 0 (zero). Therefore, in formula below, the NIR and Red bands are assigned numbers of 4 and 3 in the 'lapp function', as showed below. Using R syntax where NIR = Band 5, and red channel correspond to the Band 4, the computing is performed as follows in the code snippet: 
-
-\begin{small}
-\begin{verbatim}
-savi_fun = function(nir, red){
-  ((nir - red) / (nir + red + 0.5)) * 1.5
-}
-savi = lapp(landsat[[c(4, 3)]],
-            fun = savi_fun)
-\end{verbatim}
-\end{small}
+\newpar The calculation of the Soil Adjusted Vegetation Index (SAVI) \citep{HUETE1988295} corrects the NDVI for the effects of soil brightness in desert regions, bare soil and other places where vegetative cover is low. The general formula used for calculation SAVI is as follows SAVI = ((Band 5 – Band 4) / (Band 5 + Band 4 + 0.5)) * (1.5) \citep{HUETE1988295,Huete}. Note that the numeration of these bands corresponds to the 4 and 3, because the numeration in R syntax of RasterObject starts from 0 (zero). Therefore, in formula below, the NIR and Red bands are assigned numbers of 4 and 3 in the 'lapp function', as showed below. Using R syntax where NIR = Band 5, and red channel correspond to the Band 4, the computing \hl{of SAVI} is performed as follows in the code presented \hl{in Listing} \ref{lst:03}.
 
 \newpar The process of computing SAVI vegetation index is performed in R library 'terra' using the code in Appendix in Listing \ref{lst:03} (here: example for 2021, repeated likewise for all other images).
 
@@ -398,19 +377,7 @@ savi = lapp(landsat[[c(4, 3)]],
 
 \subsection*{Computing Enhanced Vegetation Index (EVI)}
 
-\newpar Computing the Enhanced Vegetation Index (EVI) was based using the equation of Landsat 4 and 5 bands: EVI2 = 2.4 * (Band 5 - Band 4) / (Band 5 + Band 4 + 1) \citep{HUETE2002195}. In R language, this formula was defined and converted using its syntax as follows:  
-
-\begin{small}
-\begin{verbatim}
-evi2_fun = function(nir, red){
-  2.4 * ((nir - red) / (nir + red + 1))
-}
-evi2 = lapp(landsat[[c(4, 3)]],
-            fun = evi2_fun)
-\end{verbatim}
-\end{small}
-
-\newpar The calculation and visualization of the Enhanced Vegetation Index (EVI) was based using the script in Appendix in Listing \ref{lst:04}.
+\newpar Computing the Enhanced Vegetation Index (EVI) was based using the equation of Landsat 4 and 5 bands: EVI2 = 2.4 * (Band 5 - Band 4) / (Band 5 + Band 4 + 1) \citep{HUETE2002195}. In R language, this formula was defined and converted using its syntax \hl{for calculation and visualization of the Enhanced Vegetation Index (EVI)} as \hl{presented in Listing} \ref{lst:04} \hl{in Appendix}.
 
 \newpar The time series of EVI are used to recognise the agriculture lands and planting areas (e.g., detecting rice planting and harvest for millet, maize and sorghum) in contrast to the savannah, flooded areas and bare lands. Besides, mapping variations of EVI over years obtained from the satellite images is useful for assessment of land degradation and desertification in semi-arid and arid regions of Sahel and southern Sahara of Mali. 
 
@@ -1000,6 +967,12 @@ library(terra)
 library(RColorBrewer)
 library(Hmisc)
 setwd("/Users/polinalemenkova/Documents/R/52_Image_Processing/NDVI")
+vi <- function(img, k, i) {
+  bk <- img[[k]]
+  bi <- img[[i]]
+  vi <- (bk - bi) / (bk + bi)
+  return(vi)
+}
 filenames <- paste0('LC08_L2SP_197050_20151116_20200908_02_T1_SR_B',
 	1:7, ".tif")
 filenames
@@ -1029,6 +1002,11 @@ library(terra)
 library(RColorBrewer)
 library(Hmisc)
 setwd("/Users/polinalemenkova/Documents/R/52_Image_Processing/SAVI")
+savi_fun = function(nir, red){
+  ((nir - red) / (nir + red + 0.5)) * 1.5
+}
+savi = lapp(landsat[[c(4, 3)]],
+            fun = savi_fun)
 filenames <- paste0('LC08_L2SP_197050_20211116_20211125_02_T1_SR_B', 1:7, 
 	".tif")
 filenames
@@ -1057,6 +1035,11 @@ library(RColorBrewer)
 library(Hmisc)
 library(pals)
 setwd("/Users/polinalemenkova/Documents/R/52_Image_Processing/EVI")
+evi2_fun = function(nir, red){
+  2.4 * ((nir - red) / (nir + red + 1))
+}
+evi2 = lapp(landsat[[c(4, 3)]],
+            fun = evi2_fun)
 filenames <- paste0('LC08_L2SP_197050_20211116_20211125_02_T1_SR_B', 
 	1:7, ".tif")
 filenames
