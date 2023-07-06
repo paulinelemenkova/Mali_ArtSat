@@ -99,6 +99,7 @@
 \definecolor{deepred}{rgb}{0.6,0,0}
 \definecolor{deepmagenta}{RGB}{195,12,214}
 \usepackage{multicol}
+\usepackage{multirow}
 % ===============================================================================================
 % start of the EDITOR section
 % ===============================================================================================
@@ -449,28 +450,6 @@ The images were collected always on November for the following reason. Due to th
 
 \newpar The comparison of the computed values \hl{is} summarised in Table \ref{tab2} based on the SpatRaster from Bands 4 and 5 of the Landsat \hl{8-9} satellite images and shown in histograms of Figure \ref{fig07}. The lowest NDVI values in the study area were obtained from the Landsat-\hl{9} image in 2022/11/11 as -0.3072812, while the highest data are 0.5879165 received from the Landsat-\hl{8} image in 2013/11/10. 
 
-\begin{table}[H]
-\caption{Results of the NDVI computations of the Landsat \hl{8-9} satellite images.\label{tab2}}
-\begin{tabularx}{\textwidth}{ YYY }
-		\toprule
-	\bf{Time} & \multicolumn{2}{c}{\bf{Extreme Values}} \\
-	Date & minimal NDVI & maximal NDVI \\
-	\midrule
-	10 November 2013 & -0.2311377 & 0.5879165 \\
-	\hline
-	16 November 2015 & -0.2619293 & 0.5245128 \\
-	\hline
-	24 November 2018 & -0.2603942 & 0.5258653 \\
-	\hline
-	29 November 2020 & -0.2496693 & 0.4980780 \\
-	\hline
-	16 November 2021 & -0.2522458 & 0.5417392 \\
-	\hline
-	11 November 2022 & -0.3072812 & 0.5237642 \\
-	\bottomrule
-\end{tabularx}
-\end{table}
-
 Figure \ref{fig07} shows the frequency of the NDVI values by pixels on the image. Although theoretically, the NDVI ranges from \hl{-1.0} to +1.0, in this particular area of Mali, the actual range varies from -0.3 to 0.5 for the month of November for all years.
 
 \begin{figure}[H]
@@ -513,7 +492,7 @@ Here, the areas of bare soil land (loams and clays) and sand have very low NDVI 
 
 \subsection*{Comparison of variations of SAVI index over years}
 
-\newpar The changes in the vegetation associations showing mosaics of areas covered by savannah against floodplain with aquatic plants and other areas were estimated by using a time series of Landsat 8-9 satellite images acquired on different dates between 11.2013 and 11.2022 (Figure \ref{fig08}). 
+\newpar \hl{Changes in} vegetation associations showing mosaics of areas covered by savannah against floodplain with aquatic plants and other areas were estimated by using a time series of Landsat 8-9 satellite images acquired on different dates between 11.2013 and 11.2022 (Figure \ref{fig08}). The highest SAVI values were 0.4281315 on 2013/11/10, while the in 2021/11/16, the highest SAVI was only 0.2790245, that is, the lower level of vegetation health (Table \ref{tab2}). The lowest SAVI values among all these years were obtained from image on 2013/11/10 which shows the most significant range of variation in values (Figure \ref{fig09}), which differs from the NDVI values in relevant years (see Table \ref{tab2}) that shows the lowest NDVI values on 2022/11/11 (NDVI=-0.3072812), but corresponds to the highest values obtained for 2013/11/10 (NDVI=0.5879165).  
 
 \begin{figure}[H]
 	\begin{subfigure}[b]{.5\textwidth}
@@ -553,40 +532,7 @@ Here, the areas of bare soil land (loams and clays) and sand have very low NDVI 
 \vspace*{20pt}\caption{Soil Adjusted Vegetation Index (SAVI) based on the Landsat \hl{8-9} images of Inner Niger Delta for November: (\textbf{a}) 2013, (\textbf{b}) 2015, (\textbf{c}) 2018, (\textbf{d}) 2020, (\textbf{e}) 2021, (\textbf{f}) 2022. Mapping visualization: RStudio. Source: authors.}\label{fig08}
 \end{figure}
 
-The highest SAVI values were 0.4281315 on 2013/11/10, while the in 2021/11/16, the highest SAVI was only 0.2790245, that is, the lower level of vegetation health (Table \ref{tab3}). The lowest SAVI values among all these years were obtained from image on 2013/11/10 which shows the most significant range of variation in values (Figure \ref{fig09}), which differs from the NDVI values in relevant years (see Table \ref{tab2}) that shows the lowest NDVI values on 2022/11/11 (NDVI=-0.3072812), but corresponds to the highest values obtained for 2013/11/10 (NDVI=0.5879165).  
-
-\begin{table}[H]
-\begin{threeparttable}
-\scriptsize
-\caption{Results of the SAVI computations of the Landsat \hl{8-9} satellite images.\label{tab3}}
-		\newcolumntype{C}{>{\centering\arraybackslash}X}
-		\begin{tabularx}{\textwidth}{| p{2.0cm} | CCC | CCCC | p{1.8cm} | p{1.8cm} |}
-		\toprule
-	\bf{Time} & \multicolumn{3}{c|}{\bf{Dimensions}} & \multicolumn{4}{c|}{\bf{Extent}} & \multicolumn{2}{c|}{\bf{Extreme Values}} \\
-\cline{2-10}
-	Date & nrow & ncol & nlyr & $x_{min}$ & $x_{max}$ & $y_{min}$ & $y_{max}$ & min & max \\
-	\midrule
-	2013/11/10 & 7781 & 7621 & 1 & 245085 & 473715 & 1481685 & 1715115 & -0.2235105 & 0.4281315 \\
-	\hline
-	2015/11/16 & 7781 & 7631 & 1 & 246285 & 475215 & 1481385 & 1714815 & -0.1681281 & 0.2896889 \\
-	\hline
-	2018/11/24 & 7781 & 7621 & 1 & 245985 & 474615 & 1481685 & 1715115 & -0.1830571 & 0.2938004 \\
-	\hline
-	2020/11/29 & 7781 & 7621 & 1 & 246585 & 475215 & 1481685 & 1715115 & -0.1384092 & 0.2833834 \\
-	\hline
-	2021/11/16 & 7781 & 7621 & 1  & 247485 & 476115 & 1481385 &  1714815 & -0.1564469 & 0.2790245 \\
-	\hline
-	2022/11/11 & 7771 & 7621 & 1 & 244485 & 473115 & 1481685 & 1714815 & -0.1810541 & 0.2929085 \\
-	\bottomrule
-\end{tabularx}
- \begin{tablenotes}
-      \scriptsize
-      	\item \emph{Note for Table 3} 'nrow' -- number of rows on the image matrix, 'ncol' -- number of rows, 'nlyr' -- number of layers, $x_{min}$ and $y_{min}$ -- the minimal values of pixel on the image in x and y dimensions of the pixel's matrix, $x_{max}$ and $y_{max}$ -- the maximal values of pixel on the image in x and y dimensions of the pixel's matrix, 'min' -- minimal value of the VI, 'max' -- maximal value of the VI.
-    \end{tablenotes}
-  \end{threeparttable}
-\end{table}
-
-Figure \ref{fig09} shows the frequency of the SAVI values by pixels on the image representing their associations with land cover types. The higher the SAVI values are, the denser and more healthy is the vegetation coverage. The actual range of values of the Inner Niger Delta, Mali, for the taken images varies from -0.15 to +0.35, although the general theoretical range of values may change between -1.0 and +1.0, similar to the NDVI. Since SAVI is adjusted for soil brightness for areas with low vegetative coverage, it is particularly suitable for the African Sahel region with desert and sandy areas in arid and semi-arid climate. Woodland, palm groves have values over 0.30 to 0.35; grassland -- 0.2 to 0.3 which is similar to NDVI, vegetation mosaics including shrub and lacustrine woodland -- 0.10 to 0.15, areas covered by irrigated and wild rice from 0.15 to 0.20,  thickets -- 0.20 to 0.25 and savannah -- 0.25 to 0.30.the lush wetland vegetation in flooded areas with aquatic plants ranges between 0.25 to 0.35, i.e., have the highest values of SAVI.
+\newpar Figure \ref{fig09} shows the frequency of the SAVI values by pixels on the image representing their associations with land cover types. The higher the SAVI values are, the denser and more healthy is the vegetation coverage. The actual range of values of the Inner Niger Delta, Mali, for the taken images varies from -0.15 to +0.35, although the general theoretical range of values may change between -1.0 and +1.0, similar to the NDVI. Since SAVI is adjusted for soil brightness for areas with low vegetative coverage, it is particularly suitable for the African Sahel region with desert and sandy areas in arid and semi-arid climate. Woodland, palm groves have values over 0.30 to 0.35; grassland -- 0.2 to 0.3 which is similar to NDVI, vegetation mosaics including shrub and lacustrine woodland -- 0.10 to 0.15, areas covered by irrigated and wild rice from 0.15 to 0.20,  thickets -- 0.20 to 0.25 and savannah -- 0.25 to 0.30.the lush wetland vegetation in flooded areas with aquatic plants ranges between 0.25 to 0.35, i.e., have the highest values of SAVI.
 
 \begin{figure}[H]
 	\begin{subfigure}[b]{.35\textwidth}
@@ -628,6 +574,10 @@ Figure \ref{fig09} shows the frequency of the SAVI values by pixels on the image
 
 \newpar The radiometric and biophysical advantages of EVI (Figure \ref{fig10}) for mapping vegetation canopy in Malian environment is that, compared to NDVI which better saturates in high biomass regions such as tropical forests, EVI remains sensitive to canopy variations that is suitable to savannah of Sahel arid and semi-arid regions. Specifically, EVI shows a correspondence between the canopy reflectances of plants as detected on the pixels and its values obtained from the Landsat \hl{8-9} sensor specifically for semi-arid grasslands, thicket and shrubby savannah in uplands, savannah in shallow floodplains of the Inner Niger Delta, and spots of woody savannah. 
 
+\newpar The values of EVI (Table \ref{tab2}) were compared to the other two different well-known vegetation indices (NDVI and EVI) were calculated and used from each satellite image as a time-series format of six scenes. EVI values calculated from Landsat 8-9 satellite images are higher than earlier satellites of the Landsat mission, because of their lower resolution, e.g., compared to Landsat-MSS or TM, i.e., the extent of minimal and maximal values has a greater span of values. Clearly visible two peaks on the histograms (Figure \ref{fig11}) correspond to the flooded inundated water-covered areas with negative values (EVI from 0 to -0.35 in a general extent). The lower data are typical for floodplains and aquatic plants which contrast against the bright vegetation areas that correspond to the grasslands, savannah and thickets (EVI values from 0.30 to 0.68). Finally, the middle values that are typical for the agricultural areas (rice) have mediocre values (EVI values from 0.20 to 0.30). 
+
+\newpar The values of EVI range from -1 to +1. However, for the specific area of the Inner Niger Delta, Mali on the Landsat 8-9 images taken on November, it varies from -0.25 to +0.40. For healthy wetland vegetation in, it varies between 0.05 and 0.40 which well represents the second peak in the histograms, while the first peak (-0.20 to +0.05) is corresponds to  flooded areas of delta and wetlands. Since EVI is corrected for aerosol scattering present in the atmosphere, and is adjusted for soil and canopy background, it well detects canopy background and identifies noise. Moreover, EVI is sensitive to land cover types with dense vegetation.
+
 \begin{figure}[H]
 	\begin{subfigure}[b]{.5\textwidth}
 		\centering
@@ -666,10 +616,6 @@ Figure \ref{fig09} shows the frequency of the SAVI values by pixels on the image
 \vspace*{20pt}\caption{Enhanced Vegetation Index (EVI) based on the Landsat \hl{8-9} images of Inner Niger Delta for November: (\textbf{a}) 2013, (\textbf{b}) 2015, (\textbf{c}) 2018, (\textbf{d}) 2020, (\textbf{e}) 2021, (\textbf{f}) 2022. Mapping visualization: RStudio. Source: authors.}\label{fig10}
 \end{figure}
 
-\newpar The values of EVI (Table \ref{tab4}) were compared to the other two different well-known vegetation indices (NDVI and EVI) were calculated and used from each satellite image as a time-series format of six scenes. EVI values calculated from Landsat 8-9 satellite images are higher than earlier satellites of the Landsat mission, because of their lower resolution, e.g., compared to Landsat-MSS or TM, i.e., the extent of minimal and maximal values has a greater span of values. 
-
-\newpar Clearly visible two peaks on the histograms (Figure \ref{fig11}) correspond to the flooded inundated water-covered areas with negative values (EVI from 0 to -0.35 in a general extent). The lower data are typical for floodplains and aquatic plants which contrast against the bright vegetation areas that correspond to the grasslands, savannah and thickets (EVI values from 0.30 to 0.68). Finally, the middle values that are typical for the agricultural areas (rice) have mediocre values (EVI values from 0.20 to 0.30). 
-
 \begin{figure}[H]
 	\begin{subfigure}[b]{.35\textwidth}
 		\centering
@@ -706,40 +652,30 @@ Figure \ref{fig09} shows the frequency of the SAVI values by pixels on the image
 \vspace*{20pt}\caption{Histograms of EVI based on the Landsat \hl{8-9} images of Inner Niger Delta for November: (\textbf{a}) 2013, (\textbf{b}) 2015, (\textbf{c}) 2018, (\textbf{d}) 2020, (\textbf{e}) 2021, (\textbf{f}) 2022. Plots: RStudio. Source: authors.}\label{fig11}
 \end{figure}
 
+\newpar The examination of data (Table \ref{tab2}) shows that EVI values were extremal in 2013/11/10 when they ranged between -0.3576084 and +0.6849960, which corresponds to the consequences of the large drought in 2012 in the Sahel region which was hit by a major climate extremes (decrease in precipitation and rise in temperatures) which weakened vulnerable vegetation communities in the consequent years, as reflected in the values of the vegetation indices in 2013. In the consequent years, these effects gradually diminished along with the stabilisation in the ecosystem. 
+
 \begin{table}[H]
-\begin{threeparttable}
-\scriptsize
-\caption{Results of the EVI2 computations of the Landsat \hl{8-9} satellite images.\label{tab4}}
-	\newcolumntype{C}{>{\centering\arraybackslash}X}
-	\begin{tabularx}{\textwidth}{| p{2.0cm} | CCC | CCCC | p{1.8cm} | p{1.8cm} |}
-	\hline
-	\bf{Time} & \multicolumn{3}{c|}{\bf{Dimensions}} & \multicolumn{4}{c|}{\bf{Extent}} & \multicolumn{2}{c|}{\bf{Extreme Values}} \\
-\cline{2-10}
-	Date & nrow & ncol & nlyr & $x_{min}$ & $x_{max}$ & $y_{min}$ & $y_{max}$ & min & max \\
+\footnotesize
+\caption{Results of the NDVI, SAVI and EVI computations of the Landsat \hl{8-9} images.\label{tab2}}
+\begin{tabularx}{\textwidth}{ p{3.5cm}YYYYYY }
+	\toprule
+	\multirow{ 2}{*}{\bf{Time}} & \multicolumn{2}{c}{\bf{NDVI Extreme Values}} & \multicolumn{2}{c}{\bf{SAVI Extreme Values}} & \multicolumn{2}{c}{\bf{EVI Extreme Values}} \\
+	 & minimal & maximal & minimal & maximal & minimal & maximal \\
 	\midrule
-	2013/11/10 & 7781 & 7621 & 1 & 245085 & 473715 & 1481685 & 1715115 & -0.3576084 & 0.6849960 \\
+	10 November 2013 & -0.2311377 & 0.5879165 & -0.2235105 & 0.4281315 & -0.3576084 & 0.6849960 \\
 	\hline
-	2015/11/16 & 7781 & 7631 & 1 & 246285 & 475215 & 1481385 & 1714815 & -0.2689985 & 0.4634939 \\
+	16 November 2015 & -0.2619293 & 0.5245128 & -0.1681281 & 0.2896889 & -0.2689985 & 0.4634939 \\
 	\hline
-	2018/11/24 & 7781 & 7621 & 7 & 245985 & 474615 & 1481685 & 1715115 & -0.2928849 & 0.4700728 \\
+	24 November 2018 & -0.2603942 & 0.5258653 & -0.1830571 & 0.2938004 & -0.2928849 & 0.4700728 \\
 	\hline
-	2020/11/29 & 7781 & 7621 & 7 & 246585 & 475215 & 1481685 & 1715115 & -0.2214491 & 0.4534074 \\
+	29 November 2020 & -0.2496693 & 0.4980780 & -0.1384092 & 0.2833834 & -0.2214491 & 0.4534074 \\
 	\hline
-	2021/11/16 & 7781 &  7621 & 1 & 247485 & 476115 & 1481385 & 1714815 & -0.2503089 & 0.4464335 \\
+	16 November 2021 & -0.2522458 & 0.5417392 & -0.1564469 & 0.2790245 & -0.2503089 & 0.4464335 \\
 	\hline
-	2022/11/11 & 7771 & 7621 & 1 & 244485 & 473115 & 1481685 & 1714815 & -0.2896799 & 0.4686475 \\
-	\hline
+	11 November 2022 & -0.3072812 & 0.5237642 & -0.1810541 & 0.2929085 & -0.2896799 & 0.4686475 \\
+	\bottomrule
 \end{tabularx}
- \begin{tablenotes}
-      \scriptsize
-      	\item \emph{Note for Table 4} 'nrow' -- number of rows on the image matrix, 'ncol' -- number of rows, 'nlyr' -- number of layers, $x_{min}$ and $y_{min}$ -- the minimal values of pixel on the image in x and y dimensions of the pixel's matrix, $x_{max}$ and $y_{max}$ -- the maximal values of pixel on the image in x and y dimensions of the pixel's matrix, 'min' -- minimal value of the VI, 'max' -- maximal value of the VI.
-    \end{tablenotes}
-  \end{threeparttable}
 \end{table}
-
-\newpar The values of EVI range from -1 to +1. However, for the specific area of the Inner Niger Delta, Mali on the Landsat 8-9 images taken on November, it varies from -0.25 to +0.40. For healthy wetland vegetation in, it varies between 0.05 and 0.40 which well represents the second peak in the histograms, while the first peak (-0.20 to +0.05) is corresponds to  flooded areas of delta and wetlands. Since EVI is corrected for aerosol scattering present in the atmosphere, and is adjusted for soil and canopy background, it well detects canopy background and identifies noise. Moreover, EVI i sensitive to land cover types with dense vegetation.
-
-\newpar The examination of data (Table \ref{tab4}) shows that EVI values were extremal in 2013/11/10 when they ranged between -0.3576084 and +0.6849960, which corresponds to the consequences of the large drought in 2012 in the Sahel region which was hit by a major climate extremes (decrease in precipitation and rise in temperatures) which weakened vulnerable vegetation communities in the consequent years, as reflected in the values of the vegetation indices in 2013. In the consequent years, these effects gradually diminished along with the stabilisation in the ecosystem. 
 
 \subsection*{Comparison of the dynamics in land cover types}
 
@@ -850,7 +786,7 @@ Figure \ref{fig09} shows the frequency of the SAVI values by pixels on the image
 
 \newpar The physio-geographic phenomenon of seasonal floods in Inner Niger Delta makes it a unique ecosystem of the environment of Mali. Variations in the hydrologic cycle and vegetation associations in such a special area were effectively visualized using a time series of the satellite images processed by R libraries for machine-based image analysis and algorithms of computer vision, as well as auxiliary programming scripts by Python and GMT. Thus, we provide a visualization of NDVI, SAVI and EVI vegetation indices and automated classification of land cover types by \emph{k}-means clustering for years 2013, 2015, 2018, 2020, 2021 and 2022. A series of the Landsat 8-9 images were taken always on November due to the environmental specifics explained above: in this period, the highest contrast between the inundated lands and flooded areas can be depicted on the image scenes. 
 
-The presented work demonstrated automatic classification of land cover types including crops and natural vegetation on the Landsat 8-9 images according to different features using k-means clustering technique for mapping target vegetation classes in the Inner Niger Delta. The analysis of the image bands NIR and Red enabled to compute three vegetation indices - NDVI, SAVI and EVI2. The experiments show that the images obtained from the sensor of the Landsat 8-9 satellites are useful for evaluation of the dynamics of land cover types, with a case of environmental monitoring of Inner Niger Delta, Mali. Applying the scripting techniques of R, the classification algorithms enabled to perform image partition by k-means approach. Furthermore, statistical analysis was performed using libraries of Python with evaluation of the classified classes of the identified land cover types presented on the maps.
+\newpar \hl{From the methodological point of view, image classification and calculation of vegetation indices should be consider separately since they are two separate different methods and can be used independently from each other in future similar studies. The computation of the VIs can be performed independently from image classification. Nevertheless, this study integrated both methods to evaluate vegetation in Mali using two complimentary approaches. Thus, }the presented work demonstrated automatic classification of land cover types including crops and natural vegetation on the Landsat 8-9 images according to different features using k-means clustering technique for mapping target vegetation classes in the Inner Niger Delta. The analysis of the image bands NIR and Red enabled to compute three vegetation indices - NDVI, SAVI and EVI2. The experiments show that the images obtained from the sensor of the Landsat 8-9 satellites are useful for evaluation of the dynamics of land cover types, with a case of environmental monitoring of Inner Niger Delta, Mali. Applying the scripting techniques of R, the classification algorithms enabled to perform image partition by k-means approach. Furthermore, statistical analysis was performed using libraries of Python with evaluation of the classified classes of the identified land cover types presented on the maps.
 
 \newpar The proposed R-based image processing is a data-independent method which significantly outperforms the GIS in terms of speed and automation, which is essential for time series analysis. Thus, instead of manual operations with image classification in traditional software, R libraries use scripts for the machine-based data handling and discrimination of land cover classes and vegetation indices using computer vision algorithms. We provide a theoretical justification that R programming approach implements an unbiased estimate of land cover classes and the computations of several vegetation indices such as NDVI, SAVI and EVI, and it has a faster performance for processing several images as time series for evaluation of interannual dynamics of flooded areas during seasonal inundation. 
 
