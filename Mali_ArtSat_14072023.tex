@@ -78,6 +78,7 @@
 
 \usepackage{array}
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{2pt}}m{#1}}
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
 
 \usepackage{tabularx}
 \usepackage{caption} 
@@ -389,7 +390,7 @@ The images were collected always on November for the following reason. Due to th
 
 \newpar The \emph{k}-means method was selected since it enables to allocate pixels into classes automatically, and thus to present a reliable correspondence between the groups of land cover classes and assigned pixels. Each iteration is recalculating the mean values of the class and re-assigning pixels to the new means until optimal values are reached using the embedded algorithms by R. For this purpose, the contrast of values in each land cover classes against the neighbouring classes has been tested using empirical trials of k-means algorithm which evaluates the distance of pixels to the centroids based on minimal distance principle. Finding correspondence between the value of pixels and land cover categories is a key operation in remote sensing data processing. Given several pixels identical up to spectral brightness, the task is to identify a set of similar pixels and group them into relevant classes well distinct from the others. This task is readily generalised by R library 'RSToolbox' using embedded algorithms of image processing and analysis of pixels on the raster scene. The \emph{k}-means clustering technique is based on \hl{grouping the} pixels on the raster image into \hl{clusters according to }their spectral reflectance. \hl{The} code of clustering algorithm is summarised in Listing \ref{lst:05} in the Appendix.
 
-\newpar Thus, the classification task is formulated as a pixel-based unsupervised clustering using \emph{k}-means. The technical approach is performed by libraries terra', 'raster' and 'RSToolbox' to efficiently discriminate land cover features and their changes over time. The target centroid of pixels were selected automatically with allocated neighbouring pixels assigned to groups based on the similarity of values. In such a way, the inter-annual variability of vegetation associations was detected in the inundated areas of the Inner Niger Delta of Mali. The code applied for clustering is presented above with a case of 2013, applied with minor modifications for the images of other years -- 2015, 2018, 2020, 2021 and 2022.
+\newpar Thus, the classification task is formulated as a pixel-based unsupervised clustering using \emph{k}-means. The technical approach is performed by libraries terra', 'raster' and 'RSToolbox' to efficiently discriminate land cover features and their changes over time. The target centroid of pixels were selected automatically with allocated neighbouring pixels assigned to groups based on the similarity of values. In such a way, the inter-annual variability of vegetation associations was detected in the inundated areas of the Inner Niger Delta of Mali. The code \hl{used} for clustering is presented \hl{in the Appendix for} a case of 2013, \hl{and }applied with minor modifications for \hl{all }the \hl{other }images \hl{on} years\hl{ }2015, 2018, 2020, 2021 and 2022.
 
 \newpar In the map of land cover types, we depicted 20 major dominating vegetation associations arranged from the most affected flooded areas to the relatively dry areas and untouched bare soils including the following 28 land cover types adopted from the existing studies and interpreted on the Landsat imagery \cite{Marie}: \emph{1) Woodland; 2) Floodplain with aquatic grassland; 3) Savannah; 4) Thicket; 5) Wild rice; 6) Grassland; 7) Irrigated rice fields; 8) Savannah in shallow floodplain; 9) Bare soil (loams and clays); 10) Bare soil (sands); 11) Vegetation mosaics, main channel banks; 12) Lacustrine woodland; 13) Shallow lacustrine woodland; 14) Shrubby savannah in uplands; 15) Anthropic woody savannah; 16) Thicket in uplands; 17) Woody savannah in uplands; 18) Shrubby savannah in uplands; 19) Island palm grove; 20) Margins palm grove}.
 
@@ -446,37 +447,28 @@ The images were collected always on November for the following reason. Due to th
 \vspace*{20pt}\caption{NDVI based on Landsat \hl{8-9} images of Inner Niger Delta: (\textbf{a}) 2013, (\textbf{b}) 2015, (\textbf{c}) 2018, (\textbf{d}) 2020, (\textbf{e}) 2021, (\textbf{f}) 2022. Mapping: RStudio. Source: authors.}\label{fig06}
 \end{figure}
 
-\newpar The comparison of the computed values are summarised in Table \ref{tab2} based on the SpatRaster from Bands 4 and 5 of the Landsat-\hl{8} satellite images and shown in histograms of Figure \ref{fig07}. The lowest NDVI values in the study area were obtained from the Landsat-\hl{9} image in 2022/11/11 as -0.3072812, while the highest data are 0.5879165 received from the Landsat-\hl{9} image in 2013/11/10. 
+\newpar The comparison of the computed values \hl{is} summarised in Table \ref{tab2} based on the SpatRaster from Bands 4 and 5 of the Landsat \hl{8-9} satellite images and shown in histograms of Figure \ref{fig07}. The lowest NDVI values in the study area were obtained from the Landsat-\hl{9} image in 2022/11/11 as -0.3072812, while the highest data are 0.5879165 received from the Landsat-\hl{8} image in 2013/11/10. 
 
 \begin{table}[H]
-\begin{threeparttable}
-\scriptsize
 \caption{Results of the NDVI computations of the Landsat \hl{8-9} satellite images.\label{tab2}}
-		\newcolumntype{C}{>{\centering\arraybackslash}X}
-\begin{tabularx}{\textwidth}{| p{2.0cm} | CCC | CCCC | p{1.8cm} | p{1.8cm} |}
+\begin{tabularx}{\textwidth}{ YYY }
 		\toprule
-	\bf{Time} & \multicolumn{3}{c|}{\bf{Dimensions}} & \multicolumn{4}{c|}{\bf{Extent}} & \multicolumn{2}{c|}{\bf{Extreme Values}} \\
-\cline{2-10}
-	Date & nrow & ncol & nlyr & $x_{min}$ & $x_{max}$ & $y_{min}$ & $y_{max}$ & min & max \\
+	\bf{Time} & \multicolumn{2}{c}{\bf{Extreme Values}} \\
+	Date & minimal NDVI & maximal NDVI \\
 	\midrule
-	2013/11/10 & 7781 & 7621 & 1 & 245085 & 473715 & 1481685 & 1715115 & -0.2311377 & 0.5879165 \\
+	10 November 2013 & -0.2311377 & 0.5879165 \\
 	\hline
-	2015/11/16 & 7781 & 7631 & 1 & 246285 & 475215 & 1481385 &  1714815 & -0.2619293 & 0.5245128 \\
+	16 November 2015 & -0.2619293 & 0.5245128 \\
 	\hline
-	2018/11/24 & 7781 & 7621 & 7 & 245985 & 474615 & 1481685 & 1715115 & -0.2603942 & 0.5258653 \\
+	24 November 2018 & -0.2603942 & 0.5258653 \\
 	\hline
-	2020/11/29 & 7781 & 7621 & 7 & 246585 & 475215 & 1481685 & 1715115 & -0.2496693 & 0.4980780 \\
+	29 November 2020 & -0.2496693 & 0.4980780 \\
 	\hline
-	2021/11/16 & 7781 & 7621 & 1 & 247485 & 476115 & 1481385 & 1714815 & -0.2522458 & 0.5417392 \\
+	16 November 2021 & -0.2522458 & 0.5417392 \\
 	\hline
-	2022/11/11 & 7771 & 7621 & 7 & 244485 & 473115 & 1481685 & 1714815 & -0.3072812 & 0.5237642 \\
+	11 November 2022 & -0.3072812 & 0.5237642 \\
 	\bottomrule
 \end{tabularx}
- \begin{tablenotes}
-      \scriptsize
-      	\item \emph{Note for Table 2} 'nrow' -- number of rows on the image matrix, 'ncol' -- number of rows, 'nlyr' -- number of layers, $x_{min}$ and $y_{min}$ -- the minimal values of pixel on the image in x and y dimensions of the pixel's matrix, $x_{max}$ and $y_{max}$ -- the maximal values of pixel on the image in x and y dimensions of the pixel's matrix, 'min' -- minimal value of the VI, 'max' -- maximal value of the VI.
-    \end{tablenotes}
-  \end{threeparttable}
 \end{table}
 
 Figure \ref{fig07} shows the frequency of the NDVI values by pixels on the image. Although theoretically, the NDVI ranges from \hl{-1.0} to +1.0, in this particular area of Mali, the actual range varies from -0.3 to 0.5 for the month of November for all years.
