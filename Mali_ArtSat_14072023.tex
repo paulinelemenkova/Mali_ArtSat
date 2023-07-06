@@ -395,11 +395,11 @@ The images were collected always on November for the following reason. Due to th
 
 \subsection*{Statistical Analysis}
 
-\newpar The correlation analysis was performed using plots of the non-parametric Kendall correlation method \citep{Kendall1938} and Pearson correlation method \citep{Pearson1895}. Both methods are used to measure the association between the two measured quantities, that is, land cover classes and the probability of the correct association of the pixels assigned to these classes. In Python, these algorithms were implemented by the code presented in Listing \ref{lst:06} in the Appendix (here a case for Pearson method, modified and applied for the case of Kendall method). The correlation between two computed land cover classes is high when observations have a similar values, and \hl{low when observations differ substantially}.
+\newpar The correlation analysis was performed using plots of the non-parametric Kendall correlation method \citep{Kendall1938} \hl{which is similar to the} Pearson correlation method \citep{Pearson1895}. Both methods \hl{measure} the association between the two measured quantities, that is, land cover classes and the probability of the correct association of the pixels assigned to these classes. In Python, these algorithms were implemented by the code presented in Listing \ref{lst:06} in the Appendix (here\hl{, we tested both approaches and selected} Kendall method). The correlation between two computed land cover classes is high when observations have a similar values, and \hl{low when observations differ substantially}.
 
-\newpar The procedure of categorising image into several classification clusters in image processing includes data evaluation accuracy, i.e., the comparison of the results with reference data. Since the fieldwork was not envisaged and the reference data limited, the assessment of the results was performed using correlation plots for evaluating the pixels on the assignment to the correctly classified classes using coefficients for different land cover variables. To this end, the correlation plots were done for each set of 20 classes as an iterative loop for the images.
+\newpar The procedure of categorising image into several classification clusters in image processing includes data evaluation accuracy, i.e., the comparison of the results with reference data. Since the fieldwork was not envisaged and the reference data limited, the assessment of the results was performed using correlation \hl{matrix} for evaluating the pixels on the assignment to the correctly classified classes using coefficients for different land cover variables. To this end, the correlation \hl{plot was} done for each set of 20 classes as an iterative loop for the images.
 
-\newpar Complex cases in classification process included similar values of the land cover classes both for plant and water areas which consist of connected lakes, channels, and marshes of the delta. The classification control was done by double correlation of the classes and correctness of the pixels assigned to the different but similar classes according to spectral reflectance values using Kendall and Pearson approaches. To this end, the probability cases for land cover classes were computed in Python. The Kendall rank coefficient is used as a statistic matrix testing a hypothesis if land cover variables are statistically dependent when comparing pixels associated to these land cover classes. It includes the assessed land cover classes identified on the images for the period of 2013 to 2022 and enables the evaluation of pixels correctly classified in the target classes. The Pearson correlation approach estimates a linear correlation by assigning a value between -1 and 1 which indicates the degree and direction of the correlation between two land cover classes.
+\newpar Complex cases in classification process included similar values of the land cover classes both for plant and water areas which consist of connected lakes, channels, and marshes of the delta. The classification control was done by double correlation of the classes and correctness of the pixels assigned to the different but similar classes according to spectral reflectance values using Kendall \hl{correlation matrix}. To this end, the probability cases for land cover classes were computed in Python. The Kendall rank coefficient is used as a statistic matrix testing a hypothesis if land cover variables are statistically dependent when comparing pixels associated to these land cover classes. It includes the assessed land cover classes identified on the images for the period of 2013 to 2022 and enables the evaluation of pixels correctly classified in the target classes. The Pearson correlation approach estimates a linear correlation by assigning a value between -1 and 1 which indicates the degree and direction of the correlation between two land cover classes.
 
 %\pagebreak
 \newsection {3. RESULTS AND DISCUSSION}
@@ -760,36 +760,36 @@ Figure \ref{fig09} shows the frequency of the SAVI values by pixels on the image
 \begin{figure}[H]
 	\begin{subfigure}[b]{.5\textwidth}
 		\centering
-			\includegraphics[width=0.72\textwidth]{Fig_12a.jpg}
+			\includegraphics[width=0.80\textwidth]{Fig_12a.jpg}
 		\caption{2013: RGB (Landsat bands 4-3-2)}
 	\end{subfigure}%
 	\begin{subfigure}[b]{.5\textwidth}
 		\centering
-		\includegraphics[width=0.90\textwidth]{Fig_12b.jpg}
+		\includegraphics[width=0.85\textwidth]{Fig_12b.jpg}
 		\caption{2013: Clustering}
 	\end{subfigure}%
 \\
 \vfill \vspace{1mm}
 	\begin{subfigure}[b]{.5\textwidth}
 		\centering
-			\includegraphics[width=0.72\textwidth]{Fig_12c.jpg}
+			\includegraphics[width=0.80\textwidth]{Fig_12c.jpg}
 		\caption{2015: RGB (Landsat bands 4-3-2)}
 	\end{subfigure}%
 	\begin{subfigure}[b]{.5\textwidth}
 		\centering
-		\includegraphics[width=0.90\textwidth]{Fig_12d.jpg}
+		\includegraphics[width=0.85\textwidth]{Fig_12d.jpg}
 		\caption{2015: Clustering}
 	\end{subfigure}%
 \\
 \vfill \vspace{1mm}
 	\begin{subfigure}[b]{.5\textwidth}
 		\centering
-			\includegraphics[width=0.72\textwidth]{Fig_12e.jpg}
+			\includegraphics[width=0.80\textwidth]{Fig_12e.jpg}
 		\caption{2018: RGB (Landsat bands 4-3-2)}
 	\end{subfigure}%
 	\begin{subfigure}[b]{.5\textwidth}
 		\centering
-		\includegraphics[width=0.90\textwidth]{Fig_12f.jpg}
+		\includegraphics[width=0.85\textwidth]{Fig_12f.jpg}
 		\caption{2018: Clustering}
 	\end{subfigure}%
 \vspace*{20pt}\caption{Clustering based on the Landsat 8-9 images (bands 4-3-2): (\textbf{a}) 2013 RGB in true colour composites (TCC), (\textbf{b}) 2013 clusters, (\textbf{c}) 2015 RGB in TCC, (\textbf{d}) 2015 clusters, (\textbf{e}) 2018 RGB in TCC, (\textbf{f}) 2018 clusters. Mapping: RStudio. Source: authors.}\label{fig12}
@@ -798,58 +798,51 @@ Figure \ref{fig09} shows the frequency of the SAVI values by pixels on the image
 \begin{figure}[H]
 	\begin{subfigure}[b]{.5\textwidth}
 		\centering
-			\includegraphics[width=0.72\textwidth]{Fig_13a.jpg}
+			\includegraphics[width=0.80\textwidth]{Fig_13a.jpg}
 		\caption{2020: RGB (Landsat bands 4-3-2)}
 	\end{subfigure}%
 	\begin{subfigure}[b]{.5\textwidth}
 		\centering
-		\includegraphics[width=0.90\textwidth]{Fig_13b.jpg}
+		\includegraphics[width=0.85\textwidth]{Fig_13b.jpg}
 		\caption{2020: Clustering}
 	\end{subfigure}%
 \\
 \vfill \vspace{1mm}
 	\begin{subfigure}[b]{.5\textwidth}
 		\centering
-			\includegraphics[width=0.72\textwidth]{Fig_13c.jpg}
+			\includegraphics[width=0.80\textwidth]{Fig_13c.jpg}
 		\caption{2021: RGB (Landsat bands 4-3-2)}
 	\end{subfigure}%
 	\begin{subfigure}[b]{.5\textwidth}
 		\centering
-		\includegraphics[width=0.90\textwidth]{Fig_13d.jpg}
+		\includegraphics[width=0.85\textwidth]{Fig_13d.jpg}
 		\caption{2021: Clustering}
 	\end{subfigure}%
 \\
 \vfill \vspace{1mm}
 	\begin{subfigure}[b]{.5\textwidth}
 		\centering
-			\includegraphics[width=0.72\textwidth]{Fig_13e.jpg}
+			\includegraphics[width=0.80\textwidth]{Fig_13e.jpg}
 		\caption{2022: RGB (Landsat bands 4-3-2)}
 	\end{subfigure}%
 	\begin{subfigure}[b]{.5\textwidth}
 		\centering
-		\includegraphics[width=0.90\textwidth]{Fig_13f.jpg}
+		\includegraphics[width=0.85\textwidth]{Fig_13f.jpg}
 		\caption{2022: Clustering}
 	\end{subfigure}%
 \vspace*{20pt}\caption{Clustering based on the Landsat 8-9 images of Inner Niger Delta: (\textbf{a}) 2020 RGB in TCC (4-3-2), (\textbf{b}) 2020 classification, (\textbf{c}) 2021 RGB in TCC, (\textbf{d}) 2021 classification, (\textbf{e}) 2022 RGB in TCC, (\textbf{f}) 2022 classification. Mapping: RStudio. Source: authors.}\label{fig13}
 \end{figure}
 
-\newpar For each time window, the scenes were classified automatically using R libraries 'terra', 'raster' and 'RSToolbox' with machine-based allocations of pixels to the the land cover classes defined according to the classification. The data are evaluated per land cover classes using correlation plots to examine changes in classification from 2013 to 2022, Figure \ref{fig14}. The summary of land cover changes is given in a table with obtained statistics on pixels provided in repository
-
-\newpar Using correlation plots by Python libraries (Figure \ref{fig14}), the association of 20 major land cover types were compared and identified for each scene as a comparison between 2013 and 2022, to find out the correlations between values in previous and later years in spectral reflectance of the pixels on the images and the distribution of the vegetation associations in Inner Niger Delta: agricultural areas (irrigated rice fields), natural vegetation areas (grassland, savannah of various types -- shrubby, anthropic woody and uplands savannah, thicket in uplands), bare soil (sands, loams and clays) and specific plants typical for floodplain of the Inner Niger Delta with characteristic aquatic plants (shallow lacustrine woodland, island and margins palm grove in the inundated areas and channel banks), Figure \ref{fig14}. 
+\newpar For each time window, the scenes were classified automatically using R libraries 'terra', 'raster' and 'RSToolbox' with machine-based allocations of pixels to the the land cover classes defined according to the classification. The data are evaluated per land cover classes using \hl{Kendall }correlation \hl{matrix} to examine changes in classification from 2013 to 2022, Figure \ref{fig14}. The summary of land cover changes is given in a table with obtained statistics on pixels. 
 
 \begin{figure}[H]
-	\begin{subfigure}[b]{.5\textwidth}
-		\centering
-			\includegraphics[width=0.95\textwidth]{Fig_14a.jpg}
-		\caption{}%\vspace{1mm}
-	\end{subfigure}%
-	\begin{subfigure}[b]{.5\textwidth}
-		\centering
-			\includegraphics[width=0.95\textwidth]{Fig_14b.jpg}
-		\caption{}%\vspace{1mm}
-	\end{subfigure}%
-\vspace*{20pt}\caption{Correlation plots showing probability cases for land cover classes in the Inner Niger Delta between 2013 and 2022 based on the results of the clustering of the Landsat 8-9 OLI/TIRS images: (\textbf{a}) Kendall correlation; (\textbf{b}) Pearson correlation. Mapping: Python. Source: authors.}\label{fig14}
+\centering
+	\includegraphics[width=14.0 cm]{Fig_14.jpg}
+	\vspace*{20pt}\caption{Correlation plot showing probability cases for land cover classes in the Inner Niger Delta between 2013 and 2022 based on the results of the clustering of the Landsat 8-9 OLI/TIRS images \hl{using Kendall correlation method}. Mapping: Python. Source: authors..
+	\label{fig14}}
 \end{figure}
+
+\newpar Using correlation plot by Python libraries (Figure \ref{fig14}), the association of 20 major land cover types were compared and identified for each scene as a comparison between 2013 and 2022, to find out the correlations between values in previous and later years in spectral reflectance of the pixels on the images and the distribution of the vegetation associations in Inner Niger Delta: agricultural areas (irrigated rice fields), natural vegetation areas (grassland, savannah of various types -- shrubby, anthropic woody and uplands savannah, thicket in uplands), bare soil (sands, loams and clays) and specific plants typical for floodplain of the Inner Niger Delta with characteristic aquatic plants (shallow lacustrine woodland, island and margins palm grove in the inundated areas and channel banks), Figure \ref{fig14}.
 
 \newsection {4. CONCLUSIONS}
 
