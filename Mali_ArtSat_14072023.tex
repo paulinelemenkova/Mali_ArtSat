@@ -348,14 +348,16 @@ The images were collected always on November for the following reason. Due to th
 
 \subsection*{Methodological process}
 
-\hl{The concept of the entire process of image processing is shown in Figure }\ref{figF}. \hl{It summarises the main steps of the two separated processes -- the calculation of the three vegetation indices (NDVI, SAVI and EVI) and the classification score using k-means clustering approach based on Landsat 8-9 images, followed by accuracy assessment. The flowchart was plotted using R library DiagrammeR by code presented in Listing} \ref{lst:07}.
+\hl{The concept of the entire process of image processing is shown in Figure }\ref{figF}. \hl{It summarises the main steps of the two separated processes -- the calculation of the three vegetation indices (NDVI, SAVI and EVI) and the classification score using k-means clustering approach based on Landsat 8-9 images, followed by accuracy assessment. The flowchart was plotted using R library DiagrammeR by code presented in Listing} \ref{lst:07}. \hl{The dataset included the 6 Landsat images taken on various years. The selected bands were imported in R environment and processed using libraries. Two different separated steps were applied in this work -- computing the vegetation indices (VI) and classification of land cover types in the Inner Niger Delta, Mali.}
 
 \begin{figure}[H]
 \centering
-	\includegraphics[width=14.0 cm]{Rplot_09072023}
+	\includegraphics[width=13.0 cm]{Rplot_09072023}
 	\vspace*{20pt}\caption{\hl{Concept flowchart of the remote sensing data processing and analysis. Flowchart is prepared using R library 'DiagrammeR'. Source: authors.}
 	\label{figF}}
 \end{figure}
+
+\newpar \hl{For computing the VI, three different indices were calculated -- NDVI, SAVI and EVI using equations for band combinations for each case. After running the script in R, the results were obtained including maps and histograms of data distribution. Next we performed clustering of the images based on the k-means algorithm. The results of clustering and computed VI were visualised on the maps. To confirm the advantages of the methods and evaluate the performance of the classification models, we assessed the accuracy by Kendall confusion matrix.}
 
 \subsection*{Cartographic scripting in GMT}
 
